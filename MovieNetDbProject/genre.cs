@@ -11,7 +11,7 @@ namespace MovieNetDbProject
     {
         public Genre()
         {
-            film = new HashSet<Film>();
+            film = new List<Film>();
         }
 
         [Key]
