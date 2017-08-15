@@ -18,29 +18,34 @@ namespace MovieNetDbProject
         }
 
         #region properties
-
+        [DataMember]
         [Key]
         [Column("id_utilisateur")]
         public int id_utilisateur { get; set; }
 
+        [DataMember]
         [Required]
         [StringLength(255)]
         [Column("nom_utilisateur")]
         public string nom_utilisateur { get; set; }
 
+        [DataMember]
         [Required]
         [StringLength(255)]
         [Column("prenom_utilisateur")]
         public string prenom_utilisateur { get; set; }
 
+        [DataMember]
         [Required]
         [StringLength(255)]
         [Column("mdp_utilisateur")]
         public string mdp_utilisateur { get; set; }
 
+        [DataMember]
         [Column("connecte")]
         public bool connecte { get; set; }
 
+        [DataMember]
         [Column("inscrit")]
         public bool inscrit { get; set; }
 

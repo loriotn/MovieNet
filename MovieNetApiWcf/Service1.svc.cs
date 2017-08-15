@@ -10,11 +10,10 @@ using System.Data.Entity.Validation;
 
 namespace MovieNetApiWcf
 {
-    // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" dans le code, le fichier svc et le fichier de configuration.
-    // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
-    public class Service1 : IService1
+     public class Service1 : IService1
     {
-        private Utilisateur u;
+        public Utilisateur u;
+        public Genre g;
         private ModelMovieNet context = new ModelMovieNet();
         public Service1()
         {
@@ -32,28 +31,23 @@ namespace MovieNetApiWcf
             return ut?.prenom_utilisateur;
         }
 
+        public Utilisateur GetUtilisateur(int id)
+        {
+            return context.utilisateur.FirstOrDefault(util => util.id_utilisateur == id);
+        }
+
+        public List<Utilisateur> GetUtilisateurs()
+        {
+            return context.utilisateur.ToList();
+        }
+
+        public Genre GetGenre()
+        {
+            return new Genre();
+        }
         public Utilisateur SetData()
         {
             Utilisateur util = new Utilisateur();
-            util.nom_utilisateur = "toto";
-            util.prenom_utilisateur = "test";
-            util.mdp_utilisateur = "mdp_utilisateur";
-            context.utilisateur.Add(util);
-            try
-            {
-                context.utilisateur.Add(util);
-                context.SaveChanges();
-            }
-            catch (DbEntityValidationException dbEx)
-            {
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                    }
-                }
-            }
             return util;
         }
     }
