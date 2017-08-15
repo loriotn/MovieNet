@@ -23,12 +23,13 @@ namespace MovieNetApiWcf
         public string GetName(int id)
         {
             Utilisateur u = context.utilisateur.FirstOrDefault(ut => ut.id_utilisateur == id);
-            return u.nom_utilisateur;
+            return u?.nom_utilisateur;
         }
 
         public string GetFirstName()
         {
-            return u.prenom_utilisateur;
+            Utilisateur ut = context.utilisateur.FirstOrDefault(c => c.id_utilisateur == 1);
+            return ut?.prenom_utilisateur;
         }
 
         public Utilisateur SetData()
@@ -36,6 +37,7 @@ namespace MovieNetApiWcf
             Utilisateur util = new Utilisateur();
             util.nom_utilisateur = "toto";
             util.prenom_utilisateur = "test";
+            util.mdp_utilisateur = "mdp_utilisateur";
             context.utilisateur.Add(util);
             try
             {
