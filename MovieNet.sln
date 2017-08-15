@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieNet", "MovieNet\MovieN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieNetDbProject", "MovieNetDbProject\MovieNetDbProject.csproj", "{760BAE76-8BA1-4831-A9CC-8C06B47A05EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieNetApiWcf", "MovieNetApiWcf\MovieNetApiWcf.csproj", "{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,22 @@ Global
 		{760BAE76-8BA1-4831-A9CC-8C06B47A05EB}.Release|x64.Build.0 = Release|Any CPU
 		{760BAE76-8BA1-4831-A9CC-8C06B47A05EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{760BAE76-8BA1-4831-A9CC-8C06B47A05EB}.Release|x86.Build.0 = Release|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Debug|ARM.Build.0 = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Debug|x64.Build.0 = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Debug|x86.Build.0 = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Release|ARM.Build.0 = Release|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Release|x64.ActiveCfg = Release|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Release|x64.Build.0 = Release|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Release|x86.ActiveCfg = Release|Any CPU
+		{2FE9E2D7-E9F1-417A-895B-A4F53F0C8B4D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

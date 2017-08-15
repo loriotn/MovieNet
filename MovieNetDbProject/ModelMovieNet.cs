@@ -7,8 +7,9 @@ namespace MovieNetDbProject
 
     public partial class ModelMovieNet : DbContext
     {
+        public static ModelMovieNet modelMovieNet;
         public ModelMovieNet()
-            : base("name=ModelMovieNet")
+            : base("Data Source=pa-82t5l12\\localhost;Integrated Security=true;MultipleActiveResultSets=true;Initial Catalog=MovieNetDB")
         {
         }
 
