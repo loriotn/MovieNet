@@ -32,7 +32,7 @@ namespace MovieNetDbProject
         #endregion
 
         #region Foreign key
-        [Column("id_genre", TypeName = "text")]
+        [Column("id_genre")]
         public int id_genre { get; set; }
         public virtual ICollection<Commentaire> commentaire { get; set; }
         public virtual Genre genre { get; set; }
