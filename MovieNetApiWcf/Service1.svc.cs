@@ -50,5 +50,29 @@ namespace MovieNetApiWcf
             Utilisateur util = new Utilisateur();
             return util;
         }
+
+        public void Delete(int id)
+        {
+            Utilisateur t = context.utilisateur.FirstOrDefault(c => c.id_utilisateur == id);
+            if (t != null)
+            {
+                context.utilisateur.Remove(t);
+                context.SaveChanges();
+            }
+        }
+
+        public List<Utilisateur> SearchUsers(string name)
+        {
+            List<Utilisateur> util = context.utilisateur.ToList();
+            List<Utilisateur> ru = new List<Utilisateur>();
+            foreach (Utilisateur t in util)
+            {
+                if (t.nom_utilisateur.Contains(name))
+                {
+                    ru.Add(t);
+                }
+            }
+            return ru;
+        }
     }
 }

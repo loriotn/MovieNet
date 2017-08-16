@@ -7,43 +7,26 @@
         xmlns:ServiceReference1="clr-namespace:MovieNet.ServiceReference1"
         x:Class="MovieNet.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="400" Loaded="Window_Loaded_1">
-    <Window.Resources>
-        <CollectionViewSource x:Key="utilisateurViewSource" d:DesignSource="{d:DesignInstance {x:Type ServiceReference1:Utilisateur}, CreateList=True}"/>
-    </Window.Resources>
+        Title="MainWindow" Height="400" Width="800"
+        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="75" />
-            <RowDefinition Height="525" />
-        </Grid.RowDefinitions>
-        <Button HorizontalAlignment="Left" Margin="22,20,0,24" x:Name="backButton" Width="75" Content="back" Click="backButton_Click" />
-        <Button HorizontalAlignment="Left" Margin="116,20,0,24" x:Name="nextButton" Width="75" Content="next" Click="nextButton_Click"/>
-        <Button HorizontalAlignment="Right" Margin="0,21,46,24" x:Name="saveButton" Width="110" Content="Save changes"/>
-        <Grid x:Name="grid1" DataContext="{StaticResource utilisateurViewSource}" HorizontalAlignment="Left" Margin="57,56,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label Content="connecte:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <CheckBox x:Name="connecteCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding connecte, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <Label Content="id utilisateur:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="id_utilisateurTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding id_utilisateur, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="inscrit:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <CheckBox x:Name="inscritCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding inscrit, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <Label Content="mdp utilisateur:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="mdp_utilisateurTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding mdp_utilisateur, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="nom utilisateur:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBox x:Name="nom_utilisateurTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding nom_utilisateur, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="prenom utilisateur:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-            <TextBox x:Name="prenom_utilisateurTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding prenom_utilisateur, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-        </Grid>
+        <TextBox Text="{Binding ToSearch}" HorizontalAlignment="Left" Height="23" Margin="551,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" BorderBrush="Black"/>
+        
+        <ListBox ItemsSource="{Binding Utilisateurs}" Margin="10,10,541,10" SelectedItem="{Binding utilisateur}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" FontWeight="Bold" Text="{Binding nom_utilisateur}" />
+                        <TextBlock Width="50"  Text="{Binding prenom_utilisateur}" />
+                        <TextBlock Width="50" FontSize="10" Text="{Binding id_utilisateur}" />
+                        <Button Content="selected user"></Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Content="{Binding utilisateur.prenom_utilisateur}" HorizontalAlignment="Left" Margin="246,12,0,0" VerticalAlignment="Top" Width="193"/>
+        <Button Content="Changer d'utilisateur" HorizontalAlignment="Left" Margin="648,10,0,0" VerticalAlignment="Top" Width="134" Command="{Binding Delete}"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="707,63,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Search}"/>
+
     </Grid>
 </Window>

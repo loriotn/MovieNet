@@ -24,6 +24,10 @@ namespace MovieNetApiWcf
         Utilisateur GetUtilisateur(int id);
         [OperationContract]
         List<Utilisateur> GetUtilisateurs();
+        [OperationContract]
+        void Delete(int id);
+        [OperationContract]
+        List<Utilisateur> SearchUsers(string name);
 
 
     }
