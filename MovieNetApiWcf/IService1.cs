@@ -28,6 +28,8 @@ namespace MovieNetApiWcf
         void Delete(int id);
         [OperationContract]
         List<Utilisateur> SearchUsers(string name);
+        [OperationContract]
+        Utilisateur GetUtilisateurByLoginAndPassword(string login, string password);
 
 
     }

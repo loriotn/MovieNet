@@ -8,7 +8,7 @@
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
   <Application.Resources>
     <ResourceDictionary>
-      <vm:ViewModelLocator x:Key="ViewModelLocator" d:IsDataSource="True" xmlns:vm="clr-namespace:MovieNet.ViewModel" />
-    </ResourceDictionary>
+            <vm:ViewModelLocator x:Key="ViewModelLocator" d:IsDataSource="True" xmlns:vm="clr-namespace:MovieNet.ViewModel" />
+        </ResourceDictionary>
   </Application.Resources>
 </Application>

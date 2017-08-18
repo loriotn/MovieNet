@@ -74,5 +74,11 @@ namespace MovieNetApiWcf
             }
             return ru;
         }
+
+        public Utilisateur GetUtilisateurByLoginAndPassword(string login, string password)
+        {
+            Utilisateur util = context.utilisateur.FirstOrDefault(ut => ut.nom_utilisateur == login);
+            return util?.mdp_utilisateur == password ? util : null;
+        }
     }
 }
