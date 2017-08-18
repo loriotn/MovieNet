@@ -7,6 +7,9 @@ namespace MovieNet.ViewModel
 {
     public class ViewModelLocator
     {
-        public static MainViewModel MainVm { get; } = new MainViewModel();
+        public static Service1 service = new Service1();
+        public static MainViewModel MainVm { get; } = new MainViewModel(service);
+        public static UserViewModel UserVm { get; } = new UserViewModel(service);
+
     }
 }

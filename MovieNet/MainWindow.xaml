@@ -3,40 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-        xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7"
-        xmlns:local="clr-namespace:MovieNet"
-    xmlns:GalaSoft_MvvmLight_Command1="http://www.galasoft.ch/mvvmlight"
-    x:Class="MovieNet.MainWindow"
+        x:Class="MovieNet.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="800"
         DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}">
     <Grid>
-        <Grid Visibility="{Binding Visible}">
-        <TextBox Text="{Binding ToSearch, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="551,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" BorderBrush="Black"></TextBox>
-
-        <ListBox ItemsSource="{Binding Utilisateurs}" Margin="10,10,541,10" SelectedItem="{Binding utilisateur}" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="50" FontWeight="Bold" Text="{Binding nom_utilisateur}" />
-                        <TextBlock Width="50"  Text="{Binding prenom_utilisateur}" />
-                        <TextBlock Width="50" FontSize="10" Text="{Binding id_utilisateur}" />
-                        <Button Content="selected user"></Button>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Label Content="{Binding utilisateur.prenom_utilisateur}" HorizontalAlignment="Left" Margin="246,12,0,0" VerticalAlignment="Top" Width="193"/>
-        <Button Content="Changer d'utilisateur" HorizontalAlignment="Left" Margin="648,10,0,0" VerticalAlignment="Top" Width="134" Command="{Binding Delete}"/>
-        <Button Content="Search" HorizontalAlignment="Left" Margin="707,63,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Search}"/>
-        </Grid>
-            <Grid HorizontalAlignment="Left" Height="119" Margin="141,138,0,0" VerticalAlignment="Top" Width="524">
-            <TextBox Height="25" TextWrapping="Wrap" Text="{Binding Login}" Margin="10,10,340,84" />
-            <PasswordBox HorizontalAlignment="Left" Margin="189,10,0,0" VerticalAlignment="Top" Width="184" Height="25"/>
-            <Button Content="Connexion" HorizontalAlignment="Left" Height="25" Margin="378,10,0,0" VerticalAlignment="Top" Width="136" Command="{Binding Connect}"/>
-            <Label Content="{Binding ErrorConnection}" HorizontalAlignment="Left" Height="35" Margin="10,40,0,0" VerticalAlignment="Top" Width="504"/>
-        </Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Background="AntiqueWhite" >
+        </Border>
+        <Border Grid.Row="1" Grid.RowSpan="2" Background="AliceBlue"></Border>
+        <Border Grid.Row="1" Grid.Column="1" Background="CadetBlue"></Border>
+        <ContentPresenter x:Name="Utilisateurs" Content="{Binding CurrentView}" DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}" Grid.ColumnSpan="2" Margin="140,75,10,5" Grid.RowSpan="2"/>
+        <StackPanel Margin="5" Grid.Column="0" Grid.Row="1">
+            <Button>Utilisateurs</Button>
+        </StackPanel>
     </Grid>
 </Window>

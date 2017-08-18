@@ -39,5 +39,5 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.Properties.
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.csproj.GenerateResource.Cache
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.exe
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.pdb
-C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\test.g.cs
-C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\test.baml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Users.g.cs
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Users.baml
