@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using System;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace MovieNet.ViewModel
 {
@@ -14,10 +16,42 @@ namespace MovieNet.ViewModel
         public RelayCommand Search { get; }
         public RelayCommand Connect { get; }
         public RelayCommand NavigateTo { get; }
-        public Service1 service = new Service1();
+        private Service1 service;
         private List<Utilisateur> _utilisateurs;
         private Utilisateur _utilisateur;
 
+        public MainViewModel(Service1 service)
+        {
+            this.service = service;
+            Name = service.GetFirstName();
+            Utilisateurs = service.GetUtilisateurs();
+            Delete = new RelayCommand(DeleteExecute, DeleteCanExecute);
+            Search = new RelayCommand(SearchExecute, SearchCanExecute);
+            Connect = new RelayCommand(ConnectExecute, ConnectCanExecute);
+            NavigateTo = new RelayCommand(NavigateExecute, NavigateCanExecute);
+            //CurrentView = new Users();
+            Visible = "Hidden";
+        }
+
+
+        private UserControl _currentView;
+
+        public UserControl CurrentView
+        {
+            get { return _currentView; }
+            set
+            {
+                if (value != _currentView)
+                {
+                    _currentView = value;
+                    RaisePropertyChanged("CurrentView");
+                }
+                
+            }
+        }
+
+
+        #region beforetest
         private string _visible;
 
         public string Visible
@@ -59,21 +93,10 @@ namespace MovieNet.ViewModel
 
         private string _name;
 
-        public MainViewModel()
-        {
-            Name = service.GetFirstName();
-            Utilisateurs = service.GetUtilisateurs();
-            Delete = new RelayCommand(DeleteExecute, DeleteCanExecute);
-            Search = new RelayCommand(SearchExecute, SearchCanExecute);
-            Connect = new RelayCommand(ConnectExecute, ConnectCanExecute);
-            NavigateTo = new RelayCommand(NavigateExecute, NavigateCanExecute);
-            Visible = "Hidden";
-        }
-
+        
         public void NavigateExecute()
         {
-            NavigateTo("test.xaml");
-            SendNavigationRequestMessage(new Uri("test.xaml", UriKind.Relative));
+            CurrentView = new Users();
         }
 
         public bool NavigateCanExecute() { return true; }
@@ -133,5 +156,6 @@ namespace MovieNet.ViewModel
         }
 
         public bool ConnectCanExecute() { return true; }
+#endregion
     }
 }
