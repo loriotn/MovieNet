@@ -29,9 +29,10 @@ namespace MovieNet.ViewModel
             Search = new RelayCommand(SearchExecute, SearchCanExecute);
             Connect = new RelayCommand(ConnectExecute, ConnectCanExecute);
             NavigateTo = new RelayCommand(NavigateExecute, NavigateCanExecute);
-            CurrentView = new Users();
+            //CurrentView = new Users();
             Visible = "Hidden";
         }
+
 
         private UserControl _currentView;
 
@@ -95,7 +96,7 @@ namespace MovieNet.ViewModel
         
         public void NavigateExecute()
         {
-            SendNavigationRequestMessage(new Uri("test.xaml", UriKind.Relative));
+            CurrentView = new Users();
         }
 
         public bool NavigateCanExecute() { return true; }
