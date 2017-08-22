@@ -11,8 +11,13 @@ namespace MovieNet.ViewModel
 {
     public class UserViewModel : ViewModelBase
     {
+
+#region var
         private Service1 service;
         public RelayCommand Add { get; }
+        private List<Utilisateur> _utils;
+        private Utilisateur _util;
+#endregion
         public UserViewModel(Service1 service)
         {
             this.service = service;
@@ -21,8 +26,7 @@ namespace MovieNet.ViewModel
             Add = new RelayCommand(AddExecute, AddCanExecute);
         }
 
-        private List<Utilisateur> _utils;
-
+#region getset
         public List<Utilisateur> Utils
         {
             get { return _utils; }
@@ -33,14 +37,14 @@ namespace MovieNet.ViewModel
             }
         }
 
-        private Utilisateur _util;
-
         public Utilisateur Util
         {
             get { return _util; }
             set { _util = value; RaisePropertyChanged(); }
         }
+#endregion
 
+#region relaycommand
         public void AddExecute()
         {
             Utils = service.AddUser(Util);
@@ -51,6 +55,6 @@ namespace MovieNet.ViewModel
         {
             return (Util.nom_utilisateur?.Length > 0 && Util.prenom_utilisateur?.Length > 0);
         }
-
+#endregion
     }
 }
