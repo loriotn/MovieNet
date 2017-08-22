@@ -8,9 +8,10 @@ namespace MovieNetDbProject
     public partial class ModelMovieNet : DbContext
     {
         public ModelMovieNet()
-            : base("Data Source=pa-82t5l12\\localhost;Integrated Security=true;MultipleActiveResultSets=true;Initial Catalog=MovieNetDB")
+            : base("Data Source = pa - 82t5l12\\localhost; Integrated Security = true; MultipleActiveResultSets = true; Initial Catalog = MovieNetDB")
         {
-            
+            //Data Source = pa - 82t5l12\\localhost; Integrated Security = true; MultipleActiveResultSets = true; Initial Catalog = MovieNetDB
+            //Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =| DataDirectory |\MovieNetDB.mdf; Integrated Security = True; Connect Timeout = 30
         }
 
         public virtual DbSet<Commentaire> commentaire { get; set; }

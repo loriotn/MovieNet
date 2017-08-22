@@ -41,3 +41,6 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.exe
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.pdb
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Users.g.cs
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Users.baml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\EntityFramework.SqlServerCompact.xml

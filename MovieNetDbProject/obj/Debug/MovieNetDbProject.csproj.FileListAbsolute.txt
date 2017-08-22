@@ -21,3 +21,6 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFr
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServerCompact.xml
