@@ -31,6 +31,8 @@ namespace MovieNetApiWcf
         [OperationContract]
         Utilisateur GetUtilisateurByLoginAndPassword(string login, string password);
 
+        [OperationContract]
+        List<Utilisateur> AddUser(Utilisateur util);
 
     }
 }

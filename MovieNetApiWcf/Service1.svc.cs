@@ -80,5 +80,18 @@ namespace MovieNetApiWcf
             Utilisateur util = context.utilisateur.FirstOrDefault(ut => ut.nom_utilisateur == login);
             return util?.mdp_utilisateur == password ? util : null;
         }
+
+        public List<Utilisateur> AddUser(Utilisateur util)
+        {
+            if (util != null)
+            {
+                util.mdp_utilisateur = "toto";
+                util.inscrit = true;
+                util.connecte = true;
+                context.utilisateur.Add(util);
+                context.SaveChanges();
+            }
+            return (context.utilisateur.ToList());
+        }
     }
 }

@@ -8,15 +8,18 @@
              d:DesignHeight="239.2" d:DesignWidth="300"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}">
     <Grid>
-            
-        <StackPanel HorizontalAlignment="Left" Height="280" Margin="10,10,0,0" VerticalAlignment="Top" Width="280" >
-            <ListView HorizontalAlignment="Left" Height="215" Margin="10,0,0,0" Width="260" ItemsSource="{Binding Utils}" >
+
+        <StackPanel HorizontalAlignment="Left" Height="165" Margin="10,10,0,0" VerticalAlignment="Top" Width="280" >
+            <ListView HorizontalAlignment="Left" Height="82" Margin="10,0,0,0" Width="260" ItemsSource="{Binding Utils}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding nom_utilisateur}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <TextBox Height="23" TextWrapping="Wrap" Margin="10,10,160,0" Text="{Binding Util.nom_utilisateur}" />
+            <TextBox Height="23" TextWrapping="Wrap" Margin="10,10,160,0" Text="{Binding Util.prenom_utilisateur}"/>
+            <Button Content="Button"  Margin="150,-55,10,0" Command="{Binding Add}"/>
         </StackPanel>
     </Grid>
 </UserControl>

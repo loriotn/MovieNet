@@ -8,9 +8,9 @@ namespace MovieNetDbProject
     public partial class ModelMovieNet : DbContext
     {
         public ModelMovieNet()
-            : base("Data Source=pa-82t5l12\\localhost;Integrated Security=true;MultipleActiveResultSets=true;Initial Catalog=MovieNetDB")
+            : base("Server=tcp:movienetazure.database.windows.net,1433;Initial Catalog=MovieNetAzure;Persist Security Info=False;User ID=MovieNet;Password=M0vieNet;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
         {
-            
+            //Data Source=pa-82t5l12\\localhost;Integrated Security=true;MultipleActiveResultSets=true;Initial Catalog=MovieNetDB
         }
 
         public virtual DbSet<Commentaire> commentaire { get; set; }
