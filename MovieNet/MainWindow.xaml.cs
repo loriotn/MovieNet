@@ -16,13 +16,14 @@ using MovieNetApiWcf;
 using MovieNetDbProject;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
+using MahApps.Metro.Controls;
 
 namespace MovieNet
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {

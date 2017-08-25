@@ -1,0 +1,12 @@
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Release\MovieNetDbProject.exe.config
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Release\MovieNetDbProject.exe
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Release\MovieNetDbProject.pdb
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Release\EntityFramework.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Release\EntityFramework.xml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Release\fr\EntityFramework.resources.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\bin\Release\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.csprojResolveAssemblyReference.cache
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.exe
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.pdb

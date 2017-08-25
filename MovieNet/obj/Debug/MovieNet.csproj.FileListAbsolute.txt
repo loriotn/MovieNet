@@ -41,3 +41,10 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.exe
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.pdb
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Users.g.cs
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Users.baml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MovieNet.exe.manifest
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MovieNet.application
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.exe.manifest
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.application
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MahApps.Metro.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MahApps.Metro.pdb
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MahApps.Metro.xml
