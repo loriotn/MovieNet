@@ -27,11 +27,6 @@ namespace MovieNet.ViewModel
 
         private UserControl _currentView;
 
-        public void test()
-        {
-            selectedView = new Users();
-        }
-
         public UserControl CurrentView
         {
             get { return _currentView; }

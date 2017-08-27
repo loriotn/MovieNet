@@ -10,18 +10,34 @@
         DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Command="{Binding NavigateTo}" CommandParameter="user" Content="Connexion"/>
+            <Button Command="{Binding NavigateTo}" CommandParameter="user" >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_people}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Connexion" />
+                </StackPanel>
+            </Button>
             <Button Command="{Binding NavigateTo}" CommandParameter="film" Content="Films"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout Header="Flyout" Position="Top" Width="200" Theme="Dark">
+                <!-- Your custom content here -->
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="1" Grid.RowSpan="2" Background="AliceBlue"></Border>
-        <Border Grid.Row="1" Grid.Column="1" Background="CadetBlue"></Border>
-        <ContentPresenter x:Name="Utilisateurs" Content="{Binding CurrentView}" DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}" Margin="10,10,10,70" Grid.Column="1"/>
+
+
+        <ContentPresenter x:Name="Utilisateurs" Content="{Binding CurrentView}" DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}" Margin="5"/>
     </Grid>
 </Controls:MetroWindow>

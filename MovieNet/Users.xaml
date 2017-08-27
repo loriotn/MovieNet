@@ -6,9 +6,29 @@
              xmlns:local="clr-namespace:MovieNet.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="239.2" d:DesignWidth="300"
-             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}">
+             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}"
+             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
     <Grid>
 
+        <DataGrid ItemsSource="{Binding Utilisateurs}"
+                  Grid.Row="0"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        Header="IsSelected"
+                                        Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}"
+                                        >
+                    
+                </DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Nom" Binding="{Binding nom_utilisateur}">
+                    
+                </DataGridTextColumn>
+                
+            </DataGrid.Columns>
+            
+        </DataGrid>
+        <!--
         <StackPanel HorizontalAlignment="Left" Height="165" Margin="10,10,0,0" VerticalAlignment="Top" Width="280" >
             <ListView HorizontalAlignment="Left" Height="82" Margin="10,0,0,0" Width="260" ItemsSource="{Binding Utilisateurs}">
                 <ListView.ItemTemplate>
@@ -21,5 +41,6 @@
             <TextBox Height="23" TextWrapping="Wrap" Margin="10,10,160,0" Text="{Binding Utilisateur.prenom_utilisateur}"/>
             <Button Content="Button"  Margin="150,-55,10,0" Command="{Binding Add}"/>
         </StackPanel>
+        -->
     </Grid>
 </UserControl>

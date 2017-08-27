@@ -98,3 +98,5 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.ex
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.pdb
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Films.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Films.baml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Resources\Icons.baml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Resources\IconsNonShared.baml
