@@ -9,51 +9,35 @@ using System.Windows.Controls;
 
 namespace MovieNet.ViewModel
 {
-    public class UserViewModel : ViewModelBase
+    public class UserViewModel : MainViewModel
     {
 
 #region var
         private Service1 service;
         public RelayCommand Add { get; }
-        private List<Utilisateur> _utils;
-        private Utilisateur _util;
 #endregion
-        public UserViewModel(Service1 service)
+        public UserViewModel(Service1 service): base(service)
         {
             this.service = service;
-            Utils = service.GetUtilisateurs();
-            Util = new Utilisateur();
+            Utilisateur = new Utilisateur();
             Add = new RelayCommand(AddExecute, AddCanExecute);
+            Utilisateurs = service.GetUtilisateurs();
         }
 
 #region getset
-        public List<Utilisateur> Utils
-        {
-            get { return _utils; }
-            set
-            {
-                _utils = value;
-                RaisePropertyChanged();
-            }
-        }
 
-        public Utilisateur Util
-        {
-            get { return _util; }
-            set { _util = value; RaisePropertyChanged(); }
-        }
 #endregion
 
 #region relaycommand
         public void AddExecute()
         {
-            Utils = service.AddUser(Util);
-            Util = new Utilisateur();
+            Utilisateurs = service.AddUser(Utilisateur);
+            Utilisateur = new Utilisateur();
         }
 
         public bool AddCanExecute()
         {
-            return (Util.nom_utilisateur?.Length > 0 && Util.prenom_utilisateur?.Length > 0);
+            return (Utilisateur.nom_utilisateur?.Length > 0 && Utilisateur.prenom_utilisateur?.Length > 0);
         }
 #endregion
     }

@@ -12,9 +12,6 @@ namespace MovieNet.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        public RelayCommand Delete { get; }
-        public RelayCommand Search { get; }
-        public RelayCommand Connect { get; }
         public RelayCommand NavigateTo { get; }
         private Service1 service;
         private List<Utilisateur> _utilisateurs;
@@ -23,14 +20,7 @@ namespace MovieNet.ViewModel
         public MainViewModel(Service1 service)
         {
             this.service = service;
-            Name = service.GetFirstName();
-            Utilisateurs = service.GetUtilisateurs();
-            Delete = new RelayCommand(DeleteExecute, DeleteCanExecute);
-            Search = new RelayCommand(SearchExecute, SearchCanExecute);
-            Connect = new RelayCommand(ConnectExecute, ConnectCanExecute);
             NavigateTo = new RelayCommand(NavigateExecute, NavigateCanExecute);
-            //CurrentView = new Users();
-            Visible = "Hidden";
         }
 
 
@@ -50,38 +40,9 @@ namespace MovieNet.ViewModel
             }
         }
 
-
         #region beforetest
-        private string _visible;
 
-        public string Visible
-        {
-            get { return _visible; }
-            set
-            {
-                if (_utilisateur?.inscrit == true)
-                {
-                    _visible = "Visible";
-                }
-                else
-                {
-                    _visible = "Hidden";
-                }
-                RaisePropertyChanged();
-            }
-        }
-
-
-        private string _search;
-
-        public string ToSearch
-        {
-            get { return _search; }
-            set { _search = value; RaisePropertyChanged();}
-        }
-
-
-        public Utilisateur utilisateur
+        public Utilisateur Utilisateur
         {
             get { return _utilisateur; }
             set
@@ -90,9 +51,6 @@ namespace MovieNet.ViewModel
                 RaisePropertyChanged();
             }
         }
-
-        private string _name;
-
         
         public void NavigateExecute()
         {
@@ -100,11 +58,6 @@ namespace MovieNet.ViewModel
         }
 
         public bool NavigateCanExecute() { return true; }
-        protected void SendNavigationRequestMessage(Uri uri)
-        {
-            Messenger.Default.Send<Uri>(uri, "NavigationRequest");
-        }
-
         public List<Utilisateur> Utilisateurs
         {
             get { return _utilisateurs; }
@@ -114,48 +67,6 @@ namespace MovieNet.ViewModel
                 RaisePropertyChanged();
             }
         }
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public void DeleteExecute()
-        {
-            if (utilisateur != null)
-                service.Delete(utilisateur.id_utilisateur);
-            Utilisateurs = service.GetUtilisateurs();
-        }
-
-        public bool DeleteCanExecute()
-        {
-            return Utilisateurs.Count > 1;
-        }
-
-        public void SearchExecute()
-        {
-            Utilisateurs = service.SearchUsers(ToSearch);
-        }
-
-        public bool SearchCanExecute() { return true; }
-        public void ConnectExecute()
-        {
-            //utilisateur = service.GetUtilisateurByLoginAndPassword();
-            if (utilisateur?.inscrit == true)
-            {
-                Visible = "Visible";
-            }
-            else
-            {
-                _visible = "Hidden";
-            }
-        }
-
-        public bool ConnectCanExecute() { return true; }
 #endregion
     }
 }

@@ -10,7 +10,8 @@
         DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Command="{Binding NavigateTo}" Content="Utilisateurs"/>
+            <Button Command="{Binding NavigateTo}" Content="Connexion"/>
+            <Button Command="{Binding NavigateTo}" Content="Films"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
