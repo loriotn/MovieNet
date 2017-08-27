@@ -10,8 +10,8 @@
         DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Command="{Binding NavigateTo}" Content="Connexion"/>
-            <Button Command="{Binding NavigateTo}" Content="Films"/>
+            <Button Command="{Binding NavigateTo}" CommandParameter="user" Content="Connexion"/>
+            <Button Command="{Binding NavigateTo}" CommandParameter="film" Content="Films"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
@@ -23,8 +23,5 @@
         <Border Grid.Row="1" Grid.RowSpan="2" Background="AliceBlue"></Border>
         <Border Grid.Row="1" Grid.Column="1" Background="CadetBlue"></Border>
         <ContentPresenter x:Name="Utilisateurs" Content="{Binding CurrentView}" DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}" Margin="10,10,10,70" Grid.Column="1"/>
-        <StackPanel Margin="5" Grid.Column="0" Grid.Row="1">
-            <Button Command="{Binding NavigateTo}" Content="Utilisateurs"/>
-        </StackPanel>
     </Grid>
 </Controls:MetroWindow>
