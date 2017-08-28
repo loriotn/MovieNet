@@ -9,19 +9,13 @@
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=FilmVm}">
     <Grid>
-        <DataGrid ItemsSource="{Binding Films}"
-                  Grid.Row="0"
-                  AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
-                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
-                                        Header="IsSelected"
-                                        Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}"
-                                        />
-                <DataGridTextColumn Header="Nom" Binding="{Binding titre_film}">
-
-                </DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="300">
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>

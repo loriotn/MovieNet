@@ -10,7 +10,7 @@
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=SignInVm}">
     <Grid>
 
-        <TextBox Controls:TextBoxHelper.Watermark="Login" Margin="10,10,10,258" VerticalAlignment="Top" Height="20" Controls:TextBoxHelper.ClearTextButton="True"/>
+        <TextBox Controls:TextBoxHelper.Watermark="Login" Margin="10,10,10,258" VerticalAlignment="Top" Height="20" Controls:TextBoxHelper.ClearTextButton="True" Text="{Binding Utilisateur.nom_utilisateur}"/>
         <PasswordBox Name="pass" Controls:TextBoxHelper.Watermark="Password" VerticalAlignment="Top" Height="20" Controls:TextBoxHelper.ClearTextButton="True" Margin="10,50,10,221"></PasswordBox>
         <Button Content="Connection" HorizontalAlignment="Left"  Height="20" VerticalAlignment="Top" Width="142" Style="{StaticResource SquareButtonStyle}" Command="{Binding Pass}" CommandParameter="{Binding ElementName=pass}" Margin="10,85,0,0"/>
         <CheckBox Content="Inscription" HorizontalAlignment="Left" Margin="10,115,0,0" Height="20" VerticalAlignment="Top" Width="142" />

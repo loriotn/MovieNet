@@ -54,6 +54,16 @@
     <Compile Include="Commentaire.cs" />
     <Compile Include="Film.cs" />
     <Compile Include="Genre.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Migrations\201708221154443_InitialCreate.cs" />
+    <Compile Include="Migrations\201708221154443_InitialCreate.Designer.cs">
+      <DependentUpon>201708221154443_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708282253473_AddIentity.cs" />
+    <Compile Include="Migrations\201708282253473_AddIentity.Designer.cs">
+      <DependentUpon>201708282253473_AddIentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelMovieNet.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Program.cs" />
@@ -63,6 +73,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708221154443_InitialCreate.resx">
+      <DependentUpon>201708221154443_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708282253473_AddIentity.resx">
+      <DependentUpon>201708282253473_AddIentity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

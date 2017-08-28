@@ -13,12 +13,20 @@ namespace MovieNetDbProject
         {
             if (MovieNetContext == null)
             {
-                MovieNetContext = new ModelMovieNet();
+                try
+                {
+                    MovieNetContext = new ModelMovieNet();
+                }
+                catch 
+                {
+                    throw new Exception("Connection string incorrecte");
+                }
+                
             }
             return MovieNetContext;
         }
-        private ModelMovieNet()
-            : base("Data Source=pa-82t5l12\\localhost;Integrated Security=true;MultipleActiveResultSets=true;Initial Catalog=MovieNetDB")
+        public ModelMovieNet()
+            : base("Server=tcp:movienetazure.database.windows.net,1433;Initial Catalog=MovieNetAzure;Persist Security Info=False;User ID=MovieNet;Password=M0vieNet;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
         {
             //Server=tcp:movienetazure.database.windows.net,1433;Initial Catalog=MovieNetAzure;Persist Security Info=False;User ID=MovieNet;Password=M0vieNet;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
             //Data Source=pa-82t5l12\\localhost;Integrated Security=true;MultipleActiveResultSets=true;Initial Catalog=MovieNetDB

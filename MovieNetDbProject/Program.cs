@@ -10,6 +10,7 @@ namespace MovieNetDbProject
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

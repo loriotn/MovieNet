@@ -10,7 +10,30 @@ namespace MovieNet.ViewModel
 {
     public class FilmViewModel : MainViewModel
     {
-        public FilmService filmService;
+        private bool isFormValid;
+
+        public bool IsFormValid
+        {
+            get { return isFormValid; }
+            set
+            {
+                if (string.IsNullOrEmpty(Film?.titre_film) || Film == null)
+                    isFormValid = false;
+                else
+                    isFormValid = true;
+                RaisePropertyChanged();
+            }
+        }
+
+        private Film film;
+
+        public Film Film
+        {
+            get { return film; }
+            set { film = value; RaisePropertyChanged(); }
+        }
+
+        public FilmService   filmService;
         private List<Film> films;
 
         public List<Film> Films
@@ -22,6 +45,7 @@ namespace MovieNet.ViewModel
         public FilmViewModel()
         {
             filmService = new FilmService(ModelMovieNet.GetContext());
+            Film = new Film();
             Films = filmService.GetAll();
         }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-
+using MovieNetDbProject.Interfaces;
 namespace MovieNetApiWcf
 {
     [ServiceContract]
@@ -12,5 +12,9 @@ namespace MovieNetApiWcf
     {
         [OperationContract]
         List<TEntity> GetAll();
+
+        [OperationContract]
+        TEntity Upsert(TEntity entity);
+
     }
 }

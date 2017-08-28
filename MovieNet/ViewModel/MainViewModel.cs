@@ -13,15 +13,16 @@ namespace MovieNet.ViewModel
     public class MainViewModel : ViewModelBase
     {
         public RelayCommand<string> NavigateTo { get; private set; }
-        private List<Utilisateur> _utilisateurs;
+
         private Utilisateur _utilisateur;
         private UserControl selectedView;
-
+        protected UserService userService;
         public MainViewModel()
         {
             NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);
+            Utilisateur = new Utilisateur();
+            userService = new UserService(ModelMovieNet.GetContext());
         }
-
 
         private UserControl _currentView;
 
@@ -73,15 +74,7 @@ namespace MovieNet.ViewModel
         }
 
         public bool NavigateCanExecute(string p) { return true; }
-        public List<Utilisateur> Utilisateurs
-        {
-            get { return _utilisateurs; }
-            set
-            {
-                _utilisateurs = value;
-                RaisePropertyChanged();
-            }
-        }
+        
 #endregion
     }
 }

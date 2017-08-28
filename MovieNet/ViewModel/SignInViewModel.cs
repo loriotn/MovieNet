@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MovieNet.Interface;
 using MovieNetApiWcf;
 using GalaSoft.MvvmLight.Command;
+using MovieNetDbProject;
 
 namespace MovieNet.ViewModel
 {
@@ -28,6 +29,11 @@ namespace MovieNet.ViewModel
         public void PasswordExecute(System.Windows.Controls.PasswordBox parameter)
         {
             Utilisateur.mdp_utilisateur = parameter.Password;
+            Utilisateur.prenom_utilisateur = Utilisateur.nom_utilisateur;
+            userService.Upsert(Utilisateur);
+            
+            Utilisateur = new Utilisateur();
+            Password = null;
         }
 
         public bool PasswordCanExecute(object p) { return true; }

@@ -11,7 +11,7 @@
     
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Command="{Binding NavigateTo}" CommandParameter="user" >
+            <Button Command="{Binding NavigateTo}" CommandParameter="signin" >
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
@@ -25,7 +25,7 @@
                    Text="Connexion" />
                 </StackPanel>
             </Button>
-            <Button Command="{Binding NavigateTo}" CommandParameter="film" Content="Films"/>
+            <Button Command="{Binding NavigateTo}" CommandParameter="user" Content="Films"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Controls:MetroWindow.Flyouts>

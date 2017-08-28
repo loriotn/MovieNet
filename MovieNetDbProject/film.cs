@@ -4,12 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 using System.Runtime.Serialization;
+using MovieNetDbProject.Interfaces;
 
 namespace MovieNetDbProject
 {
     [DataContract]
     [Table("film")]
-    public class Film
+    public class Film : IEntity
     {
         public Film()
         {
@@ -21,7 +22,7 @@ namespace MovieNetDbProject
 
         [Key]
         [Column("id_film")]
-        public int id_film { get; set; }
+        public int id { get; set; }
 
         [Required]
         [StringLength(255)]
