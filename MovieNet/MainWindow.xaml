@@ -8,9 +8,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="800"
         DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}">
+    
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Command="{Binding NavigateTo}" CommandParameter="user" >
+            <Button Command="{Binding NavigateTo}" CommandParameter="signin" >
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"

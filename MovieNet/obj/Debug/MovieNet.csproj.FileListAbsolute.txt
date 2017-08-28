@@ -100,3 +100,11 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Films.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Films.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Resources\Icons.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Resources\Icons.baml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Films.g.cs
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Films.baml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Connexion.g.cs
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\SignIn.g.cs
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Connexion.baml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\SignIn.baml

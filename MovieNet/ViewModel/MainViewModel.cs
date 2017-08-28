@@ -63,6 +63,10 @@ namespace MovieNet.ViewModel
             {
                 selectedView = new Films();
             }
+            else if (parameter.Equals("signin"))
+            {
+                selectedView = new SignIn();
+            }
             else
             {
                 selectedView = null;
