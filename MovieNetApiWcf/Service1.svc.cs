@@ -10,35 +10,35 @@ using System.Data.Entity.Validation;
 
 namespace MovieNetApiWcf
 {
-     public class Service1 : IService1
+     public class Service1 :AService<Utilisateur>, IService1
     {
         public Utilisateur u;
         public Genre g;
-        private ModelMovieNet context = new ModelMovieNet();
-        public Service1()
+        //private ModelMovieNet context = new ModelMovieNet();
+        public Service1(ModelMovieNet context): base(context)
         {
             this.u = SetData();
         }
         public string GetName(int id)
         {
-            Utilisateur u = context.utilisateur.FirstOrDefault(ut => ut.id_utilisateur == id);
+            Utilisateur u = Context.utilisateur.FirstOrDefault(ut => ut.id_utilisateur == id);
             return u?.nom_utilisateur;
         }
 
         public string GetFirstName()
         {
-            Utilisateur ut = context.utilisateur.FirstOrDefault(c => c.id_utilisateur == 1);
+            Utilisateur ut = Context.utilisateur.FirstOrDefault(c => c.id_utilisateur == 1);
             return ut?.prenom_utilisateur;
         }
 
         public Utilisateur GetUtilisateur(int id)
         {
-            return context.utilisateur.FirstOrDefault(util => util.id_utilisateur == id);
+            return Context.utilisateur.FirstOrDefault(util => util.id_utilisateur == id);
         }
 
         public List<Utilisateur> GetUtilisateurs()
         {
-            return context.utilisateur.ToList();
+            return Context.utilisateur.ToList();
         }
 
         public Genre GetGenre()
@@ -53,17 +53,17 @@ namespace MovieNetApiWcf
 
         public void Delete(int id)
         {
-            Utilisateur t = context.utilisateur.FirstOrDefault(c => c.id_utilisateur == id);
+            Utilisateur t = Context.utilisateur.FirstOrDefault(c => c.id_utilisateur == id);
             if (t != null)
             {
-                context.utilisateur.Remove(t);
-                context.SaveChanges();
+                Context.utilisateur.Remove(t);
+                Context.SaveChanges();
             }
         }
 
         public List<Utilisateur> SearchUsers(string name)
         {
-            List<Utilisateur> util = context.utilisateur.ToList();
+            List<Utilisateur> util = Context.utilisateur.ToList();
             List<Utilisateur> ru = new List<Utilisateur>();
             foreach (Utilisateur t in util)
             {
@@ -77,7 +77,7 @@ namespace MovieNetApiWcf
 
         public Utilisateur GetUtilisateurByLoginAndPassword(string login, string password)
         {
-            Utilisateur util = context.utilisateur.FirstOrDefault(ut => ut.nom_utilisateur == login);
+            Utilisateur util = Context.utilisateur.FirstOrDefault(ut => ut.nom_utilisateur == login);
             return util?.mdp_utilisateur == password ? util : null;
         }
 
@@ -88,10 +88,10 @@ namespace MovieNetApiWcf
                 util.mdp_utilisateur = "toto";
                 util.inscrit = true;
                 util.connecte = true;
-                context.utilisateur.Add(util);
-                context.SaveChanges();
+                Context.utilisateur.Add(util);
+                Context.SaveChanges();
             }
-            return (context.utilisateur.ToList());
+            return (Context.utilisateur.ToList());
         }
     }
 }

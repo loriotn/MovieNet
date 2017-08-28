@@ -21,7 +21,7 @@ namespace MovieNet.ViewModel
             this.service = service;
             Utilisateur = new Utilisateur();
             Add = new RelayCommand(AddExecute, AddCanExecute);
-            Utilisateurs = service.GetUtilisateurs();
+            Utilisateurs = service.GetAll();
         }
 
 #region getset

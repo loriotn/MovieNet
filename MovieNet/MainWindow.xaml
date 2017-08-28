@@ -11,7 +11,7 @@
     
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Command="{Binding NavigateTo}" CommandParameter="signin" >
+            <Button Command="{Binding NavigateTo}" CommandParameter="user" >
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"

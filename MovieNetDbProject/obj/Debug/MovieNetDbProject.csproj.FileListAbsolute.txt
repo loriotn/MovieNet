@@ -32,3 +32,4 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\fr
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
