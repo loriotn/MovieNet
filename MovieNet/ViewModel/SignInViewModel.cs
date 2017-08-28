@@ -20,7 +20,7 @@ namespace MovieNet.ViewModel
             set { password = value; RaisePropertyChanged(); }
         }
         
-        public SignInViewModel(Service1 service): base(service)
+        public SignInViewModel()
         {
             Pass = new RelayCommand<System.Windows.Controls.PasswordBox>(param => PasswordExecute(param), PasswordCanExecute);
         }

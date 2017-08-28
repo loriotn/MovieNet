@@ -13,12 +13,12 @@ namespace MovieNet.ViewModel
     {
 
 #region var
-        private Service1 service;
+        private UserService service;
         public RelayCommand Add { get; }
 #endregion
-        public UserViewModel(Service1 service): base(service)
+        public UserViewModel()
         {
-            this.service = service;
+            this.service = new UserService(ModelMovieNet.GetContext());
             Utilisateur = new Utilisateur();
             Add = new RelayCommand(AddExecute, AddCanExecute);
             Utilisateurs = service.GetAll();
@@ -31,7 +31,7 @@ namespace MovieNet.ViewModel
 #region relaycommand
         public void AddExecute()
         {
-            Utilisateurs = service.AddUser(Utilisateur);
+            //Utilisateurs = service.AddUser(Utilisateur);
             Utilisateur = new Utilisateur();
         }
 

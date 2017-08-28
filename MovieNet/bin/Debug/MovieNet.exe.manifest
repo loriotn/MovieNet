@@ -150,26 +150,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MovieNet.exe" size="2286592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MovieNet.exe" size="2287104">
       <assemblyIdentity name="MovieNet" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NwhnIF9nw/B3Ywl4un/XmnohzHTDGT2R6mg0/4DmIY8=</dsig:DigestValue>
+        <dsig:DigestValue>zs11WSzuawnNCwkngw6HFLu7Yfb/eI3EIleLavDWbao=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MovieNetApiWcf.dll" size="8192">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MovieNetApiWcf.dll" size="5120">
       <assemblyIdentity name="MovieNetApiWcf" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yVDVcG0LwGL5BFNVwhUtdxu7x0WIQw/vHOWGpI1Hy2Q=</dsig:DigestValue>
+        <dsig:DigestValue>02zof9L3e9gS5zSjHS3WGdhbIrDDRx0on758Pl6XQDY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -181,7 +181,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/3Q3btgXU47y8TA6oGbdZgfbMns++NjOxFs8jXadyTw=</dsig:DigestValue>
+        <dsig:DigestValue>uE+Nu27qMMwkBUmvr/KJ14hD4XWexg75gC8gtF92jLI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -230,16 +230,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>izSGL+DLzuKKPo512YxImUpcDgUzWB7S2fV0L2Nhmdc=</dsig:DigestValue>
+      <dsig:DigestValue>J2QPc40XjzmyAtwKWKqAGIjTdq7G9HjiYBliKbfu7So=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="MovieNetApiWcf.pdb" size="17920">
+  <file name="MovieNetApiWcf.pdb" size="13824">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>XP/JF9glkGelWpej0HlN/BLzWQFQIG2Iopny00OPcd8=</dsig:DigestValue>
+      <dsig:DigestValue>6H4pUEXS42i6ShiVh0RpGM1vbdAh2f6rfeYH5KIHXz0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="MovieNetDbProject.pdb" size="36352">
@@ -248,7 +248,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>1dACpRv9bC0W4ZJ8vBQb83G/6FZ4xaLkZHkHrq+sZ2w=</dsig:DigestValue>
+      <dsig:DigestValue>3hf/BxBXODQwO1Ga7doXVC0C6jJWCP4lkTtg3Km2Rzw=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

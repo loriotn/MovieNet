@@ -6,9 +6,10 @@
              xmlns:local="clr-namespace:MovieNet"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=FilmVm}">
     <Grid>
-        <DataGrid ItemsSource="{Binding Path=Albums}"
+        <DataGrid ItemsSource="{Binding Films}"
                   Grid.Row="0"
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
@@ -17,6 +18,9 @@
                                         Header="IsSelected"
                                         Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}"
                                         />
+                <DataGridTextColumn Header="Nom" Binding="{Binding titre_film}">
+
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

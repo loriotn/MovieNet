@@ -13,14 +13,12 @@ namespace MovieNet.ViewModel
     public class MainViewModel : ViewModelBase
     {
         public RelayCommand<string> NavigateTo { get; private set; }
-        private Service1 service;
         private List<Utilisateur> _utilisateurs;
         private Utilisateur _utilisateur;
         private UserControl selectedView;
 
-        public MainViewModel(Service1 service)
+        public MainViewModel()
         {
-            this.service = service;
             NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);
         }
 
