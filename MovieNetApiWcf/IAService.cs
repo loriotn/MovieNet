@@ -16,5 +16,8 @@ namespace MovieNetApiWcf
         [OperationContract]
         TEntity Upsert(TEntity entity);
 
+        [OperationContract]
+        TEntity GetById(int id);
+
     }
 }

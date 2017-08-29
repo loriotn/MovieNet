@@ -1,0 +1,27 @@
+﻿<Controls:MetroWindow x:Class="MovieNet.testFenetre"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieNet"
+        mc:Ignorable="d"
+        Title="Connexion/inscription" Height="151.822" Width="300"
+        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=TestVm}">
+    <Grid>
+        <TextBox Controls:TextBoxHelper.Watermark="Login" Margin="10,10,10,0" VerticalAlignment="Top" Height="20" Controls:TextBoxHelper.ClearTextButton="True" Text="{Binding Utilisateur.nom_utilisateur}"/>
+        <PasswordBox Name="pass" Controls:TextBoxHelper.Watermark="Password" VerticalAlignment="Top" Height="20" Controls:TextBoxHelper.ClearTextButton="True" Margin="10,41,10,0"></PasswordBox>
+        <Controls:ToggleSwitch  Margin="10,72,62,10" OnLabel="Nouvelle inscription" OffLabel="Connexion"/>
+        <Button Command="{Binding signin}" CommandParameter="{Binding ElementName=pass}" Width="40" Height="40" HorizontalAlignment="Left" Margin="242,72,0,0" VerticalAlignment="Top"  Style="{DynamicResource MetroCircleButtonStyle}">
+            <Rectangle Width="20"
+               Height="20"
+               Fill="{DynamicResource BlackBrush}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill"
+                         Visual="{DynamicResource appbar_arrow_right}"/>
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+    </Grid>
+</Controls:MetroWindow>

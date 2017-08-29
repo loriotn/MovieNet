@@ -44,5 +44,10 @@ namespace MovieNetApiWcf
             }
             return entity;
         }
+
+        public virtual TEntity GetById(int id)
+        {
+            return DbSet.FirstOrDefault(c => c.id == id);
+        }
     }
 }

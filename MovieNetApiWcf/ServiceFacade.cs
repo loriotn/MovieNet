@@ -8,8 +8,8 @@ namespace MovieNetApiWcf
 {
     public sealed class ServiceFacade
     {
-        public UserService userService;
-        public FilmService filmService;
+        public UserService userService { get; private set; }
+        public FilmService filmService { get; private set; }
         private static readonly ServiceFacade serviceFacade = new ServiceFacade();
         private ModelMovieNet Context;
         public static ServiceFacade ServiceFacadeInstance

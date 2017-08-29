@@ -6,11 +6,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         x:Class="MovieNet.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="800"
+        Title="{Binding WelcomeMessage}" Height="400" Width="800"
         DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}">
     
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
+            <Button Command="{Binding openWindow}" CommandParameter="user" Content="fenetre"/>
             <Button Command="{Binding NavigateTo}" CommandParameter="signin" >
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
