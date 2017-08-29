@@ -12,31 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MovieNetApiWcf;
-using MovieNetDbProject;
-using GalaSoft.MvvmLight.Messaging;
-using GalaSoft.MvvmLight.Views;
 
 namespace MovieNet
 {
     /// <summary>
-    /// Logique d'interaction pour Users.xaml
+    /// Logique d'interaction pour Welcome.xaml
     /// </summary>
-    public partial class Users : UserControl
+    public partial class Welcome : UserControl
     {
-        public Users()
+        public Welcome()
         {
             InitializeComponent();
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

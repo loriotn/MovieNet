@@ -12,6 +12,7 @@ namespace MovieNet.ViewModel
         public static UserViewModel UserVm { get; } = new UserViewModel();
         public static SignInViewModel SignInVm { get; } = new SignInViewModel();
         public static FilmViewModel FilmVm { get; } = new FilmViewModel();
+        public static WelcomeViewModel WelcomeVm { get; } = new WelcomeViewModel();
 
     }
 }

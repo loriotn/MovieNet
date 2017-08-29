@@ -34,3 +34,7 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\Mo
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.InitialCreate.resources
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.AddIentity.resources
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.InitialCreate.resources
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.AddIentity.resources
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache

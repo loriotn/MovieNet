@@ -18,19 +18,18 @@ namespace MovieNet.ViewModel
 #endregion
         public UserViewModel()
         {
-            Utilisateurs = userService.GetAll();
+            Utilisateurs = Facade.userService.GetAll();
             Add = new RelayCommand(AddExecute, AddCanExecute);
         }
 
         #region getset
-        private List<Utilisateur> _utilisateurs;
-        public List<Utilisateur> Utilisateurs
+        private static List<Utilisateur> _utilisateurs;
+        public static List<Utilisateur> Utilisateurs
         {
             get { return _utilisateurs; }
             set
             {
                 _utilisateurs = value;
-                RaisePropertyChanged();
             }
         }
         #endregion

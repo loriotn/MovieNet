@@ -44,9 +44,8 @@ namespace MovieNet.ViewModel
 
         public FilmViewModel()
         {
-            filmService = new FilmService(ModelMovieNet.GetContext());
             Film = new Film();
-            Films = filmService.GetAll();
+            Films = Facade.filmService.GetAll();
         }
     }
 }

@@ -13,15 +13,15 @@ namespace MovieNet.ViewModel
     public class MainViewModel : ViewModelBase
     {
         public RelayCommand<string> NavigateTo { get; private set; }
-
+        public ServiceFacade Facade;
         private Utilisateur _utilisateur;
         private UserControl selectedView;
-        protected UserService userService;
         public MainViewModel()
         {
+            Facade = ServiceFacade.ServiceFacadeInstance;
             NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);
             Utilisateur = new Utilisateur();
-            userService = new UserService(ModelMovieNet.GetContext());
+            //CurrentView = new Welcome();
         }
 
         private UserControl _currentView;
@@ -65,6 +65,10 @@ namespace MovieNet.ViewModel
             else if (parameter.Equals("signin"))
             {
                 selectedView = new SignIn();
+            }
+            else if (parameter.Equals("welcome"))
+            {
+                selectedView = new Welcome();
             }
             else
             {

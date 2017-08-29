@@ -30,8 +30,8 @@ namespace MovieNet.ViewModel
         {
             Utilisateur.mdp_utilisateur = parameter.Password;
             Utilisateur.prenom_utilisateur = Utilisateur.nom_utilisateur;
-            userService.Upsert(Utilisateur);
-            
+            Facade.userService.Upsert(Utilisateur);
+            UserViewModel.Utilisateurs = Facade.userService.GetAll();
             Utilisateur = new Utilisateur();
             Password = null;
         }

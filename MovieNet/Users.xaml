@@ -12,7 +12,7 @@
 
         <DataGrid ItemsSource="{Binding Utilisateurs}"
                   Grid.Row="0"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
                                         EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
