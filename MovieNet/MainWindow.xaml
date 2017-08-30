@@ -6,13 +6,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         x:Class="MovieNet.MainWindow"
         mc:Ignorable="d"
-        Title="{Binding WelcomeMessage}" Height="400" Width="800"
-        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}">
-    
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}"
+        Title="{Binding WelcomeMessage}" Height="{Binding Height}" Width="{Binding Width}" Top="{Binding Top}" Left="{Binding Left}" ResizeMode="{Binding ResizeMode}">
+
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Command="{Binding openWindow}" CommandParameter="user" Content="fenetre"/>
-            <Button Command="{Binding NavigateTo}" CommandParameter="signin" >
+            <Button Command="{Binding Disconnect}" Content="Déconnection"/>
+            <Button Command="{Binding openWindow}" >
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
@@ -23,23 +24,22 @@
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
                    VerticalAlignment="Center"
-                   Text="Connexion" />
+                   Text="Connection" />
                 </StackPanel>
             </Button>
-            <Button Command="{Binding NavigateTo}" CommandParameter="user" Content="Films"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-    <Controls:MetroWindow.Flyouts>
-        <Controls:FlyoutsControl>
-            <Controls:Flyout Header="Flyout" Position="Top" Width="200" Theme="Dark">
-                <!-- Your custom content here -->
-            </Controls:Flyout>
-        </Controls:FlyoutsControl>
-    </Controls:MetroWindow.Flyouts>
     <Grid>
 
-
-
-        <ContentPresenter x:Name="Utilisateurs" Content="{Binding CurrentView}" DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}" Margin="5"/>
+        <controls:Tile 
+                    TiltFactor="2"
+                    Width="100" Height="100" 
+                    Count=""
+                    VerticalAlignment="Top"
+                    Content="{StaticResource appbar_movie_clapper}"
+                       Command="{Binding NavigateTo}"
+                       CommandParameter="film">
+        </controls:Tile>
+        <ContentPresenter HorizontalAlignment="Left" Margin="10,100,0,0"  Width="1574" x:Name="Utilisateurs" Content="{Binding CurrentView}" DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}" />
     </Grid>
 </Controls:MetroWindow>

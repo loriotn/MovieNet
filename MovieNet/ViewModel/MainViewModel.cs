@@ -7,13 +7,21 @@ using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Windows.Controls;
 using System.Windows;
+using MovieNet.Tools;
 
 namespace MovieNet.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
+        public Window w = MainWindowProperties.mainWindowProperties.mainWindow;
+        public double Height { get; set; }
+        public double Width { get; set; }
+        public double Top { get; set; }
+        public double Left { get; set; }
+        public ResizeMode ResizeMode { get; set; }
         public RelayCommand<string> NavigateTo { get; private set; }
         public RelayCommand openWindow { get; private set; }
+        public RelayCommand Disconnect { get; private set; }
         public ServiceFacade Facade;
         public string welcomMessage;
         private Utilisateur _utilisateur;
@@ -30,25 +38,43 @@ namespace MovieNet.ViewModel
 
         public MainViewModel()
         {
+            setBindingWindowSettings();
             Facade = ServiceFacade.ServiceFacadeInstance;
             NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);
             openWindow = new RelayCommand(open, openCan);
+            Disconnect = new RelayCommand(disconnect, disconnectCan);
             Utilisateur = new Utilisateur();
             WelcomeMessage = Utilisateur?.nom_utilisateur;
-            //CurrentView = new Welcome();
+        }
+
+        public void disconnect()
+        {
+            Utilisateur = new Utilisateur();
+            WelcomeMessage = Utilisateur?.nom_utilisateur;
+        }
+
+        public bool disconnectCan()
+        {
+            return Utilisateur.connecte;
+        }
+        private void setBindingWindowSettings()
+        {
+            Height = w.Height;
+            Width = w.Width;
+            Top = w.Top;
+            Left = w.Left;
+            this.ResizeMode = w.ResizeMode;
         }
         public void open()
         {
-            fen = new testFenetre();
-            fen.BeginInit();
-            fen.ShowDialog();
+            DialogService.Dialogs.OpenDialog(typeof(ConnectWindow));
             Utilisateur = Facade.userService.GetById(id);
             WelcomeMessage = Utilisateur?.nom_utilisateur;
         }
 
         public bool openCan()
         {
-            return true;
+            return !Utilisateur.connecte;
         }
         private UserControl _currentView;
 
@@ -88,10 +114,6 @@ namespace MovieNet.ViewModel
             {
                 selectedView = new Films();
             }
-            else if (parameter.Equals("signin"))
-            {
-                selectedView = new SignIn();
-            }
             else if (parameter.Equals("welcome"))
             {
                 selectedView = new Welcome();
@@ -103,7 +125,7 @@ namespace MovieNet.ViewModel
             CurrentView = selectedView;
         }
 
-        public bool NavigateCanExecute(string p) { return true; }
+        public bool NavigateCanExecute(string p) { return Utilisateur.connecte; }
         
 #endregion
     }

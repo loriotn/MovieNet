@@ -10,17 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace MovieNet
 {
     /// <summary>
-    /// Logique d'interaction pour SignIn.xaml
+    /// Logique d'interaction pour ConnectWindow.xaml
     /// </summary>
-    public partial class SignIn : UserControl
+    public partial class ConnectWindow : MetroWindow
     {
-        public SignIn()
+        public ConnectWindow()
         {
             InitializeComponent();
         }
