@@ -50,12 +50,15 @@ namespace MovieNet.ViewModel
         public void disconnect()
         {
             Utilisateur = new Utilisateur();
+            CurrentView = null;
             WelcomeMessage = Utilisateur?.nom_utilisateur;
         }
 
         public bool disconnectCan()
         {
-            return Utilisateur.connecte;
+            if (Utilisateur != null)
+                return Utilisateur.connecte;
+            else return false;
         }
         private void setBindingWindowSettings()
         {
@@ -68,13 +71,16 @@ namespace MovieNet.ViewModel
         public void open()
         {
             DialogService.Dialogs.OpenDialog(typeof(ConnectWindow));
-            Utilisateur = Facade.userService.GetById(id);
+            Utilisateur = Facade.userService.GetById(id) ?? new Utilisateur();
             WelcomeMessage = Utilisateur?.nom_utilisateur;
         }
 
         public bool openCan()
         {
-            return !Utilisateur.connecte;
+            if (Utilisateur != null)
+                return !Utilisateur.connecte;
+            else
+                return true;
         }
         private UserControl _currentView;
 
