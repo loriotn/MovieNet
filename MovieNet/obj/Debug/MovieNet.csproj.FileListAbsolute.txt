@@ -114,3 +114,5 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.exe
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.pdb
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\ConnectWindow.g.cs
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\ConnectWindow.baml
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\SaveMovieWindow.g.cs
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\SaveMovieWindow.baml

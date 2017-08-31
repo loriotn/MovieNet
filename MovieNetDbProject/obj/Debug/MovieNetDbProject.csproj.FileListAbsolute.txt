@@ -37,3 +37,4 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbP
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache

@@ -121,6 +121,9 @@
     <Compile Include="ConnectWindow.xaml.cs">
       <DependentUpon>ConnectWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SaveMovieWindow.xaml.cs">
+      <DependentUpon>SaveMovieWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tools\DialogService.cs" />
     <Compile Include="Tools\MainWindowProperties.cs" />
     <Compile Include="Users.xaml.cs">
@@ -129,6 +132,7 @@
     <Compile Include="ViewModel\FilmViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ConnectWindowViewModel.cs" />
+    <Compile Include="ViewModel\SaveMovieWindowViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WelcomeViewModel.cs" />
@@ -164,6 +168,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ConnectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SaveMovieWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

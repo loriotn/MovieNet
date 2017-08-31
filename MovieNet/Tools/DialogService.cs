@@ -35,6 +35,10 @@ namespace MovieNet.Tools
             {
                 windowToOpen = new ConnectWindow();
             }
+            else if (window == typeof(SaveMovieWindow))
+            {
+                windowToOpen = new SaveMovieWindow();
+            }
         }
 
         private void buildDialogProperties()
