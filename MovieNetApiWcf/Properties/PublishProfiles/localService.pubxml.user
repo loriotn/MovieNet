@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Ce fichier est utilisé par le processus de publication/package de votre projet Web. Vous pouvez personnaliser le comportement de ce processus
+en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la page http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\nicolas\Desktop\Nouveau dossier</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AService.svc">
+      <publishTime>08/28/2017 22:02:16</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>08/20/2017 23:12:02</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>08/20/2017 23:12:02</publishTime>
+    </File>
+    <File Include="bin/fr/EntityFramework.resources.dll">
+      <publishTime>03/02/2015 09:32:34</publishTime>
+    </File>
+    <File Include="bin/fr/EntityFramework.SqlServer.resources.dll">
+      <publishTime>03/02/2015 09:32:34</publishTime>
+    </File>
+    <File Include="bin/MovieNetApiWcf.dll">
+      <publishTime>08/29/2017 23:46:59</publishTime>
+    </File>
+    <File Include="bin/MovieNetApiWcf.pdb">
+      <publishTime>08/29/2017 23:46:59</publishTime>
+    </File>
+    <File Include="bin/MovieNetDbProject.exe">
+      <publishTime>08/29/2017 23:46:58</publishTime>
+    </File>
+    <File Include="bin/MovieNetDbProject.pdb">
+      <publishTime>08/29/2017 23:46:58</publishTime>
+    </File>
+    <File Include="FilmService.svc">
+      <publishTime>08/28/2017 22:02:16</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>08/20/2017 23:19:10</publishTime>
+    </File>
+    <File Include="UserService.svc">
+      <publishTime>08/28/2017 22:02:16</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/29/2017 23:46:59</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

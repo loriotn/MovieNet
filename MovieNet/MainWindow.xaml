@@ -13,7 +13,7 @@
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Command="{Binding Disconnect}" Content="Déconnection"/>
-            <Button Command="{Binding openWindow}" >
+            <Button Command="{Binding openWindow}" CommandParameter="connect">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
@@ -40,6 +40,6 @@
                        Command="{Binding NavigateTo}"
                        CommandParameter="film">
         </controls:Tile>
-        <ContentPresenter HorizontalAlignment="Left" Margin="10,100,0,0"  Width="1574" x:Name="Utilisateurs" Content="{Binding CurrentView}" DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}" />
+        <ContentPresenter Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="{Binding Height*0.7}"  Width="{Binding Width}" x:Name="Utilisateurs" Content="{Binding CurrentView}" DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}" />
     </Grid>
 </Controls:MetroWindow>

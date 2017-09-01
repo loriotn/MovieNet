@@ -14,7 +14,7 @@
     <Grid>
         <TextBox Controls:TextBoxHelper.Watermark="Login" Margin="10,10,10,0" VerticalAlignment="Top" Height="20" Controls:TextBoxHelper.ClearTextButton="True" Text="{Binding Utilisateur.nom_utilisateur}"/>
         <PasswordBox Name="pass" Controls:TextBoxHelper.Watermark="Password" VerticalAlignment="Top" Height="20" Controls:TextBoxHelper.ClearTextButton="True" Margin="10,41,10,0"></PasswordBox>
-        <Controls:ToggleSwitch HorizontalAlignment="Left" Width="150"  Margin="10,72,0,10" OnLabel="Nouvelle inscription" OffLabel="Connexion"/>
+        <Controls:ToggleSwitch HorizontalAlignment="Left" Width="150"  Margin="10,72,0,10" OnLabel="Nouvelle inscription" OffLabel="Connexion" IsChecked="{Binding WantConnect}"/>
         <Button Command="{Binding signin}" CommandParameter="{Binding ElementName=pass}" Width="40" Height="40" HorizontalAlignment="Right" Margin="0,72,10,0" VerticalAlignment="Top"  Style="{DynamicResource MetroCircleButtonStyle}">
             <Rectangle Width="20"
                Height="20"

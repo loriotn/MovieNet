@@ -12,5 +12,7 @@ namespace MovieNetApiWcf
     [ServiceContract]
     public interface IUserService
     {
+        [OperationContract]
+        Utilisateur GetByLogin(string login, string password);
     }
 }

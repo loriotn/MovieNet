@@ -17,8 +17,8 @@ namespace MovieNet.Tools
             mainWindow.ResizeMode = ResizeMode.NoResize;
             mainWindow.Left = 0;
             mainWindow.Top = 0;
-            mainWindow.Width = SystemParameters.FullPrimaryScreenWidth;
-            mainWindow.Height = SystemParameters.FullPrimaryScreenHeight;
+            mainWindow.Width = SystemParameters.PrimaryScreenWidth;
+            mainWindow.Height = SystemParameters.PrimaryScreenHeight;
             mainWindow.Topmost = true;
             Height = mainWindow.Height;
             Width = mainWindow.Width;
@@ -30,6 +30,5 @@ namespace MovieNet.Tools
         public double Width { get; set; }
         public double VerticalPosition { get; set; }
         public double HorizontalPosition { get; set; }
-        
     } 
 }

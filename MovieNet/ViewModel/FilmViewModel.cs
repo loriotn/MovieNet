@@ -5,11 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using MovieNetApiWcf;
 using MovieNetDbProject;
+using MovieNet.Tools;
 
 namespace MovieNet.ViewModel
 {
     public class FilmViewModel : MainViewModel
     {
+        private double heightMovie;
+
+        public double HeightMovie
+        {
+            get { return heightMovie; }
+            set { heightMovie = value; RaisePropertyChanged(); }
+        }
+
+        private double widthMovie;
+
+        public double WidthMovie
+        {
+            get { return widthMovie; }
+            set { widthMovie = value; RaisePropertyChanged(); }
+        }
+        MainWindowProperties m = MainWindowProperties.mainWindowProperties;
+
         private bool isFormValid;
 
         public bool IsFormValid
@@ -44,6 +62,8 @@ namespace MovieNet.ViewModel
 
         public FilmViewModel()
         {
+            HeightMovie = m.Height * 0.78;
+            WidthMovie = m.Width - 20;
             Film = new Film();
             Films = Facade.filmService.GetAll();
         }

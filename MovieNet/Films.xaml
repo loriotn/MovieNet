@@ -7,15 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=FilmVm}">
-    <Grid>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="300">
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
+             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=FilmVm}"
+             Height="{Binding HeightMovie}" Width="{Binding WidthMovie-20}" VerticalAlignment="Bottom" MaxHeight="{Binding HeightMovie}" MinWidth="{Binding WidthMovie}">
+    <Grid  Background="Gray" HorizontalAlignment="Center">
+        <TextBox controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Recherhce" x:Name="textBox" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap" Text="{Binding ToSearch}" VerticalAlignment="Top" Width="472"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="655" Height="756">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button" Content="Rechercher" HorizontalAlignment="Left" Margin="472,0,0,0" VerticalAlignment="Top" Width="183" Height="36"/>
+        <ListView x:Name="listView1" HorizontalAlignment="Left" Height="494" Margin="655,41,0,0" VerticalAlignment="Top" Width="1245">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="265" Margin="655,577,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="1245"/>
+        <Label Background="White" x:Name="MovieTitles" Content="Mes films" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Width="655" Height="50"/>
+        <Label Background="White" x:Name="MovieCommentTitle" Content="Les Commentaires" HorizontalAlignment="Left" Margin="655,0,0,801" VerticalAlignment="Bottom" Width="1245" Height="41"/>
+        <Label Background="White" x:Name="NewMovieCommentTitle" Content="Laisser un commentaire" HorizontalAlignment="Left" Margin="655,535,0,0" VerticalAlignment="Top" Width="1245" Height="42"/>
     </Grid>
 </UserControl>
