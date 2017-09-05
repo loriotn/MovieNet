@@ -43,6 +43,7 @@ namespace MovieNetDbProject.Mapper
                 Movie.commentaires = model.commentaire;
                 Movie.resume = model.resume_film;
                 Movie.titre = model.titre_film;
+                Movie.countComment = Context.commentaire.Where(c => c.id_film == model.id).Count();
                 Movie.commentaire = new Commentaire();
                 Movie.newMark = new Note();
             }

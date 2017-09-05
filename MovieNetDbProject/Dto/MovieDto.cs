@@ -20,6 +20,7 @@ namespace MovieNetDbProject.Dto
         public string titre { get; set; }
         public string resume { get; set; }
         public decimal averageMark { get; set; }
+        public int countComment { get; set; }
         public Note newMark { get; set; }
         public Genre genre { get; set; }
         public Commentaire commentaire { get; set; }
