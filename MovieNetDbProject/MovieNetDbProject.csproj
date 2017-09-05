@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commentaire.cs" />
+    <Compile Include="Dto\CommentDto.cs" />
     <Compile Include="Dto\MovieDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Film.cs" />
