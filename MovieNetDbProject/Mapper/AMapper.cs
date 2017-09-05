@@ -20,8 +20,9 @@ namespace MovieNetDbProject.Mapper
             DbSet = Context.Set<TEntity>();
         }
 
-        public abstract TDto ToDto(TEntity models);
-
+        public abstract TDto ToDto(TEntity model);
+        public abstract ICollection<TDto> ToDto(ICollection<TEntity> models);
         public abstract TEntity ToModel(TDto dto);
+        public abstract ICollection<TEntity> ToModel(ICollection<TDto> dtos);
     }
 }

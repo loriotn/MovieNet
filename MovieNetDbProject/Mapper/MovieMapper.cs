@@ -14,6 +14,16 @@ namespace MovieNetDbProject.Mapper
         {
 
         }
+        public override ICollection<MovieDto> ToDto(ICollection<Film> models)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override ICollection<Film> ToModel(ICollection<MovieDto> dtos)
+        {
+            throw new NotImplementedException();
+        }
+
         public override Film ToModel(MovieDto dto)
         {
             throw new NotImplementedException();
@@ -21,11 +31,13 @@ namespace MovieNetDbProject.Mapper
         public override MovieDto ToDto(Film model)
         {
             MovieDto Movie = null;
+
             if (model != null)
             {
+                
                 Movie = new MovieDto();
                 Movie.id = model.id;
-                Movie.averageMark = (int)Context.note.Where(n => n.id_film == model.id).Average(c => c.note);
+                Movie.averageMark = getAverageMark(Context.note.Where(n => n.id_film == model.id).ToList());
                 Movie.genre = model.genre;
                 Movie.marks = model.note;
                 Movie.commentaires = model.commentaire;
@@ -35,6 +47,17 @@ namespace MovieNetDbProject.Mapper
                 Movie.newMark = new Note();
             }
             return Movie;
+        }
+
+        private decimal getAverageMark(List<Note> notes)
+        {
+            int sum = 0;
+            int count = 0;
+            decimal result = 0;
+            notes.ForEach(n => { sum += n.note; count += 1; });
+            if (count != 0)
+                result = sum / count;
+            return result;
         }
     }
 }

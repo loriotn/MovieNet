@@ -47,5 +47,15 @@ namespace MovieNetDbProject.Mapper
             }
             return u;
         }
+
+        public override ICollection<UserDto> ToDto(ICollection<Utilisateur> models)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override ICollection<Utilisateur> ToModel(ICollection<UserDto> dtos)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

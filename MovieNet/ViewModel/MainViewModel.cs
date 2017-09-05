@@ -51,6 +51,7 @@ namespace MovieNet.ViewModel
         public void disconnect()
         {
             Utilisateur = new UserDto();
+            ViewModelLocator.FilmVm.Films = null;
             CurrentView = null;
             WelcomeMessage = Utilisateur?.nom_utilisateur;
         }
@@ -119,6 +120,7 @@ namespace MovieNet.ViewModel
             }
             else if (parameter.Equals("film"))
             {
+                ViewModelLocator.FilmVm.initMovies();
                 selectedView = new Films();
             }
             else if (parameter.Equals("welcome"))

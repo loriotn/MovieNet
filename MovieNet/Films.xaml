@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=FilmVm}"
              Height="{Binding HeightMovie}" Width="{Binding WidthMovie-20}" VerticalAlignment="Bottom" MaxHeight="{Binding HeightMovie}" MinWidth="{Binding WidthMovie}">
     <Grid  Background="#FFCBC0C0" HorizontalAlignment="Center" Width="{Binding WidthMovie}">
@@ -41,9 +42,23 @@
                   VerticalAlignment="Top"
                   AutoGenerateColumns="False" Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1">
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="Genre" />
+                    <controls:DataGridNumericUpDownColumn Header="Price"
+                                                      Binding="{Binding averageMark}"
+                                                      StringFormat="C"
+                                                      Minimum="0" Interval="0" />
                     <DataGridTextColumn Header="Titre" Binding="{Binding titre}" />
                     <DataGridTextColumn Header="Genre" Binding="{Binding genre.label_genre}" />
                     <DataGridTextColumn Header="Note" Binding="{Binding averageMark}" />
+                    <DataGridTemplateColumn Header="Commentaires">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <controls:Badged Badge="{Binding averageMark}" BadgePlacementMode="TopRight">
+                                    <Button Style="{DynamicResource SquareButtonStyle}" Content="Consulter les commentaires" />
+                                </controls:Badged>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
                 
             </DataGrid>

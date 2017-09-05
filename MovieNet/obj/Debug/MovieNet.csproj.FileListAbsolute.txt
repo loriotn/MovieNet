@@ -120,3 +120,6 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.ex
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.application
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.exe
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.pdb
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml

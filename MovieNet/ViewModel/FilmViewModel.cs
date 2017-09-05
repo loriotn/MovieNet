@@ -71,6 +71,11 @@ namespace MovieNet.ViewModel
             set { films = value; RaisePropertyChanged(); }
         }
 
+        public void initMovies()
+        {
+            if (this.Films == null)
+                this.Films = Facade.filmService.GetAll();
+        }
         public FilmViewModel()
         {
             HeightMovie = m.Height * 0.85;
@@ -84,8 +89,7 @@ namespace MovieNet.ViewModel
             WidthButtons = WidthMovie * 1 / 9;
             WidthAreaComment = WidthMovie - WidthGridMovie;
             WidthNewComment = WidthGridMovieComment + WidthButtons;
-            Film = new MovieDto();
-            Films = Facade.filmService.GetAll();
+            initMovies();
         }
     }
 }
