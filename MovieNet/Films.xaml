@@ -36,18 +36,20 @@
                                                       Minimum="0" />
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid ItemsSource="{Binding Albums}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
+            <DataGrid ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
                   Height="{Binding HeightGridMovie}"
                   VerticalAlignment="Top"
                   AutoGenerateColumns="False" Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Commentaires"
-                                    Binding="{Binding Genre.Name}" />
+                    <DataGridTextColumn Header="Titre" Binding="{Binding titre}" />
+                    <DataGridTextColumn Header="Genre" Binding="{Binding genre.label_genre}" />
+                    <DataGridTextColumn Header="Note" Binding="{Binding averageMark}" />
                 </DataGrid.Columns>
+                
             </DataGrid>
             <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button" Content="Rechercher" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding WidthButtons}" Height="{Binding HeightTitle}" Grid.Column="3"/>
-            <TextBox controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nouveau commentaire" x:Name="textBox1" HorizontalAlignment="Left" Height="233"  TextWrapping="Wrap" VerticalAlignment="Top" Width="1056"  Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" BorderThickness="0"/>
-            <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button1" Content="Publier" HorizontalAlignment="Left" Margin="210,0,0,0" VerticalAlignment="Top" Width="212" Height="233" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="2"/>
+            <TextBox controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nouveau commentaire" x:Name="textBox1" HorizontalAlignment="Left" Height="{Binding HeightNewComment}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="{Binding WidthNewComment}"  Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" BorderThickness="0"/>
+            <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button1" Content="Publier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding WidthButtons}" Height="{Binding HeightNewComment}" Grid.Column="3" Grid.Row="2"/>
             <Label Background="#FFF1F7F7" x:Name="label" Content="Mes films" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1479" Height="{Binding HeightTitle}" FontFamily="Sitka Subheading" FontSize="20" controls:ControlsHelper.ContentCharacterCasing="Upper" Grid.ColumnSpan="2"/>
         </Grid>
 

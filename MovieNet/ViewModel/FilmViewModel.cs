@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MovieNetApiWcf;
 using MovieNetDbProject;
 using MovieNet.Tools;
+using MovieNetDbProject.Dto;
 
 namespace MovieNet.ViewModel
 {
@@ -15,6 +16,7 @@ namespace MovieNet.ViewModel
         public double HeightTitle { get; set; }
         public double HeightComment { get; set; }
         public double HeightNewComment { get; set; }
+        public double WidthNewComment { get; set; }
         public double WidthGridMovie { get; set; }
         public double WidthGridMovieComment { get; set; }
         public double WidthButtons { get; set; }
@@ -44,7 +46,7 @@ namespace MovieNet.ViewModel
             get { return isFormValid; }
             set
             {
-                if (string.IsNullOrEmpty(Film?.titre_film) || Film == null)
+                if (string.IsNullOrEmpty(Film?.titre) || Film == null)
                     isFormValid = false;
                 else
                     isFormValid = true;
@@ -52,18 +54,18 @@ namespace MovieNet.ViewModel
             }
         }
 
-        private Film film;
+        private MovieDto film;
 
-        public Film Film
+        public MovieDto Film
         {
             get { return film; }
             set { film = value; RaisePropertyChanged(); }
         }
 
         public FilmService   filmService;
-        private List<Film> films;
+        private List<MovieDto> films;
 
-        public List<Film> Films
+        public List<MovieDto> Films
         {
             get { return films; }
             set { films = value; RaisePropertyChanged(); }
@@ -75,13 +77,14 @@ namespace MovieNet.ViewModel
             WidthMovie = m.Width - 20;
             HeightGridMovie = HeightMovie - HeightMovie * 0.08;
             HeightTitle = HeightMovie * 0.08;
-            HeightNewComment = HeightMovie * 1 / 3;
-            HeightComment = HeightMovie * 2 / 3;
+            HeightNewComment = HeightGridMovie * 1 / 3;
+            HeightComment = HeightGridMovie * 2 / 3;
             WidthGridMovie = WidthMovie * 3 / 9;
             WidthGridMovieComment = WidthMovie * 4 / 9;
             WidthButtons = WidthMovie * 1 / 9;
             WidthAreaComment = WidthMovie - WidthGridMovie;
-            Film = new Film();
+            WidthNewComment = WidthGridMovieComment + WidthButtons;
+            Film = new MovieDto();
             Films = Facade.filmService.GetAll();
         }
     }

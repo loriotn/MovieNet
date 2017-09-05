@@ -52,9 +52,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commentaire.cs" />
+    <Compile Include="Dto\MovieDto.cs" />
+    <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Film.cs" />
     <Compile Include="Genre.cs" />
+    <Compile Include="Interfaces\IDto.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Mapper\AMapper.cs" />
+    <Compile Include="Mapper\MovieMapper.cs" />
+    <Compile Include="Mapper\UserMapper.cs" />
     <Compile Include="Migrations\201708221154443_InitialCreate.cs" />
     <Compile Include="Migrations\201708221154443_InitialCreate.Designer.cs">
       <DependentUpon>201708221154443_InitialCreate.cs</DependentUpon>

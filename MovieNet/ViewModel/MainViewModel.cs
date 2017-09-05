@@ -8,6 +8,7 @@ using System;
 using System.Windows.Controls;
 using System.Windows;
 using MovieNet.Tools;
+using MovieNetDbProject.Dto;
 
 namespace MovieNet.ViewModel
 {
@@ -24,7 +25,7 @@ namespace MovieNet.ViewModel
         public RelayCommand Disconnect { get; private set; }
         public ServiceFacade Facade;
         public string welcomMessage;
-        private Utilisateur _utilisateur;
+        private UserDto _utilisateur;
         private UserControl selectedView;
         public static Window fen;
         public static int id { get; set; }
@@ -43,13 +44,13 @@ namespace MovieNet.ViewModel
             NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);
             openWindow = new RelayCommand(open, openCan);
             Disconnect = new RelayCommand(disconnect, disconnectCan);
-            Utilisateur = new Utilisateur();
+            Utilisateur = new UserDto();
             WelcomeMessage = Utilisateur?.nom_utilisateur;
         }
 
         public void disconnect()
         {
-            Utilisateur = new Utilisateur();
+            Utilisateur = new UserDto();
             CurrentView = null;
             WelcomeMessage = Utilisateur?.nom_utilisateur;
         }
@@ -71,7 +72,7 @@ namespace MovieNet.ViewModel
         public void open()
         {
             DialogService.Dialogs.OpenDialog(typeof(ConnectWindow));
-            Utilisateur = Facade.userService.GetById(id) ?? new Utilisateur();
+            Utilisateur = Facade.userService.GetById(id) ?? new UserDto();
             WelcomeMessage = Utilisateur?.nom_utilisateur;
         }
 
@@ -100,7 +101,7 @@ namespace MovieNet.ViewModel
 
         #region beforetest
 
-        public Utilisateur Utilisateur
+        public UserDto Utilisateur
         {
             get { return _utilisateur; }
             set

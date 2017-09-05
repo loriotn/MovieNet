@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Windows.Controls;
+using MovieNetDbProject.Dto;
 
 namespace MovieNet.ViewModel
 {
@@ -23,8 +24,8 @@ namespace MovieNet.ViewModel
         }
 
         #region getset
-        private static List<Utilisateur> _utilisateurs;
-        public static List<Utilisateur> Utilisateurs
+        private static List<UserDto> _utilisateurs;
+        public static List<UserDto> Utilisateurs
         {
             get { return _utilisateurs; }
             set
@@ -38,7 +39,7 @@ namespace MovieNet.ViewModel
         public void AddExecute()
         {
             //Utilisateurs = service.AddUser(Utilisateur);
-            Utilisateur = new Utilisateur();
+            Utilisateur = new UserDto();
         }
 
         public bool AddCanExecute()

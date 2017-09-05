@@ -8,16 +8,17 @@ using MovieNetDbProject.Interfaces;
 namespace MovieNetApiWcf
 {
     [ServiceContract]
-    public interface IAService<TEntity> where TEntity : class
+    public interface IAService<TDto, TEntity> where TEntity : class, IEntity, new()
+                                              where TDto : class, IDto, new()
     {
         [OperationContract]
-        List<TEntity> GetAll();
+        List<TDto> GetAll();
 
         [OperationContract]
-        TEntity Upsert(TEntity entity);
+        TDto Upsert(TDto dto);
 
         [OperationContract]
-        TEntity GetById(int id);
+        TDto GetById(int id);
 
     }
 }

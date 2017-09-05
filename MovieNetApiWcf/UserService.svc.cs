@@ -7,16 +7,18 @@ using System.ServiceModel.Web;
 using System.Text;
 using MovieNetDbProject;
 using System.Data.Entity.Validation;
+using MovieNetDbProject.Dto;
+using MovieNetDbProject.Mapper;
 
 namespace MovieNetApiWcf
 {
-     public class UserService :AService<Utilisateur>, IUserService
+     public class UserService :AService<UserDto, Utilisateur>, IUserService
     {
-        public UserService(ModelMovieNet context): base(context)
+        public UserService(ModelMovieNet context): base(context, new UserMapper(context))
         {
         }
 
-        public Utilisateur GetByLogin(string login, string password)
+        public UserDto GetByLogin(string login, string password)
         {
             Utilisateur u = new Utilisateur();
             u = DbSet.FirstOrDefault(util => util.nom_utilisateur.Equals(login));
@@ -24,7 +26,16 @@ namespace MovieNetApiWcf
                 return null;
             else if (!string.IsNullOrEmpty(password) && !u.mdp_utilisateur.Equals(password))
                 return null;
-            return u;
+            return Mapper.ToDto(u);
+        }
+
+        public UserDto GetByLogin(string login)
+        {
+            Utilisateur u = new Utilisateur();
+            u = DbSet.FirstOrDefault(util => util.nom_utilisateur.Equals(login));
+            if (u == null)
+                return null;
+            return Mapper.ToDto(u);
         }
     }
 }

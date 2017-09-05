@@ -7,47 +7,67 @@ using System.Text;
 using MovieNetDbProject;
 using System.Data.Entity;
 using MovieNetDbProject.Interfaces;
+using MovieNetDbProject.Mapper;
 
 namespace MovieNetApiWcf
 {
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "AService" à la fois dans le code, le fichier svc et le fichier de configuration.
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez AService.svc ou AService.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
-    public class AService<TEntity> : IAService<TEntity> where TEntity: class, IEntity, new()
+    public class AService<TDto, TEntity> : IAService<TDto, TEntity> where TEntity: class, IEntity, new()
+                                                                    where TDto : class, IDto, new()
     {
         protected readonly ModelMovieNet Context;
         protected readonly IDbSet<TEntity> DbSet;
-        public AService(ModelMovieNet context)
+        protected readonly AMapper<TDto, TEntity> Mapper;
+        public AService(ModelMovieNet context, AMapper<TDto, TEntity> mapper)
         {
             Context = context;
             DbSet = Context.Set<TEntity>();
+            Mapper = mapper;
         }
-        public virtual List<TEntity> GetAll()
+        public virtual List<TDto> GetAll()
         {
-            return DbSet.ToList();
+            List<TEntity> models = DbSet.ToList();
+            List<TDto> dtos = new List<TDto>();
+            if (models != null)
+            {
+                foreach (TEntity model in models)
+                {
+                    TDto dto = new TDto();
+                    dto = Mapper.ToDto(model);
+                    dtos.Add(dto);
+                }
+            }
+            return dtos;
         }
 
-        public virtual TEntity Upsert(TEntity entity)
+        public virtual TDto Upsert(TDto dto)
         {
             TEntity model = new TEntity();
-            if (entity != null)
+            if (dto != null)
             {
-                model = DbSet.FirstOrDefault(e => e.id == entity.id);
+                model = DbSet.FirstOrDefault(e => e.id == dto.id);
                 if (model == null)
                 {
-                    DbSet.Add(entity);
+                    model = Mapper.ToModel(dto);
+                    DbSet.Add(model);
                 }
                 else
                 {
-                    model = entity;
+                    model = Mapper.ToModel(dto);
                 }
                 Context.SaveChanges();
             }
-            return entity;
+            return Mapper.ToDto(model);
         }
 
-        public virtual TEntity GetById(int id)
+        public virtual TDto GetById(int id)
         {
-            return DbSet.FirstOrDefault(c => c.id == id);
+            TEntity model = DbSet.FirstOrDefault(c => c.id == id);
+            TDto dto = new TDto();
+            if (model != null)
+                dto = Mapper.ToDto(model);
+            return dto;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using MovieNetDbProject;
+using MovieNetDbProject.Dto;
 
 namespace MovieNetApiWcf
 {
@@ -13,6 +14,6 @@ namespace MovieNetApiWcf
     public interface IUserService
     {
         [OperationContract]
-        Utilisateur GetByLogin(string login, string password);
+        UserDto GetByLogin(string login, string password);
     }
 }

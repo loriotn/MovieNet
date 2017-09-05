@@ -8,6 +8,7 @@ using System;
 using System.Windows.Controls;
 using System.Windows;
 using MovieNet.Tools;
+using MovieNetDbProject.Dto;
 
 namespace MovieNet.ViewModel
 {
@@ -16,7 +17,7 @@ namespace MovieNet.ViewModel
 
         public ConnectWindowViewModel()
         {
-            Utilisateur = new Utilisateur();
+            Utilisateur = new UserDto();
             signin = new RelayCommand<PasswordBox>(param => Signin(param), CanSignIn);
             close = new RelayCommand(Close, CanClose);
         }
@@ -33,7 +34,7 @@ namespace MovieNet.ViewModel
         private System.Security.SecureString password;
         private string error;
         private bool wantConnect;
-
+        private bool isValid;
         #endregion
 
         #region publicVar
@@ -63,22 +64,27 @@ namespace MovieNet.ViewModel
 
             public void Signin(PasswordBox parameter)
             {
-                bool isValid = true;
-                if (WantConnect)
-                {
-                    Utilisateur.mdp_utilisateur = parameter?.Password;
-                    Utilisateur = Facade?.userService.GetByLogin(Utilisateur?.nom_utilisateur, Utilisateur?.mdp_utilisateur);
+                isValid = true;
+            if (WantConnect)
+            {
+                Utilisateur.mdp_utilisateur = parameter?.Password;
+                Utilisateur = Facade?.userService.GetByLogin(Utilisateur?.nom_utilisateur, Utilisateur?.mdp_utilisateur);
+                if (Utilisateur == null)
                     Utilisateur = nullUser(Utilisateur, ref isValid, "Veuillez saisir un login et un mot de passe valide");
-                }
-                else
-                {
-                    sign(parameter, ref isValid);
-                }
-                endSignIn(isValid);
+            }
+            else if (string.IsNullOrEmpty(parameter?.Password) || string.IsNullOrEmpty(Utilisateur?.nom_utilisateur))
+                Utilisateur = nullUser(Utilisateur, ref isValid, "Veuillez saisir un login et un mot de passe valide");
+            else if (Facade?.userService.GetByLogin(Utilisateur?.nom_utilisateur) != null)
+                Utilisateur = nullUser(Utilisateur, ref isValid, "Ce login existe déjà");
+            else
+                sign(parameter, ref isValid);
+            endSignIn(ref isValid);
             }
 
             public void Close()
             {
+                nullUser(Utilisateur,ref isValid);
+                MainViewModel.id = 0;
                 DialogService.Dialogs.CloseDialog();
             }
 
@@ -116,21 +122,21 @@ namespace MovieNet.ViewModel
             }
         }
 
-        private void endSignIn(bool isValid)
+        private void endSignIn(ref bool isValid)
         {
-            if (isValid)
+            if (isValid == true)
             {
                 UserViewModel.Utilisateurs = Facade.userService.GetAll();
                 MainViewModel.id = Utilisateur.id;
-                Utilisateur = new Utilisateur();
+                Utilisateur = new UserDto();
                 Password = null;
                 DialogService.Dialogs.CloseDialog();
             }
         }
 
-        private Utilisateur nullUser(Utilisateur util, ref bool isValid, string errorMessage)
+        private UserDto nullUser(UserDto util, ref bool isValid, string errorMessage = "")
         {
-            util = new Utilisateur();
+            util = new UserDto();
             Error = errorMessage;
             isValid = false;
             Password = null;
