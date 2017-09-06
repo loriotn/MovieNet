@@ -19,7 +19,6 @@ namespace MovieNetApiWcf
         protected readonly ModelMovieNet Context;
         protected readonly IDbSet<TEntity> DbSet;
         protected readonly AMapper<TDto, TEntity> Mapper;
-        public AService() { }
         public AService(ModelMovieNet context, AMapper<TDto, TEntity> mapper)
         {
             Context = context;

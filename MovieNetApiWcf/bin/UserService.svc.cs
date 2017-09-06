@@ -14,7 +14,6 @@ namespace MovieNetApiWcf
 {
      public class UserService :AService<UserDto, Utilisateur>, IUserService
     {
-        public UserService() { }
         public UserService(ModelMovieNet context): base(context, new UserMapper(context))
         {
         }

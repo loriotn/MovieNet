@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="MovieNetApiWcf.Service1" CodeBehind="UserService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MovieNetApiWcf.UserService" CodeBehind="UserService.svc.cs" %>

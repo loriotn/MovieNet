@@ -11,7 +11,7 @@ using MovieNetDbProject.Dto;
 namespace MovieNetApiWcf
 {
     [ServiceContract]
-    public interface IUserService: IAService<UserDto, Utilisateur>
+    public interface IUserService
     {
         [OperationContract]
         UserDto GetByLogin(string login, string password);
