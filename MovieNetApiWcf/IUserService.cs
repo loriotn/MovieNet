@@ -7,11 +7,12 @@ using System.ServiceModel.Web;
 using System.Text;
 using MovieNetApiWcf;
 using MovieNetApiWcf.Dto;
+using MovieNetApiWcf.Model;
 
 namespace MovieNetApiWcf
 {
     [ServiceContract]
-    public interface IUserService
+    public interface IUserService: IAService<UserDto, Utilisateur>
     {
         [OperationContract]
         UserDto GetByLogin(string login, string password);
