@@ -10,7 +10,8 @@ namespace MovieNet
     public sealed class ServiceFacade
     {
         public UserService userService { get; private set; }
-        public FilmService filmService { get; private set; }    
+        public FilmService filmService { get; private set; }
+        public StyleService styleService { get; private set; } 
         private static readonly ServiceFacade serviceFacade = new ServiceFacade();
         private ModelMovieNet Context;
         public static ServiceFacade ServiceFacadeInstance
@@ -22,6 +23,7 @@ namespace MovieNet
             this.Context = ModelMovieNet.GetContext();
             userService = new UserService(Context);
             filmService = new FilmService(Context);
+            styleService = new StyleService(Context);
         }
     }
 }

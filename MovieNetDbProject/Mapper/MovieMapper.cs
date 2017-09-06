@@ -11,9 +11,11 @@ namespace MovieNetDbProject.Mapper
     public class MovieMapper: AMapper<MovieDto, Film>
     {
         protected readonly CommentMapper commentMapper;
+        protected readonly StyleMapper styleMapper;
         public MovieMapper(ModelMovieNet context): base(context)
         {
             commentMapper = new CommentMapper(context);
+            styleMapper = new StyleMapper(context);
         }
         public override ICollection<MovieDto> ToDto(ICollection<Film> models)
         {
@@ -39,7 +41,7 @@ namespace MovieNetDbProject.Mapper
                 Movie = new MovieDto();
                 Movie.id = model.id;
                 Movie.averageMark = getAverageMark(Context.note.Where(n => n.id_film == model.id).ToList());
-                Movie.genre = model.genre;
+                Movie.genre = styleMapper.ToDto(Context.genre.FirstOrDefault(g => g.id == model.id_genre));
                 Movie.marks = model.note;
                 Movie.commentaires = commentMapper.ToDto(Context.commentaire.Where(c => c.id_film == model.id).ToList()).ToList();
                 Movie.resume = model.resume_film;

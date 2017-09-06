@@ -32,13 +32,21 @@
                     <DataGridTextColumn Header="Genre" Binding="{Binding commentaire}" />
                 </DataGrid.Columns>
             </DataGrid>
+            
             <DataGrid ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
                   Height="{Binding HeightGridMovie}"
-                  VerticalAlignment="Top" Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40" HeadersVisibility="Column" AutoGenerateColumns="False">
+                  VerticalAlignment="Top" Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40" HeadersVisibility="None" AutoGenerateColumns="False" SelectionUnit="Cell" SelectionMode="Single">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Titre" Binding="{Binding titre}" />
-                    <DataGridTextColumn Header="Genre" Binding="{Binding genre.label_genre}" />
                     <DataGridTextColumn Header="Note" Binding="{Binding averageMark}" />
+                    <DataGridTemplateColumn Header="Commentaires">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding Path=DataContext.Styles, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" DisplayMemberPath="label" SelectedValuePath="id" SelectedValue="{Binding genre.id}">
+                                </ComboBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Commentaires">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

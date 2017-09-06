@@ -11,7 +11,7 @@ namespace MovieNetDbProject.Dto
     {
         public MovieDto()
         {
-            genre = new Genre();
+            genre = new StyleDto();
             commentaire = new CommentDto();
             commentaires = new List<CommentDto>();
             marks = new List<Note>();
@@ -22,7 +22,7 @@ namespace MovieNetDbProject.Dto
         public decimal averageMark { get; set; }
         public int countComment { get; set; }
         public Note newMark { get; set; }
-        public Genre genre { get; set; }
+        public StyleDto genre { get; set; }
         public CommentDto commentaire { get; set; }
         public ICollection<CommentDto> commentaires { get; set; }
         public ICollection<Note> marks { get; set; }

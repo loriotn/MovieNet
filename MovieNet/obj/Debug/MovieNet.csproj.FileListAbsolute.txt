@@ -112,8 +112,6 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\SaveMovieWi
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Users.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Welcome.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.g.resources
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.Properties.Resources.resources
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.csproj.GenerateResource.Cache
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.exe.manifest
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.application
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.exe
@@ -121,3 +119,6 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.pd
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml

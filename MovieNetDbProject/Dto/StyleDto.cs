@@ -10,5 +10,6 @@ namespace MovieNetDbProject.Dto
     public class StyleDto: IDto
     {
         public int id { get; set; }
+        public string label { get; set; }
     }
 }

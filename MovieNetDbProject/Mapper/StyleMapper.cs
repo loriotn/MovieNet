@@ -13,11 +13,27 @@ namespace MovieNetDbProject.Mapper
 
         public override StyleDto ToDto(Genre model)
         {
-            throw new NotImplementedException();
+            StyleDto dto = null;
+            if (model != null)
+            {
+                dto = new StyleDto();
+                dto.id = model.id;
+                dto.label = model.label_genre;
+            }
+            return dto;
         }
         public override ICollection<StyleDto> ToDto(ICollection<Genre> models)
         {
-            throw new NotImplementedException();
+            ICollection<StyleDto> dtos = null;
+            if (models != null)
+            {
+                dtos = new List<StyleDto>();
+                foreach (Genre g in models)
+                {
+                    dtos.Add(ToDto(g));
+                }
+            }
+            return dtos;
         }
         public override ICollection<Genre> ToModel(ICollection<StyleDto> dtos)
         {

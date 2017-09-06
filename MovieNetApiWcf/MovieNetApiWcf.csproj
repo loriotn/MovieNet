@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -69,6 +70,7 @@
   <ItemGroup>
     <Content Include="AService.svc" />
     <Content Include="FilmService.svc" />
+    <Content Include="StyleService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -81,7 +83,11 @@
     </Compile>
     <Compile Include="IAService.cs" />
     <Compile Include="IFilmService.cs" />
+    <Compile Include="IStyleService.cs" />
     <Compile Include="ServiceFacade.cs" />
+    <Compile Include="StyleService.svc.cs">
+      <DependentUpon>StyleService.svc</DependentUpon>
+    </Compile>
     <Compile Include="UserService.svc.cs">
       <DependentUpon>UserService.svc</DependentUpon>
     </Compile>
