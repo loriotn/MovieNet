@@ -76,11 +76,25 @@
     <Compile Include="AService.svc.cs">
       <DependentUpon>AService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Dto\CommentDto.cs" />
+    <Compile Include="Dto\MovieDto.cs" />
+    <Compile Include="Dto\UserDto.cs" />
     <Compile Include="FilmService.svc.cs">
       <DependentUpon>FilmService.svc</DependentUpon>
     </Compile>
     <Compile Include="IAService.cs" />
     <Compile Include="IFilmService.cs" />
+    <Compile Include="Interfaces\IDto.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Mapper\AMapper.cs" />
+    <Compile Include="Mapper\MovieMapper.cs" />
+    <Compile Include="Mapper\UserMapper.cs" />
+    <Compile Include="Model\Commentaire.cs" />
+    <Compile Include="Model\film.cs" />
+    <Compile Include="Model\genre.cs" />
+    <Compile Include="Model\ModelMovieNet.cs" />
+    <Compile Include="Model\Note.cs" />
+    <Compile Include="Model\utilisateur.cs" />
     <Compile Include="ServiceFacade.cs" />
     <Compile Include="UserService.svc.cs">
       <DependentUpon>UserService.svc</DependentUpon>
@@ -93,18 +107,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\localService.pubxml" />
+    <None Include="Properties\PublishProfiles\MovieNetApiWcf - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MovieNetDbProject\MovieNetDbProject.csproj">
-      <Project>{760bae76-8ba1-4831-a9cc-8c06b47a05eb}</Project>
-      <Name>MovieNetDbProject</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

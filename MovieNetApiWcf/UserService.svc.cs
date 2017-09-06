@@ -5,10 +5,11 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using MovieNetDbProject;
+using MovieNetApiWcf;
 using System.Data.Entity.Validation;
-using MovieNetDbProject.Dto;
-using MovieNetDbProject.Mapper;
+using MovieNetApiWcf.Dto;
+using MovieNetApiWcf.Mapper;
+using MovieNetApiWcf.Model;
 
 namespace MovieNetApiWcf
 {

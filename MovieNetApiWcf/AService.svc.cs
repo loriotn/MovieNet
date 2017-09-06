@@ -4,10 +4,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using MovieNetDbProject;
 using System.Data.Entity;
-using MovieNetDbProject.Interfaces;
-using MovieNetDbProject.Mapper;
+using MovieNetApiWcf.Interfaces;
+using MovieNetApiWcf.Mapper;
+using MovieNetApiWcf.Model;
 
 namespace MovieNetApiWcf
 {

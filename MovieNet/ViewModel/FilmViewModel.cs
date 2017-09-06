@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MovieNetApiWcf;
-using MovieNetDbProject;
 using MovieNet.Tools;
-using MovieNetDbProject.Dto;
+using MovieNetApiWcf.Dto;
 
 namespace MovieNet.ViewModel
 {

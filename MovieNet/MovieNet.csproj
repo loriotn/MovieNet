@@ -223,10 +223,6 @@
       <Project>{2fe9e2d7-e9f1-417a-895b-a4f53f0c8b4d}</Project>
       <Name>MovieNetApiWcf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MovieNetDbProject\MovieNetDbProject.csproj">
-      <Project>{760bae76-8ba1-4831-a9cc-8c06b47a05eb}</Project>
-      <Name>MovieNetDbProject</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

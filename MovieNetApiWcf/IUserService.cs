@@ -5,8 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using MovieNetDbProject;
-using MovieNetDbProject.Dto;
+using MovieNetApiWcf;
+using MovieNetApiWcf.Dto;
 
 namespace MovieNetApiWcf
 {

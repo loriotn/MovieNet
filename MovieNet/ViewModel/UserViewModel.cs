@@ -1,12 +1,11 @@
 ﻿using GalaSoft.MvvmLight;
 using MovieNetApiWcf;
-using MovieNetDbProject;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Windows.Controls;
-using MovieNetDbProject.Dto;
+using MovieNetApiWcf.Dto;
 
 namespace MovieNet.ViewModel
 {

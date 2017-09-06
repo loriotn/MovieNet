@@ -1,6 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
 using MovieNetApiWcf;
-using MovieNetDbProject;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
@@ -8,7 +7,7 @@ using System;
 using System.Windows.Controls;
 using System.Windows;
 using MovieNet.Tools;
-using MovieNetDbProject.Dto;
+using MovieNetApiWcf.Dto;
 
 namespace MovieNet.ViewModel
 {
