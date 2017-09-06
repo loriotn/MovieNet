@@ -12,8 +12,8 @@ namespace MovieNetDbProject.Dto
         public MovieDto()
         {
             genre = new Genre();
-            commentaire = new Commentaire();
-            commentaires = new List<Commentaire>();
+            commentaire = new CommentDto();
+            commentaires = new List<CommentDto>();
             marks = new List<Note>();
         }
         public int id { get; set; }
@@ -23,8 +23,8 @@ namespace MovieNetDbProject.Dto
         public int countComment { get; set; }
         public Note newMark { get; set; }
         public Genre genre { get; set; }
-        public Commentaire commentaire { get; set; }
-        public ICollection<Commentaire> commentaires { get; set; }
+        public CommentDto commentaire { get; set; }
+        public ICollection<CommentDto> commentaires { get; set; }
         public ICollection<Note> marks { get; set; }
     }
 }

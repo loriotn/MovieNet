@@ -25,33 +25,41 @@
                 <ColumnDefinition Width="{Binding WidthButtons}"/>
             </Grid.ColumnDefinitions>
             <TextBox BorderThickness="0" controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Recherhce" x:Name="textBox" HorizontalAlignment="Left" Height="{Binding HeightTitle}" TextWrapping="Wrap" Text="{Binding ToSearch}" VerticalAlignment="Top"  RenderTransformOrigin="-0.011,1.348" Grid.Column="2" Width="212"/>
-            <DataGrid ItemsSource="{Binding Albums}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="{Binding WidthAreaComment}" Height="{Binding HeightComment}"
+            <DataGrid ItemsSource="{Binding CommentsToShow}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="{Binding WidthAreaComment}" Height="{Binding HeightComment}"
                   Grid.Row="1"
                   AutoGenerateColumns="False" Grid.ColumnSpan="3" Grid.Column="1">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Genre" Binding="{Binding Genre.Name}" />
-                    <controls:DataGridNumericUpDownColumn Header="Price" Binding="{Binding Price}" StringFormat="C" Minimum="0" />
+                    <DataGridTextColumn Header="Genre" Binding="{Binding commentaire}" />
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
                   Height="{Binding HeightGridMovie}"
-                  VerticalAlignment="Top"
-                  AutoGenerateColumns="False" Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40">
+                  VerticalAlignment="Top" Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40" HeadersVisibility="Column" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                     <DataGridTextColumn Header="Titre" Binding="{Binding titre}" />
+                    <DataGridTextColumn Header="Titre" Binding="{Binding titre}" />
                     <DataGridTextColumn Header="Genre" Binding="{Binding genre.label_genre}" />
                     <DataGridTextColumn Header="Note" Binding="{Binding averageMark}" />
                     <DataGridTemplateColumn Header="Commentaires">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <controls:Badged Badge="{Binding countComment}" BadgePlacementMode="TopRight">
-                                    <Button Style="{DynamicResource SquareButtonStyle}" Content="Consulter les commentaires" />
+                                    <Button CommandParameter="{Binding id}"  Command="{Binding Path=DataContext.ViewComment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" Style="{DynamicResource SquareButtonStyle}" Content="Consulter les commentaires" />
                                 </controls:Badged>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Button DockPanel.Dock="Left" CommandParameter="{Binding id}"  Command="{Binding Path=DataContext.UpdateMovie, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" Style="{DynamicResource SquareButtonStyle}" Content="Mettre à jour" Background="#FFDAF985" />
+                                    <Button DockPanel.Dock="Right" CommandParameter="{Binding id}"  Command="{Binding Path=DataContext.DeleteMovie, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" Style="{DynamicResource SquareButtonStyle}" Content="Supprimer" Background="#FFF35050" />
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
-                
+
             </DataGrid>
             <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button" Content="Rechercher" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding WidthButtons}" Height="{Binding HeightTitle}" Grid.Column="3"/>
             <TextBox controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nouveau commentaire" x:Name="textBox1" HorizontalAlignment="Left" Height="{Binding HeightNewComment}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="{Binding WidthNewComment}"  Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" BorderThickness="0"/>

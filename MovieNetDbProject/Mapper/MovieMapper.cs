@@ -10,9 +10,10 @@ namespace MovieNetDbProject.Mapper
 {
     public class MovieMapper: AMapper<MovieDto, Film>
     {
+        protected readonly CommentMapper commentMapper;
         public MovieMapper(ModelMovieNet context): base(context)
         {
-
+            commentMapper = new CommentMapper(context);
         }
         public override ICollection<MovieDto> ToDto(ICollection<Film> models)
         {
@@ -40,11 +41,11 @@ namespace MovieNetDbProject.Mapper
                 Movie.averageMark = getAverageMark(Context.note.Where(n => n.id_film == model.id).ToList());
                 Movie.genre = model.genre;
                 Movie.marks = model.note;
-                Movie.commentaires = model.commentaire;
+                Movie.commentaires = commentMapper.ToDto(Context.commentaire.Where(c => c.id_film == model.id).ToList()).ToList();
                 Movie.resume = model.resume_film;
                 Movie.titre = model.titre_film;
                 Movie.countComment = Context.commentaire.Where(c => c.id_film == model.id).Count();
-                Movie.commentaire = new Commentaire();
+                Movie.commentaire = new CommentDto();
                 Movie.newMark = new Note();
             }
             return Movie;

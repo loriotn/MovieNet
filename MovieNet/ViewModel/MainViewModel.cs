@@ -23,7 +23,6 @@ namespace MovieNet.ViewModel
         public RelayCommand<string> NavigateTo { get; private set; }
         public RelayCommand openWindow { get; private set; }
         public RelayCommand Disconnect { get; private set; }
-        public ServiceFacade Facade;
         public string welcomMessage;
         private UserDto _utilisateur;
         private UserControl selectedView;
@@ -40,7 +39,6 @@ namespace MovieNet.ViewModel
         public MainViewModel()
         {
             setBindingWindowSettings();
-            Facade = ServiceFacade.ServiceFacadeInstance;
             NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);
             openWindow = new RelayCommand(open, openCan);
             Disconnect = new RelayCommand(disconnect, disconnectCan);
@@ -73,7 +71,7 @@ namespace MovieNet.ViewModel
         public void open()
         {
             DialogService.Dialogs.OpenDialog(typeof(ConnectWindow));
-            Utilisateur = Facade.userService.GetById(id) ?? new UserDto();
+            Utilisateur = ViewModelLocator.Facade.userService.GetById(id) ?? new UserDto();
             WelcomeMessage = Utilisateur?.nom_utilisateur;
         }
 

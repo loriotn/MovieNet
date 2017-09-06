@@ -19,7 +19,7 @@ namespace MovieNet.ViewModel
 #endregion
         public UserViewModel()
         {
-            Utilisateurs = Facade.userService.GetAll();
+            Utilisateurs = ViewModelLocator.Facade.userService.GetAll();
             Add = new RelayCommand(AddExecute, AddCanExecute);
         }
 

@@ -53,14 +53,19 @@
   <ItemGroup>
     <Compile Include="Commentaire.cs" />
     <Compile Include="Dto\CommentDto.cs" />
+    <Compile Include="Dto\MarkDto.cs" />
     <Compile Include="Dto\MovieDto.cs" />
+    <Compile Include="Dto\StyleDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Film.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Interfaces\IDto.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Mapper\AMapper.cs" />
+    <Compile Include="Mapper\CommentMapper.cs" />
+    <Compile Include="Mapper\MarkMapper.cs" />
     <Compile Include="Mapper\MovieMapper.cs" />
+    <Compile Include="Mapper\StyleMapper.cs" />
     <Compile Include="Mapper\UserMapper.cs" />
     <Compile Include="Migrations\201708221154443_InitialCreate.cs" />
     <Compile Include="Migrations\201708221154443_InitialCreate.Designer.cs">
@@ -69,6 +74,10 @@
     <Compile Include="Migrations\201708282253473_AddIentity.cs" />
     <Compile Include="Migrations\201708282253473_AddIentity.Designer.cs">
       <DependentUpon>201708282253473_AddIentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709061256383_addIdToNotes.cs" />
+    <Compile Include="Migrations\201709061256383_addIdToNotes.Designer.cs">
+      <DependentUpon>201709061256383_addIdToNotes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelMovieNet.cs" />
@@ -87,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708282253473_AddIentity.resx">
       <DependentUpon>201708282253473_AddIentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709061256383_addIdToNotes.resx">
+      <DependentUpon>201709061256383_addIdToNotes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

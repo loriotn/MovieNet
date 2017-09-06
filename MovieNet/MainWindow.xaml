@@ -38,7 +38,13 @@
                     VerticalAlignment="Top"
                     Content="{StaticResource appbar_movie_clapper}"
                        Command="{Binding NavigateTo}"
-                       CommandParameter="film">
+                       CommandParameter="film" Foreground="{x:Null}">
+            <controls:Tile.Background>
+                <LinearGradientBrush EndPoint="1,0" StartPoint="1,1">
+                    <GradientStop Color="#FF77F111" Offset="0"/>
+                    <GradientStop Color="#FFDCCA14" Offset="1"/>
+                </LinearGradientBrush>
+            </controls:Tile.Background>
         </controls:Tile>
         <ContentPresenter Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="{Binding Height}"  Width="{Binding Width}" x:Name="Utilisateurs" Content="{Binding CurrentView}" DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}" />
     </Grid>

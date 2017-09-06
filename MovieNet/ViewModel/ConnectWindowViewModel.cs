@@ -68,13 +68,13 @@ namespace MovieNet.ViewModel
             if (WantConnect)
             {
                 Utilisateur.mdp_utilisateur = parameter?.Password;
-                Utilisateur = Facade?.userService.GetByLogin(Utilisateur?.nom_utilisateur, Utilisateur?.mdp_utilisateur);
+                Utilisateur = ViewModelLocator.Facade?.userService.GetByLogin(Utilisateur?.nom_utilisateur, Utilisateur?.mdp_utilisateur);
                 if (Utilisateur == null)
                     Utilisateur = nullUser(Utilisateur, ref isValid, "Veuillez saisir un login et un mot de passe valide");
             }
             else if (string.IsNullOrEmpty(parameter?.Password) || string.IsNullOrEmpty(Utilisateur?.nom_utilisateur))
                 Utilisateur = nullUser(Utilisateur, ref isValid, "Veuillez saisir un login et un mot de passe valide");
-            else if (Facade?.userService.GetByLogin(Utilisateur?.nom_utilisateur) != null)
+            else if (ViewModelLocator.Facade?.userService.GetByLogin(Utilisateur?.nom_utilisateur) != null)
                 Utilisateur = nullUser(Utilisateur, ref isValid, "Ce login existe déjà");
             else
                 sign(parameter, ref isValid);
@@ -110,7 +110,7 @@ namespace MovieNet.ViewModel
             {
                 Utilisateur.connecte = true;
                 Utilisateur.inscrit = true;
-                Utilisateur = Facade?.userService.Upsert(Utilisateur);
+                Utilisateur = ViewModelLocator.Facade?.userService.Upsert(Utilisateur);
                 if (Utilisateur == null)
                     nullUser(Utilisateur, ref isValid, "Ce login existe déjà");
                 Error = string.Empty;
@@ -126,7 +126,7 @@ namespace MovieNet.ViewModel
         {
             if (isValid == true)
             {
-                UserViewModel.Utilisateurs = Facade.userService.GetAll();
+                UserViewModel.Utilisateurs = ViewModelLocator.Facade.userService.GetAll();
                 MainViewModel.id = Utilisateur.id;
                 Utilisateur = new UserDto();
                 Password = null;

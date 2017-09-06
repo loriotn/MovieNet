@@ -15,5 +15,7 @@ namespace MovieNetApiWcf
     {
         [OperationContract]
         UserDto GetByLogin(string login, string password);
+        [OperationContract]
+        UserDto GetByLogin(string login);
     }
 }

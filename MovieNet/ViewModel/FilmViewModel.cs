@@ -7,11 +7,13 @@ using MovieNetApiWcf;
 using MovieNetDbProject;
 using MovieNet.Tools;
 using MovieNetDbProject.Dto;
+using GalaSoft.MvvmLight.Command;
 
 namespace MovieNet.ViewModel
 {
     public class FilmViewModel : MainViewModel
     {
+        public RelayCommand<int> ViewComment { get; private set; }
         public double HeightGridMovie { get; set; }
         public double HeightTitle { get; set; }
         public double HeightComment { get; set; }
@@ -21,6 +23,20 @@ namespace MovieNet.ViewModel
         public double WidthGridMovieComment { get; set; }
         public double WidthButtons { get; set; }
         public double WidthAreaComment { get; set; }
+        private MovieDto selectedMovie;
+
+        public MovieDto SelectedMovie
+        {
+            get { return selectedMovie; }
+            set { selectedMovie = value; RaisePropertyChanged(); }
+        }
+        private List<CommentDto> commentsToShow;
+
+        public List<CommentDto> CommentsToShow
+        {
+            get { return commentsToShow; }
+            set { commentsToShow = value; RaisePropertyChanged(); }
+        }
 
         private double heightMovie;
 
@@ -74,7 +90,7 @@ namespace MovieNet.ViewModel
         public void initMovies()
         {
             if (this.Films == null)
-                this.Films = Facade.filmService.GetAll();
+                this.Films = ViewModelLocator.Facade.filmService.GetAll();
         }
         public FilmViewModel()
         {
@@ -89,7 +105,38 @@ namespace MovieNet.ViewModel
             WidthButtons = WidthMovie * 1 / 9;
             WidthAreaComment = WidthMovie - WidthGridMovie;
             WidthNewComment = WidthGridMovieComment + WidthButtons;
+            ViewComment = new RelayCommand<int>(movie => { ViewCommentCan(movie); ViewCommentCanExecute(movie); });
             initMovies();
+        }
+
+        public void ViewCommentCan(int movie)
+        {
+            SelectedMovie = getMovieFromListMovie(movie);
+            if (SelectedMovie != null)
+            {
+                CommentsToShow = SelectedMovie.commentaires.ToList();
+            }
+            else
+            {
+                CommentsToShow = new List<CommentDto>();
+            }
+        }
+        public bool ViewCommentCanExecute(int movie) { return true; }
+
+        private MovieDto getMovieFromListMovie(int id)
+        {
+            MovieDto toShow = null;
+            if (id != 0 && Films != null)
+            {
+                foreach (MovieDto m in Films)
+                {
+                    if (m.id == id)
+                    {
+                        toShow = m;
+                    }
+                }
+            }
+            return toShow;
         }
     }
 }

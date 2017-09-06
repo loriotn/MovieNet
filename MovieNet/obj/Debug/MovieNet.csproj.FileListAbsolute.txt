@@ -50,8 +50,6 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Films.baml
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Users.baml
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\Welcome.baml
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.g.resources
-C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.Properties.Resources.resources
-C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.csproj.GenerateResource.Cache
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.exe.manifest
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.application
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Debug\MovieNet.exe

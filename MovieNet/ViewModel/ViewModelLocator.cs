@@ -8,6 +8,7 @@ namespace MovieNet.ViewModel
 {
     public class ViewModelLocator
     {
+        public static ServiceFacade Facade = ServiceFacade.ServiceFacadeInstance;
         public static MainViewModel MainVm { get; } = new MainViewModel();
         public static UserViewModel UserVm { get; } = new UserViewModel();
         public static FilmViewModel FilmVm { get; } = new FilmViewModel();
