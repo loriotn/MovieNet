@@ -15,6 +15,7 @@ namespace MovieNetApiWcf
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez FilmService.svc ou FilmService.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class FilmService :AService<MovieDto, Film>, IFilmService
     {
+        public FilmService() { }
         public FilmService(ModelMovieNet context) : base(context, new MovieMapper(context))
         {
         }

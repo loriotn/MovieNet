@@ -23,3 +23,4 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetApiWcf\bin\fr\EntityFramework.r
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetApiWcf\bin\fr\EntityFramework.SqlServer.resources.dll
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.dll
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.pdb
+C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.csprojResolveAssemblyReference.cache
