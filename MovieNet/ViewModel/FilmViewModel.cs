@@ -104,8 +104,8 @@ namespace MovieNet.ViewModel
         {
             HeightMovie = m.Height * 0.85;
             WidthMovie = m.Width - 20;
-            HeightGridMovie = HeightMovie - HeightMovie * 0.08;
-            HeightTitle = HeightMovie * 0.08;
+            HeightGridMovie = HeightMovie - HeightMovie * 0.05;
+            HeightTitle = HeightMovie * 0.05;
             HeightNewComment = HeightGridMovie * 1 / 3;
             HeightComment = HeightGridMovie * 2 / 3;
             WidthGridMovie = WidthMovie * 3 / 9;

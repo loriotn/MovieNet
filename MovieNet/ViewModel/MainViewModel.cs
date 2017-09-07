@@ -16,6 +16,8 @@ namespace MovieNet.ViewModel
     {
         public Window w = MainWindowProperties.mainWindowProperties.mainWindow;
         public double Height { get; set; }
+        public double HeightContentPresenter { get; set; }
+        public double HeightStackPanel { get; set; }
         public double Width { get; set; }
         public double Top { get; set; }
         public double Left { get; set; }
@@ -66,6 +68,8 @@ namespace MovieNet.ViewModel
             Width = w.Width;
             Top = w.Top;
             Left = w.Left;
+            HeightContentPresenter = Height * 0.85;
+            HeightStackPanel = Height * 0.1;
             this.ResizeMode = w.ResizeMode;
         }
         public void open()
