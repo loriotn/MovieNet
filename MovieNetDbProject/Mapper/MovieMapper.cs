@@ -37,7 +37,6 @@ namespace MovieNetDbProject.Mapper
 
             if (model != null)
             {
-                
                 Movie = new MovieDto();
                 Movie.id = model.id;
                 Movie.averageMark = getAverageMark(Context.note.Where(n => n.id_film == model.id).ToList());

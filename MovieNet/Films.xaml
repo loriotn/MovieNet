@@ -26,7 +26,7 @@
             </Grid.ColumnDefinitions>
             <DataGrid Padding="0,10,0,0" ItemsSource="{Binding CommentsToShow}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="{Binding WidthAreaComment}" Height="{Binding HeightComment}"
                   Grid.Row="1"
-                  AutoGenerateColumns="False" Grid.ColumnSpan="3" Grid.Column="1">
+                  AutoGenerateColumns="False" Grid.ColumnSpan="3" Grid.Column="1" HeadersVisibility="None" GridLinesVisibility="Horizontal">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Genre" Binding="{Binding commentaire}" />
                 </DataGrid.Columns>
@@ -70,16 +70,19 @@
             </DataGrid>
             <TextBox controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nouveau commentaire" x:Name="textBox1" HorizontalAlignment="Left" Height="{Binding HeightNewComment}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="{Binding WidthNewComment}"  Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" BorderThickness="0"/>
             <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button1" Content="Publier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding WidthButtons}" Height="{Binding HeightNewComment}" Grid.Column="3" Grid.Row="2"/>
-            <Label Background="#FFF1F7F7" x:Name="label" Content="Mes films" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1479" Height="{Binding HeightTitle}" FontFamily="Sitka Subheading" FontSize="20" controls:ControlsHelper.ContentCharacterCasing="Upper" Grid.ColumnSpan="2" Margin="0,-59,0,0"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="{Binding HeightTitle}" Width="{Binding WidthMovie}" HorizontalAlignment="Left"  Grid.ColumnSpan="4" Margin="0,0,0,0">
                 
-                <TextBox Background="White" BorderThickness="0" controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Recherhce" x:Name="textBox" Height="{Binding HeightTitle}" TextWrapping="Wrap" Text="{Binding ToSearch}" VerticalAlignment="Top"  RenderTransformOrigin="-0.011,1.348" HorizontalAlignment="Right" Width="{Binding WidthButtons}"/>
-                <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button" Content="Rechercher" Width="{Binding WidthButtons}" Height="{Binding HeightTitle}" HorizontalAlignment="Right" />
+                <TextBox  Background="White" BorderThickness="0" controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Recherhce" x:Name="textBox" Height="{Binding HeightTitle}" TextWrapping="Wrap" Text="{Binding ToSearch}" VerticalAlignment="Top"  RenderTransformOrigin="-0.011,1.348" HorizontalAlignment="Right" Width="{Binding WidthButtons}"/>
+                <Button  Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button" Content="Rechercher" Width="{Binding WidthButtons}" Height="{Binding HeightTitle}" HorizontalAlignment="Right" />
                 
 
             </StackPanel>
 
         </Grid>
-
+        <Canvas>
+            <Line X1="5" Y1="{Binding PosLineY}" X2="{Binding WidthMovie}" Y2="{Binding PosLineY}" Stroke="Black" StrokeThickness="2">
+                
+            </Line>
+        </Canvas>
     </Grid>
 </UserControl>

@@ -2,6 +2,7 @@ using System;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Configuration;
 
 namespace MovieNetDbProject
 {
@@ -9,13 +10,13 @@ namespace MovieNetDbProject
     public partial class ModelMovieNet : DbContext
     {
         private static ModelMovieNet MovieNetContext;
-        public static ModelMovieNet GetContext()
+        public static ModelMovieNet GetContext(string connection)
         {
             if (MovieNetContext == null)
             {
                 try
                 {
-                    MovieNetContext = new ModelMovieNet();
+                    MovieNetContext = new ModelMovieNet(connection);
                 }
                 catch 
                 {
@@ -25,12 +26,8 @@ namespace MovieNetDbProject
             }
             return MovieNetContext;
         }
-        public ModelMovieNet()
-            : base("Server=tcp:movienetazure.database.windows.net,1433;Initial Catalog=MovieNetAzure;Persist Security Info=False;User ID=MovieNet;Password=M0vieNet;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
-        {
-            //Server=tcp:movienetazure.database.windows.net,1433;Initial Catalog=MovieNetAzure;Persist Security Info=False;User ID=MovieNet;Password=M0vieNet;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-            //Data Source=pa-82t5l12\\localhost;Integrated Security=true;MultipleActiveResultSets=true;Initial Catalog=MovieNetDB
-        }
+        public ModelMovieNet() { }
+        public ModelMovieNet(string connexion): base(connexion) { }
 
         public virtual DbSet<Commentaire> commentaire { get; set; }
         public virtual DbSet<Film> film { get; set; }

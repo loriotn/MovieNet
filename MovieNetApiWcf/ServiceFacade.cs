@@ -18,7 +18,7 @@ namespace MovieNetApiWcf
         }
         private ServiceFacade()
         {
-            this.Context = ModelMovieNet.GetContext();
+            //this.Context = ModelMovieNet.GetContext();
             userService = new UserService(Context);
             filmService = new FilmService(Context);
         }

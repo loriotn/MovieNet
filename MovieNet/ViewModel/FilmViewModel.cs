@@ -23,6 +23,7 @@ namespace MovieNet.ViewModel
         public double WidthGridMovieComment { get; set; }
         public double WidthButtons { get; set; }
         public double WidthAreaComment { get; set; }
+        public double PosLineY{ get; set; }
         private List<StyleDto> styles;
 
         public List<StyleDto> Styles
@@ -108,11 +109,12 @@ namespace MovieNet.ViewModel
             HeightTitle = HeightMovie * 0.05;
             HeightNewComment = HeightGridMovie * 1 / 3;
             HeightComment = HeightGridMovie * 2 / 3;
-            WidthGridMovie = WidthMovie * 3 / 9;
-            WidthGridMovieComment = WidthMovie * 4 / 9;
+            WidthGridMovie = WidthMovie * 4 / 9;
+            WidthGridMovieComment = WidthMovie * 3 / 9;
             WidthButtons = WidthMovie * 1 / 9;
             WidthAreaComment = WidthMovie - WidthGridMovie;
             WidthNewComment = WidthGridMovieComment + WidthButtons;
+            PosLineY = HeightTitle + 3;
             ViewComment = new RelayCommand<int>(movie => { ViewCommentCan(movie); ViewCommentCanExecute(movie); });
             Styles = ViewModelLocator.Facade.styleService.GetAll();
             initMovies();

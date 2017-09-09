@@ -9,6 +9,9 @@ namespace MovieNet
 {
     public sealed class ServiceFacade
     {
+        private string azureConnectionString = "Server=tcp:movienetazure.database.windows.net,1433;Initial Catalog=MovieNetAzure;Persist Security Info=False;User ID=MovieNet;Password=M0vieNet;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
+        private string localConnectionString = "Data Source=pa-82t5l12\\localhost;Integrated Security=true;MultipleActiveResultSets=true;Initial Catalog=MovieNetDB";
+
         public UserService userService { get; private set; }
         public FilmService filmService { get; private set; }
         public StyleService styleService { get; private set; } 
@@ -20,7 +23,7 @@ namespace MovieNet
         }
         private ServiceFacade()
         {
-            this.Context = ModelMovieNet.GetContext();
+            this.Context = ModelMovieNet.GetContext(localConnectionString);
             userService = new UserService(Context);
             filmService = new FilmService(Context);
             styleService = new StyleService(Context);
