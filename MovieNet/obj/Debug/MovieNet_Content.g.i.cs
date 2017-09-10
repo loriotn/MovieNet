@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("connected%20services/servicereference2/reference.svcmap")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("connected%20services/servicereference1/reference.svcmap")]
 
 

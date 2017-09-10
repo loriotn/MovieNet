@@ -68,10 +68,6 @@
     <Compile Include="Mapper\MovieMapper.cs" />
     <Compile Include="Mapper\StyleMapper.cs" />
     <Compile Include="Mapper\UserMapper.cs" />
-    <Compile Include="Migrations\201708221154443_InitialCreate.cs" />
-    <Compile Include="Migrations\201708221154443_InitialCreate.Designer.cs">
-      <DependentUpon>201708221154443_InitialCreate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201708282253473_AddIentity.cs" />
     <Compile Include="Migrations\201708282253473_AddIentity.Designer.cs">
       <DependentUpon>201708282253473_AddIentity.cs</DependentUpon>
@@ -92,9 +88,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708221154443_InitialCreate.resx">
-      <DependentUpon>201708221154443_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708282253473_AddIentity.resx">
       <DependentUpon>201708282253473_AddIentity.cs</DependentUpon>
     </EmbeddedResource>
