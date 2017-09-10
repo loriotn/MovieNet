@@ -68,6 +68,10 @@
     <Compile Include="Mapper\MovieMapper.cs" />
     <Compile Include="Mapper\StyleMapper.cs" />
     <Compile Include="Mapper\UserMapper.cs" />
+    <Compile Include="Migrations\201709101347467_initailcreate.cs" />
+    <Compile Include="Migrations\201709101347467_initailcreate.Designer.cs">
+      <DependentUpon>201709101347467_initailcreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelMovieNet.cs" />
     <Compile Include="Note.cs" />
@@ -78,6 +82,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709101347467_initailcreate.resx">
+      <DependentUpon>201709101347467_initailcreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -52,3 +52,5 @@ D:\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.resources.dll
 D:\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
+D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.initailcreate.resources
+D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
