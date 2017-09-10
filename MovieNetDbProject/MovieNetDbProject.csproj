@@ -68,14 +68,6 @@
     <Compile Include="Mapper\MovieMapper.cs" />
     <Compile Include="Mapper\StyleMapper.cs" />
     <Compile Include="Mapper\UserMapper.cs" />
-    <Compile Include="Migrations\201708282253473_AddIentity.cs" />
-    <Compile Include="Migrations\201708282253473_AddIentity.Designer.cs">
-      <DependentUpon>201708282253473_AddIentity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709061256383_addIdToNotes.cs" />
-    <Compile Include="Migrations\201709061256383_addIdToNotes.Designer.cs">
-      <DependentUpon>201709061256383_addIdToNotes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelMovieNet.cs" />
     <Compile Include="Note.cs" />
@@ -86,14 +78,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708282253473_AddIentity.resx">
-      <DependentUpon>201708282253473_AddIentity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709061256383_addIdToNotes.resx">
-      <DependentUpon>201709061256383_addIdToNotes.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

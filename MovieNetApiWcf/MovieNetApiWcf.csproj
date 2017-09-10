@@ -84,7 +84,6 @@
     <Compile Include="IAService.cs" />
     <Compile Include="IFilmService.cs" />
     <Compile Include="IStyleService.cs" />
-    <Compile Include="ServiceFacade.cs" />
     <Compile Include="StyleService.svc.cs">
       <DependentUpon>StyleService.svc</DependentUpon>
     </Compile>

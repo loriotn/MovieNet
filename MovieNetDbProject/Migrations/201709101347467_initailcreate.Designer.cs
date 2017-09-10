@@ -7,13 +7,13 @@ namespace MovieNetDbProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class initailcreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initailcreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708221154443_InitialCreate"; }
+            get { return "201709101347467_initailcreate"; }
         }
         
         string IMigrationMetadata.Source
