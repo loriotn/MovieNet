@@ -126,7 +126,6 @@ namespace MovieNet.ViewModel
         {
             if (isValid == true)
             {
-                UserViewModel.Utilisateurs = ViewModelLocator.Facade.userService.GetAll();
                 MainViewModel.id = Utilisateur.id;
                 Utilisateur = new UserDto();
                 Password = null;

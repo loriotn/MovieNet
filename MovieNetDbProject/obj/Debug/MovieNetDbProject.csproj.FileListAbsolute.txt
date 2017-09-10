@@ -23,23 +23,7 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbP
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe.config
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.pdb
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.xml
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.resources.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.InitialCreate.resources
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.AddIentity.resources
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.addIdToNotes.resources
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.addIdToNotes.resources
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
 D:\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe.config
 D:\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe
@@ -54,3 +38,16 @@ D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.initailcreate.resources
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe.config
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.pdb
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.xml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.initailcreate.resources
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb

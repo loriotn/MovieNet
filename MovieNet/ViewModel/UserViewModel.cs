@@ -19,20 +19,11 @@ namespace MovieNet.ViewModel
 #endregion
         public UserViewModel()
         {
-            Utilisateurs = ViewModelLocator.Facade.userService.GetAll();
             Add = new RelayCommand(AddExecute, AddCanExecute);
         }
 
         #region getset
-        private static List<UserDto> _utilisateurs;
-        public static List<UserDto> Utilisateurs
-        {
-            get { return _utilisateurs; }
-            set
-            {
-                _utilisateurs = value;
-            }
-        }
+
         #endregion
 
         #region relaycommand

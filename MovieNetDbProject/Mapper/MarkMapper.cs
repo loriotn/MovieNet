@@ -12,22 +12,57 @@ namespace MovieNetDbProject.Mapper
         public MarkMapper(ModelMovieNet context): base(context) { }
         public override ICollection<MarkDto> ToDto(ICollection<Note> models)
         {
-            throw new NotImplementedException();
+            List<MarkDto> dtos = null;
+            if (models != null)
+            {
+                dtos = new List<MarkDto>();
+                foreach (Note model in models)
+                {
+                    dtos.Add(ToDto(model));
+                }
+            }
+            return dtos;
         }
 
         public override MarkDto ToDto(Note model)
         {
-            throw new NotImplementedException();
+            MarkDto dto = null;
+            if (model != null)
+            {
+                dto.id = model.id;
+                dto.mark = model.note;
+                dto.id_film = model.id_film;
+                dto.id_utilisateur = model.id_utilisateur;
+            }
+            return dto;
         }
 
         public override ICollection<Note> ToModel(ICollection<MarkDto> dtos)
         {
-            throw new NotImplementedException();
+            List<Note> models = null;
+            if (dtos != null)
+            {
+                models = new List<Note>();
+                foreach (MarkDto dto in dtos)
+                {
+                    models.Add(ToModel(dto));
+                }
+            }
+            return models;
         }
 
         public override Note ToModel(MarkDto dto)
         {
-            throw new NotImplementedException();
+            Note model = null;
+            if (dto != null)
+            {
+                model = new Note();
+                model.id = dto.id;
+                model.id_film = dto.id_film;
+                model.id_utilisateur = dto.id_utilisateur;
+                model.note = dto.mark;
+            }
+            return model;
         }
     }
 }

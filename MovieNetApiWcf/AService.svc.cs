@@ -29,16 +29,9 @@ namespace MovieNetApiWcf
         public virtual List<TDto> GetAll()
         {
             List<TEntity> models = DbSet.ToList();
-            List<TDto> dtos = new List<TDto>();
+            List<TDto> dtos = null;
             if (models != null)
-            {
-                foreach (TEntity model in models)
-                {
-                    TDto dto = new TDto();
-                    dto = Mapper.ToDto(model);
-                    dtos.Add(dto);
-                }
-            }
+                dtos = Mapper.ToDto(models).ToList();
             return dtos;
         }
 

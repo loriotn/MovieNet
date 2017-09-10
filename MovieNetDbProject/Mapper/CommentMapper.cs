@@ -38,11 +38,30 @@ namespace MovieNetDbProject.Mapper
         }
         public override Commentaire ToModel(CommentDto dto)
         {
-            throw new NotImplementedException();
+            Commentaire model = null;
+            if (dto != null)
+            {
+                model = new Commentaire();
+                model.id = dto.id;
+                model.id_film = dto.id_film;
+                model.id_utilisateur = dto.id_utilisateur;
+                model.commentaire = dto.commentaire;
+            }
+            return model;
         }
+
         public override ICollection<Commentaire> ToModel(ICollection<CommentDto> dtos)
         {
-            throw new NotImplementedException();
+            List<Commentaire> models = null;
+            if (dtos != null)
+            {
+                models = new List<Commentaire>();
+                foreach (CommentDto dto in dtos)
+                {
+                    models.Add(ToModel(dto));
+                }
+            }
+            return models;
         }
     }
 }

@@ -19,7 +19,16 @@ namespace MovieNetDbProject.Mapper
         }
         public override ICollection<MovieDto> ToDto(ICollection<Film> models)
         {
-            throw new NotImplementedException();
+            List<MovieDto> dtos = null;
+            if (models != null)
+            {
+                dtos = new List<MovieDto>();
+                foreach (Film model in models)
+                {
+                    dtos.Add(ToDto(model));
+                }
+            }
+            return dtos;
         }
 
         public override ICollection<Film> ToModel(ICollection<MovieDto> dtos)
