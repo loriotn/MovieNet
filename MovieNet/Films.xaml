@@ -8,9 +8,11 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:vm="clr-namespace:MovieNet.ViewModel"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=FilmVm}"
              Height="{Binding HeightMovie}" Width="{Binding WidthMovie-20}" VerticalAlignment="Bottom" MaxHeight="{Binding HeightMovie}" MinWidth="{Binding WidthMovie}">
     <Grid HorizontalAlignment="Center" Width="{Binding WidthMovie}">
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="{Binding HeightTitle}" />
@@ -32,17 +34,28 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <DataGrid ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
+            <DataGrid SelectedItem="{Binding SelectedMovie}" CanUserAddRows="False" SelectionUnit="FullRow" ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
                   Height="{Binding HeightGridMovie}"
-                  VerticalAlignment="Top" Padding="0,10,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40" HeadersVisibility="None" AutoGenerateColumns="False" SelectionUnit="Cell" SelectionMode="Single">
+                  VerticalAlignment="Top" Padding="0,10,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40" HeadersVisibility="None" AutoGenerateColumns="False" SelectionMode="Single">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Titre" Binding="{Binding titre}" />
-                    <DataGridTextColumn Header="Note" Binding="{Binding averageMark}"  />
-                    <DataGridTemplateColumn Header="Commentaires">
+                    <DataGridTemplateColumn Header="Titre" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox ItemsSource="{Binding Path=DataContext.Styles, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" DisplayMemberPath="label" SelectedValuePath="id" SelectedValue="{Binding genre.id}">
-                                </ComboBox>
+                                <TextBox Text="{Binding titre}">
+                                    
+                                </TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Note" Binding="{Binding averageMark}"  />
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding styles}" 
+                                              DisplayMemberPath="label" 
+                                              SelectedValuePath="id" 
+                                              SelectedValue="{Binding genre.id}" 
+                                              SelectedItem="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.SelectedMovie.genre}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -71,13 +84,9 @@
             <TextBox controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nouveau commentaire" x:Name="textBox1" HorizontalAlignment="Left" Height="{Binding HeightNewComment}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="{Binding WidthNewComment}"  Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" BorderThickness="0"/>
             <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button1" Content="Publier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding WidthButtons}" Height="{Binding HeightNewComment}" Grid.Column="3" Grid.Row="2"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="{Binding HeightTitle}" Width="{Binding WidthMovie}" HorizontalAlignment="Left"  Grid.ColumnSpan="4" Margin="0,0,0,0">
-                
-                <TextBox  Background="White" BorderThickness="0" controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Recherhce" x:Name="textBox" Height="{Binding HeightTitle}" TextWrapping="Wrap" Text="{Binding ToSearch}" VerticalAlignment="Top"  RenderTransformOrigin="-0.011,1.348" HorizontalAlignment="Right" Width="{Binding WidthButtons}"/>
+                <TextBox  Background="White" BorderThickness="0" controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Recherhce" x:Name="textBox" Height="{Binding HeightTitle}" TextWrapping="Wrap" Text="{Binding SelectedStyle}" VerticalAlignment="Top"  RenderTransformOrigin="-0.011,1.348" HorizontalAlignment="Right" Width="{Binding WidthButtons}"/>
                 <Button  Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button" Content="Rechercher" Width="{Binding WidthButtons}" Height="{Binding HeightTitle}" HorizontalAlignment="Right" />
-                
-
             </StackPanel>
-
         </Grid>
         <Canvas>
             <Line X1="5" Y1="{Binding PosLineY}" X2="{Binding WidthMovie}" Y2="{Binding PosLineY}" Stroke="Black" StrokeThickness="2">

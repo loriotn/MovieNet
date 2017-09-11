@@ -42,7 +42,14 @@ namespace MovieNetDbProject.Mapper
 
         public override Genre ToModel(StyleDto dto)
         {
-            throw new NotImplementedException();
+            Genre model = null;
+            if (dto != null)
+            {
+                model = new Genre();
+                model.id = dto.id;
+                model.label_genre = dto.label;
+            }
+            return model;
         }
     }
 }

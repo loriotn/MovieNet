@@ -8,6 +8,7 @@ using MovieNetDbProject;
 using System.Data.Entity;
 using MovieNetDbProject.Interfaces;
 using MovieNetDbProject.Mapper;
+using System.Data.Entity.Migrations;
 
 namespace MovieNetApiWcf
 {
@@ -41,15 +42,8 @@ namespace MovieNetApiWcf
             if (dto != null)
             {
                 model = DbSet.FirstOrDefault(e => e.id == dto.id);
-                if (model == null)
-                {
-                    model = Mapper.ToModel(dto);
-                    DbSet.Add(model);
-                }
-                else
-                {
-                    model = Mapper.ToModel(dto);
-                }
+                model = Mapper.ToModel(dto);
+                DbSet.AddOrUpdate(model);
                 Context.SaveChanges();
             }
             return Mapper.ToDto(model);

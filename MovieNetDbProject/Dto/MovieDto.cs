@@ -14,17 +14,18 @@ namespace MovieNetDbProject.Dto
             genre = new StyleDto();
             commentaire = new CommentDto();
             commentaires = new List<CommentDto>();
-            marks = new List<Note>();
+            marks = new List<MarkDto>();
         }
         public int id { get; set; }
         public string titre { get; set; }
         public string resume { get; set; }
         public decimal averageMark { get; set; }
         public int countComment { get; set; }
-        public Note newMark { get; set; }
+        public MarkDto newMark { get; set; }
         public StyleDto genre { get; set; }
         public CommentDto commentaire { get; set; }
         public ICollection<CommentDto> commentaires { get; set; }
-        public ICollection<Note> marks { get; set; }
+        public ICollection<MarkDto> marks { get; set; }
+        public ICollection<StyleDto> styles { get; set; }
     }
 }

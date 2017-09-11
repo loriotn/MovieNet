@@ -29,6 +29,7 @@ namespace MovieNetDbProject.Mapper
             MarkDto dto = null;
             if (model != null)
             {
+                dto = new MarkDto();
                 dto.id = model.id;
                 dto.mark = model.note;
                 dto.id_film = model.id_film;

@@ -14,6 +14,8 @@ namespace MovieNet.ViewModel
     public class FilmViewModel : MainViewModel
     {
         public RelayCommand<int> ViewComment { get; private set; }
+        public RelayCommand<int> UpdateMovie { get; private set; }
+
         public double HeightGridMovie { get; set; }
         public double HeightTitle { get; set; }
         public double HeightComment { get; set; }
@@ -24,12 +26,20 @@ namespace MovieNet.ViewModel
         public double WidthButtons { get; set; }
         public double WidthAreaComment { get; set; }
         public double PosLineY{ get; set; }
-        private List<StyleDto> styles;
+        private StyleDto selectedStyle;
 
-        public List<StyleDto> Styles
+        public StyleDto SelectedStyle
+        {
+            get { return selectedStyle; }
+            set { selectedStyle = value; RaisePropertyChanged(); SelectedMovie.genre = SelectedStyle; }
+        }
+
+        private static List<StyleDto> styles;
+
+        public static List<StyleDto> Styles
         {
             get { return styles; }
-            set { styles = value; RaisePropertyChanged(); }
+            set { styles = value; }
         }
 
         private MovieDto selectedMovie;
@@ -37,7 +47,10 @@ namespace MovieNet.ViewModel
         public MovieDto SelectedMovie
         {
             get { return selectedMovie; }
-            set { selectedMovie = value; RaisePropertyChanged(); }
+            set
+            {
+                selectedMovie = value; RaisePropertyChanged();
+            }
         }
         private List<CommentDto> commentsToShow;
 
@@ -116,10 +129,36 @@ namespace MovieNet.ViewModel
             WidthNewComment = WidthGridMovieComment + WidthButtons;
             PosLineY = HeightTitle + 3;
             ViewComment = new RelayCommand<int>(movie => { ViewCommentCan(movie); ViewCommentCanExecute(movie); });
+            UpdateMovie = new RelayCommand<int>(movie => { UpdateMovieCan(movie); UpdateMovieCanExecute(movie); });
             Styles = ViewModelLocator.Facade.styleService.GetAll();
             initMovies();
         }
-
+        private MovieDto getMovie(int id)
+        {
+            MovieDto dto = null;
+            foreach (MovieDto d in Films)
+            {
+                if (d.id == id)
+                    dto = d;
+            }
+            return dto;
+        }
+        public void UpdateMovieCan(int id)
+        {
+                SelectedMovie = ViewModelLocator.Facade.filmService.Upsert(SelectedMovie);
+                for (int i = 0; i < Films?.Count(); i++)
+                {
+                    if (Films[i].id == SelectedMovie.id)
+                    {
+                        Films[i] = SelectedMovie;
+                    }
+                }
+                //Films = ViewModelLocator.Facade.filmService.GetAll();
+        }
+        public bool UpdateMovieCanExecute(int id)
+        {
+            return true;
+        }
         public void ViewCommentCan(int movie)
         {
             SelectedMovie = getMovieFromListMovie(movie);
@@ -149,5 +188,6 @@ namespace MovieNet.ViewModel
             }
             return toShow;
         }
+        
     }
 }
