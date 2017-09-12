@@ -35,7 +35,7 @@
             </DataGrid>
 
             <DataGrid SelectedItem="{Binding SelectedMovie}" CanUserAddRows="False" SelectionUnit="FullRow" ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
-                  Height="{Binding HeightGridMovie}"
+                  Height="{Binding HeightComment}"
                   VerticalAlignment="Top" Padding="0,10,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40" HeadersVisibility="None" AutoGenerateColumns="False" SelectionMode="Single">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="Titre" >
@@ -81,6 +81,25 @@
                 </DataGrid.Columns>
 
             </DataGrid>
+            <StackPanel x:Name="dockNewMovie" HorizontalAlignment="Left" Height="{Binding HeightNewComment}" VerticalAlignment="Top" Width="{Binding WidthGridMovie}"  Grid.ColumnSpan="1" Grid.Column="0" Margin="0,0,0,0" Grid.Row="2" Background="Black">
+                <DockPanel x:Name="FirstNameDock" DockPanel.Dock="Top">
+                    <Label Width="120" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" Content="Nom" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
+                    <TextBox controls:TextBoxHelper.ClearTextButton="True" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nom" DockPanel.Dock="Left" Height="{Binding HeightTitle}" Margin="2"></TextBox>
+                </DockPanel>
+                <DockPanel x:Name="LastNameDock" DockPanel.Dock="Top">
+                    <Label Width="120" Content="Nom" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
+                    <TextBox controls:TextBoxHelper.ClearTextButton="True" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Prénom" DockPanel.Dock="Left" Height="{Binding HeightTitle}" Margin="2"></TextBox>
+                </DockPanel>
+                <DockPanel x:Name="MailNameDock" DockPanel.Dock="Top">
+                    <Label Width="120" Content="Nom" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
+                    <TextBox controls:TextBoxHelper.ClearTextButton="True" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Email" DockPanel.Dock="Left" Height="{Binding HeightTitle}" Margin="2"></TextBox>
+                </DockPanel>
+                <DockPanel x:Name="PasswordNameDock" DockPanel.Dock="Top">
+                    <Label Width="120" Content="Nom" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
+                    <TextBox controls:TextBoxHelper.ClearTextButton="True" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Mot de passe" DockPanel.Dock="Left" Height="{Binding HeightTitle}" Margin="2"></TextBox>
+                </DockPanel>
+                <Button Content="Valider" Margin="2"></Button>
+            </StackPanel>
             <TextBox controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nouveau commentaire" x:Name="textBox1" HorizontalAlignment="Left" Height="{Binding HeightNewComment}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="{Binding WidthNewComment}"  Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" BorderThickness="0"/>
             <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button1" Content="Publier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding WidthButtons}" Height="{Binding HeightNewComment}" Grid.Column="3" Grid.Row="2"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="{Binding HeightTitle}" Width="{Binding WidthMovie}" HorizontalAlignment="Left"  Grid.ColumnSpan="4" Margin="0,0,0,0">
