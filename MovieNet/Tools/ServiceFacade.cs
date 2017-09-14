@@ -13,6 +13,8 @@ namespace MovieNet
         public UserService userService { get; private set; }
         public FilmService filmService { get; private set; }
         public StyleService styleService { get; private set; } 
+        public MarkService markService { get; private set; }
+
         private static readonly ServiceFacade serviceFacade = new ServiceFacade();
         private ModelMovieNet Context;
         public static ServiceFacade ServiceFacadeInstance
@@ -25,6 +27,7 @@ namespace MovieNet
             userService = new UserService(Context);
             filmService = new FilmService(Context);
             styleService = new StyleService(Context);
+            markService = new MarkService(Context);
         }
     }
 }

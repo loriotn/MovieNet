@@ -15,7 +15,7 @@ namespace MovieNet.ViewModel
     {
         public RelayCommand<int> ViewComment { get; private set; }
         public RelayCommand<int> UpdateMovie { get; private set; }
-
+        public RelayCommand<string> UpdateNewMark { get; private set; }
         public double HeightGridMovie { get; set; }
         public double HeightTitle { get; set; }
         public double HeightComment { get; set; }
@@ -113,6 +113,13 @@ namespace MovieNet.ViewModel
         {
             if (this.Films == null)
                 this.Films = ViewModelLocator.Facade.filmService.GetAll();
+            if (Films != null)
+            {
+                foreach (MovieDto movie in Films)
+                {
+                    movie.newMark = ViewModelLocator.Facade.markService.GetMarkByUserIdAndMovieId(Utilisateur.id, movie.id);
+                }
+            }
         }
         public FilmViewModel()
         {
@@ -130,9 +137,35 @@ namespace MovieNet.ViewModel
             PosLineY = HeightTitle + 3;
             ViewComment = new RelayCommand<int>(movie => { ViewCommentCan(movie); ViewCommentCanExecute(movie); });
             UpdateMovie = new RelayCommand<int>(movie => { UpdateMovieCan(movie); UpdateMovieCanExecute(movie); });
+            UpdateNewMark = new RelayCommand<string>(operation => UpdateNewMarkCan(operation), UpdateNewMarkCanExecute);
             Styles = ViewModelLocator.Facade.styleService.GetAll();
             initMovies();
         }
+        public void UpdateNewMarkCan(string operation)
+        {
+            if (string.IsNullOrEmpty(operation) || SelectedMovie == null || SelectedMovie?.newMark == null)
+                return;
+            else if (operation.Equals("up") && SelectedMovie.newMark.mark < 20)
+            {
+                SelectedMovie.newMark.mark += 1;
+            }
+            else if (operation.Equals("down") && SelectedMovie.newMark.mark > 0)
+            {
+                SelectedMovie.newMark.mark -= 1;
+            }
+            SelectedMovie = updateSelectedMovie(SelectedMovie);
+        }
+
+        private MovieDto updateSelectedMovie(MovieDto toUpdate)
+        {
+            MovieDto temp = new MovieDto();
+            temp = toUpdate;
+            return temp;
+        }
+
+        public bool UpdateNewMarkCanExecute(string operation) {return true;}
+
+
         private MovieDto getMovie(int id)
         {
             MovieDto dto = null;

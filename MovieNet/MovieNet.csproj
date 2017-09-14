@@ -121,7 +121,6 @@
     <Compile Include="Films.xaml.cs">
       <DependentUpon>Films.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interface\IPassword.cs" />
     <Compile Include="ConnectWindow.xaml.cs">
       <DependentUpon>ConnectWindow.xaml</DependentUpon>
     </Compile>

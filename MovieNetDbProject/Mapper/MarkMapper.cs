@@ -26,10 +26,9 @@ namespace MovieNetDbProject.Mapper
 
         public override MarkDto ToDto(Note model)
         {
-            MarkDto dto = null;
+            MarkDto dto = new MarkDto();
             if (model != null)
             {
-                dto = new MarkDto();
                 dto.id = model.id;
                 dto.mark = model.note;
                 dto.id_film = model.id_film;

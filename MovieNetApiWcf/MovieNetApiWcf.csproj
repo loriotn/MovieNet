@@ -22,6 +22,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,6 +71,7 @@
   <ItemGroup>
     <Content Include="AService.svc" />
     <Content Include="FilmService.svc" />
+    <Content Include="MarkService.svc" />
     <Content Include="StyleService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config" />
@@ -83,7 +85,11 @@
     </Compile>
     <Compile Include="IAService.cs" />
     <Compile Include="IFilmService.cs" />
+    <Compile Include="IMarkService.cs" />
     <Compile Include="IStyleService.cs" />
+    <Compile Include="MarkService.svc.cs">
+      <DependentUpon>MarkService.svc</DependentUpon>
+    </Compile>
     <Compile Include="StyleService.svc.cs">
       <DependentUpon>StyleService.svc</DependentUpon>
     </Compile>
