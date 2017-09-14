@@ -38,28 +38,10 @@
                   Height="{Binding HeightComment}"
                   VerticalAlignment="Top" Padding="0,10,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40" HeadersVisibility="None" AutoGenerateColumns="False" SelectionMode="Single">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Titre" >
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Text="{Binding titre}">
-                                    
-                                </TextBox>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Note" Binding="{Binding averageMark}"  />
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <ComboBox ItemsSource="{Binding styles}" 
-                                              DisplayMemberPath="label" 
-                                              SelectedValuePath="id" 
-                                              SelectedValue="{Binding genre.id}" 
-                                              SelectedItem="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.SelectedMovie.genre}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Commentaires">
+                    <DataGridTextColumn Binding="{Binding titre}" />
+                    <DataGridTextColumn Binding="{Binding averageMark}" />
+                    <DataGridTextColumn Binding="{Binding genre.label}" />
+                    <DataGridTemplateColumn Header="Commentaires" Width="{Binding WidthButtons}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <controls:Badged Badge="{Binding countComment}" BadgePlacementMode="Right">
@@ -68,11 +50,10 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="{Binding WidthButtons}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                                    <Button Margin="5" DockPanel.Dock="Left" CommandParameter="{Binding id}"  Command="{Binding Path=DataContext.UpdateMovie, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" Style="{DynamicResource SquareButtonStyle}" Content="Mettre à jour" Background="#FFDAF985" />
                                     <Button Margin="5" DockPanel.Dock="Right" CommandParameter="{Binding id}"  Command="{Binding Path=DataContext.DeleteMovie, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" Style="{DynamicResource SquareButtonStyle}" Content="Supprimer" Background="#FFF35050" />
                                 </StackPanel>
                             </DataTemplate>
@@ -81,10 +62,10 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <StackPanel x:Name="dockNewMovie" HorizontalAlignment="Left" Height="{Binding HeightNewComment}" VerticalAlignment="Top" Width="{Binding WidthGridMovie}"  Grid.ColumnSpan="1" Grid.Column="0" Margin="0,0,0,0" Grid.Row="2" Background="Black">
+            <StackPanel x:Name="dockNewMovie" HorizontalAlignment="Left" Height="{Binding HeightNewComment}" VerticalAlignment="Top" Width="{Binding WidthGridMovie}"  Grid.ColumnSpan="1" Grid.Column="0" Margin="0,0,0,0" Grid.Row="2">
                 <DockPanel x:Name="FirstNameDock" DockPanel.Dock="Top">
                     <Label Width="120" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" Content="Titre" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
-                    <TextBox Text="{Binding SelectedMovie.titre}" controls:TextBoxHelper.ClearTextButton="True" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre" DockPanel.Dock="Left" Height="{Binding HeightTitle}" Margin="2"></TextBox>
+                    <TextBox Text="{Binding SelectedMovie.titre}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre" DockPanel.Dock="Left" Height="{Binding HeightTitle}" Margin="2"></TextBox>
                 </DockPanel>
                 <DockPanel x:Name="LastNameDock" DockPanel.Dock="Top">
                     <Label Width="120" Content="Genre" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
@@ -92,18 +73,22 @@
                 </DockPanel>
                 <DockPanel DockPanel.Dock="Top">
                     <Label Width="120" Content="Résumé" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
-                    <TextBox Text="{Binding SelectedMovie.resume}" controls:TextBoxHelper.ClearTextButton="True" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau résumé" DockPanel.Dock="Left" Height="{Binding HeightTitle}" Margin="2"></TextBox>
+                    <TextBox Text="{Binding SelectedMovie.resume}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau résumé" DockPanel.Dock="Left" Height="{Binding HeightTitle}" Margin="2"></TextBox>
                 </DockPanel>
                 <DockPanel x:Name="PasswordNameDock" DockPanel.Dock="Top" LastChildFill="True">
                     <Label Width="120" Content="Ma note" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
 
-                    <StackPanel DockPanel.Dock="Right" Width="{Binding HeightTitle}" Margin="2">
-                        <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}" CommandParameter="up" Command="{Binding UpdateNewMark}" Content="+"  Background="#CC48DA11"></Button>
-                        <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}" CommandParameter="down" Command="{Binding UpdateNewMark}" Content="-" Background="#CCF3400C"></Button>
+                    <StackPanel DockPanel.Dock="Right" Height="{Binding HeightTitle}" Width="{Binding HeightTitle}" Margin="2">
+                        <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}" Height="{Binding HeightLittleButton}" CommandParameter="up" Command="{Binding UpdateNewMark}" Content="+"  Background="#CC48DA11"></Button>
+                        <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}" Height="{Binding HeightLittleButton}" CommandParameter="down" Command="{Binding UpdateNewMark}" Content="-" Background="#CCF3400C"></Button>
                     </StackPanel>
                     <TextBox IsReadOnly="True" Text="{Binding SelectedMovie.newMark.mark}" VerticalContentAlignment="Center" Height="{Binding HeightTitle}" Margin="2"></TextBox>
                 </DockPanel>
-                <Button Style="{StaticResource AccentedSquareButtonStyle}" Content="Valider" Margin="2"></Button>
+                <DockPanel DockPanel.Dock="Top" LastChildFill="True" Height="{Binding HeightTitle}">
+                    <Button Width="{Binding WidthButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding UpdateMovie}" Content="Valider" Margin="2" DockPanel.Dock="Right"></Button>
+                    <Label  Foreground="#FFF30A0A" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding ErrorMessage}"></Label>
+                </DockPanel>
+                
             </StackPanel>
             <TextBox controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nouveau commentaire" x:Name="textBox1" HorizontalAlignment="Left" Height="{Binding HeightNewComment}"  TextWrapping="Wrap" VerticalAlignment="Top" Width="{Binding WidthNewComment}"  Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" BorderThickness="0"/>
             <Button Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button1" Content="Publier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding WidthButtons}" Height="{Binding HeightNewComment}" Grid.Column="3" Grid.Row="2"/>

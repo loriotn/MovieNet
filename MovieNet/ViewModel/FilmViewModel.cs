@@ -14,8 +14,9 @@ namespace MovieNet.ViewModel
     public class FilmViewModel : MainViewModel
     {
         public RelayCommand<int> ViewComment { get; private set; }
-        public RelayCommand<int> UpdateMovie { get; private set; }
+        public RelayCommand UpdateMovie { get; private set; }
         public RelayCommand<string> UpdateNewMark { get; private set; }
+        public double HeightLittleButton { get; set; }
         public double HeightGridMovie { get; set; }
         public double HeightTitle { get; set; }
         public double HeightComment { get; set; }
@@ -26,6 +27,14 @@ namespace MovieNet.ViewModel
         public double WidthButtons { get; set; }
         public double WidthAreaComment { get; set; }
         public double PosLineY{ get; set; }
+        private string errorMessage;
+
+        public string ErrorMessage
+        {
+            get { return errorMessage; }
+            set { errorMessage = value; RaisePropertyChanged(); }
+        }
+
         private StyleDto selectedStyle;
 
         public StyleDto SelectedStyle
@@ -117,18 +126,20 @@ namespace MovieNet.ViewModel
             {
                 foreach (MovieDto movie in Films)
                 {
-                    movie.newMark = ViewModelLocator.Facade.markService.GetMarkByUserIdAndMovieId(Utilisateur.id, movie.id);
+                    movie.newMark = ViewModelLocator.Facade.markService.GetMarkByUserIdAndMovieId(ViewModelLocator.MainVm.Utilisateur.id, movie.id);
                 }
             }
         }
         public FilmViewModel()
         {
+            SelectedMovie = updateSelectedMovie(new MovieDto());
             HeightMovie = m.Height * 0.85;
             WidthMovie = m.Width - 20;
             HeightGridMovie = HeightMovie - HeightMovie * 0.05;
             HeightTitle = HeightMovie * 0.05;
             HeightNewComment = HeightGridMovie * 1 / 3;
             HeightComment = HeightGridMovie * 2 / 3;
+            HeightLittleButton = HeightTitle / 2;
             WidthGridMovie = WidthMovie * 4 / 9;
             WidthGridMovieComment = WidthMovie * 3 / 9;
             WidthButtons = WidthMovie * 1 / 9;
@@ -136,7 +147,7 @@ namespace MovieNet.ViewModel
             WidthNewComment = WidthGridMovieComment + WidthButtons;
             PosLineY = HeightTitle + 3;
             ViewComment = new RelayCommand<int>(movie => { ViewCommentCan(movie); ViewCommentCanExecute(movie); });
-            UpdateMovie = new RelayCommand<int>(movie => { UpdateMovieCan(movie); UpdateMovieCanExecute(movie); });
+            UpdateMovie = new RelayCommand(UpdateMovieCan, UpdateMovieCanExecute);
             UpdateNewMark = new RelayCommand<string>(operation => UpdateNewMarkCan(operation), UpdateNewMarkCanExecute);
             Styles = ViewModelLocator.Facade.styleService.GetAll();
             initMovies();
@@ -160,6 +171,8 @@ namespace MovieNet.ViewModel
         {
             MovieDto temp = new MovieDto();
             temp = toUpdate;
+            if (toUpdate?.newMark == null)
+                temp.newMark = new MarkDto();
             return temp;
         }
 
@@ -176,19 +189,56 @@ namespace MovieNet.ViewModel
             }
             return dto;
         }
-        public void UpdateMovieCan(int id)
+        public void UpdateMovieCan()
         {
-                SelectedMovie = ViewModelLocator.Facade.filmService.Upsert(SelectedMovie);
-                for (int i = 0; i < Films?.Count(); i++)
+            if (string.IsNullOrEmpty(SelectedMovie?.resume) || string.IsNullOrEmpty(SelectedMovie?.titre))
+            {
+                ErrorMessage = "Veuillez remplir tous les champs";
+                return;
+            }
+            addOrUpdateNewMarkDto(SelectedMovie);
+            ViewModelLocator.Facade.filmService.Upsert(SelectedMovie);
+            SelectedMovie = new MovieDto();
+            SelectedMovie = updateSelectedMovie(SelectedMovie);
+            Films = new List<MovieDto>();
+            Films = ViewModelLocator.Facade.filmService.GetAll();
+            initMovies();
+            ErrorMessage = "";
+        }
+
+        private void addOrUpdateNewMarkDto(MovieDto movie)
+        {
+            if (movie?.newMark == null || ViewModelLocator.MainVm.Utilisateur == null)
+            {
+                return;
+            }
+            else
+            {
+                movie.newMark.id_film = movie.id;
+                movie.newMark.id_utilisateur = ViewModelLocator.MainVm.Utilisateur.id;
+            }
+            if (movie?.marks == null)
+            {
+                movie.marks = new List<MarkDto>();
+                movie.marks.Add(movie.newMark);
+            }
+            else
+            {
+                bool inMarkList = false;
+                foreach (MarkDto m in movie.marks)
                 {
-                    if (Films[i].id == SelectedMovie.id)
+                    if (m.id_film == movie.id && m.id_utilisateur == ViewModelLocator.MainVm.Utilisateur.id)
                     {
-                        Films[i] = SelectedMovie;
+                        m.mark = movie.newMark.mark;
+                        inMarkList = true;
                     }
                 }
-                //Films = ViewModelLocator.Facade.filmService.GetAll();
+                if (!inMarkList)
+                    movie.marks.Add(movie.newMark);
+            }
         }
-        public bool UpdateMovieCanExecute(int id)
+
+        public bool UpdateMovieCanExecute()
         {
             return true;
         }
