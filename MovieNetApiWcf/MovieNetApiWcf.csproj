@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AService.svc" />
+    <Content Include="CommentService.svc" />
     <Content Include="FilmService.svc" />
     <Content Include="MarkService.svc" />
     <Content Include="StyleService.svc" />
@@ -80,10 +81,14 @@
     <Compile Include="AService.svc.cs">
       <DependentUpon>AService.svc</DependentUpon>
     </Compile>
+    <Compile Include="CommentService.svc.cs">
+      <DependentUpon>CommentService.svc</DependentUpon>
+    </Compile>
     <Compile Include="FilmService.svc.cs">
       <DependentUpon>FilmService.svc</DependentUpon>
     </Compile>
     <Compile Include="IAService.cs" />
+    <Compile Include="ICommentService.cs" />
     <Compile Include="IFilmService.cs" />
     <Compile Include="IMarkService.cs" />
     <Compile Include="IStyleService.cs" />

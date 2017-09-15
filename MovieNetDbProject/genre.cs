@@ -14,7 +14,6 @@ namespace MovieNetDbProject
     {
         public Genre()
         {
-            film = new List<Film>();
         }
 
         [Key]
@@ -25,7 +24,5 @@ namespace MovieNetDbProject
         [StringLength(255)]
         [Column("label_genre")]
         public string label_genre { get; set; }
-
-        public virtual ICollection<Film> film { get; set; }
     }
 }

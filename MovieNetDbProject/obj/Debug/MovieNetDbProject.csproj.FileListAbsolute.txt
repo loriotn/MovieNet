@@ -61,9 +61,12 @@ C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\bin\Debug\EntityFra
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.resources.dll
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
-C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
-C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.initailcreate.resources
-C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.CoreCompileInputs.cache
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
+C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.deleteGenreListMovieFromStyleModel.resources
+C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
+C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.deleteGenreObjectFromMovie.resources
+C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.renameId_genre.resources
+C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.renameId_genrebis.resources
+C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache

@@ -63,11 +63,6 @@ namespace MovieNetDbProject
                 .Property(e => e.label_genre)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Genre>()
-                .HasMany(e => e.film)
-                .WithRequired(e => e.genre)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Utilisateur>()
                 .Property(e => e.nom_utilisateur)
                 .IsUnicode(false);

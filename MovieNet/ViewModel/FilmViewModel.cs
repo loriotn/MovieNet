@@ -15,8 +15,10 @@ namespace MovieNet.ViewModel
     {
         public RelayCommand<int> ViewComment { get; private set; }
         public RelayCommand UpdateMovie { get; private set; }
+        public RelayCommand NewMovie { get; private set; }
         public RelayCommand<string> UpdateNewMark { get; private set; }
-        public double HeightLittleButton { get; set; }
+        public RelayCommand UpdateComment { get; private set; }
+        public double FontSize { get; set; }
         public double HeightGridMovie { get; set; }
         public double HeightTitle { get; set; }
         public double HeightComment { get; set; }
@@ -25,8 +27,10 @@ namespace MovieNet.ViewModel
         public double WidthGridMovie { get; set; }
         public double WidthGridMovieComment { get; set; }
         public double WidthButtons { get; set; }
+        public double WidthLittleButtons { get; set; }
         public double WidthAreaComment { get; set; }
         public double PosLineY{ get; set; }
+
         private string errorMessage;
 
         public string ErrorMessage
@@ -58,7 +62,8 @@ namespace MovieNet.ViewModel
             get { return selectedMovie; }
             set
             {
-                selectedMovie = value; RaisePropertyChanged();
+                selectedMovie = value;
+                RaisePropertyChanged();
             }
         }
         private List<CommentDto> commentsToShow;
@@ -127,6 +132,7 @@ namespace MovieNet.ViewModel
                 foreach (MovieDto movie in Films)
                 {
                     movie.newMark = ViewModelLocator.Facade.markService.GetMarkByUserIdAndMovieId(ViewModelLocator.MainVm.Utilisateur.id, movie.id);
+                    movie.commentaire = ViewModelLocator.Facade.commentService.GetCommentByUserIdAndMovieId(ViewModelLocator.MainVm.Utilisateur.id, movie.id);
                 }
             }
         }
@@ -139,19 +145,68 @@ namespace MovieNet.ViewModel
             HeightTitle = HeightMovie * 0.05;
             HeightNewComment = HeightGridMovie * 1 / 3;
             HeightComment = HeightGridMovie * 2 / 3;
-            HeightLittleButton = HeightTitle / 2;
-            WidthGridMovie = WidthMovie * 4 / 9;
-            WidthGridMovieComment = WidthMovie * 3 / 9;
+            FontSize = (m.Height * m.Width) / 103680;
+            WidthGridMovie = WidthMovie * 3 / 9;
+            WidthGridMovieComment = WidthMovie * 4 / 9;
             WidthButtons = WidthMovie * 1 / 9;
+            WidthLittleButtons = WidthButtons / 2;
             WidthAreaComment = WidthMovie - WidthGridMovie;
             WidthNewComment = WidthGridMovieComment + WidthButtons;
             PosLineY = HeightTitle + 3;
             ViewComment = new RelayCommand<int>(movie => { ViewCommentCan(movie); ViewCommentCanExecute(movie); });
             UpdateMovie = new RelayCommand(UpdateMovieCan, UpdateMovieCanExecute);
             UpdateNewMark = new RelayCommand<string>(operation => UpdateNewMarkCan(operation), UpdateNewMarkCanExecute);
+            NewMovie = new RelayCommand(NewMovieCan, NewMovieCanExecute);
+            UpdateComment = new RelayCommand(UpdateCommentCan, UpdateCommentCanExecute);
             Styles = ViewModelLocator.Facade.styleService.GetAll();
             initMovies();
         }
+
+        public void UpdateCommentCan()
+        {
+            if (SelectedMovie == null)
+                return;
+            addOrUpdateComment(SelectedMovie);
+            endUpdate();
+        }
+        private void addOrUpdateComment(MovieDto movie)
+        {
+            if (movie?.commentaire == null || ViewModelLocator.MainVm.Utilisateur == null)
+            {
+                return;
+            }
+            else
+            {
+                movie.commentaire.id_film = movie.id;
+                movie.commentaire.id_utilisateur = ViewModelLocator.MainVm.Utilisateur.id;
+            }
+            if (movie?.commentaires == null)
+            {
+                movie.commentaires = new List<CommentDto>();
+                movie.commentaires.Add(movie.commentaire);
+            }
+            else
+            {
+                bool inCommentList = false;
+                foreach (CommentDto m in movie.commentaires)
+                {
+                    if (m.id_film == movie.id && m.id_utilisateur == ViewModelLocator.MainVm.Utilisateur.id)
+                    {
+                        m.commentaire = movie.commentaire.commentaire;
+                        inCommentList = true;
+                    }
+                }
+                if (!inCommentList)
+                    movie.commentaires.Add(movie.commentaire);
+            }
+        }
+
+        public bool UpdateCommentCanExecute() { return true; }
+        public void NewMovieCan()
+        {
+            SelectedMovie = updateSelectedMovie(new MovieDto());
+        }
+        public bool NewMovieCanExecute() { return true; }
         public void UpdateNewMarkCan(string operation)
         {
             if (string.IsNullOrEmpty(operation) || SelectedMovie == null || SelectedMovie?.newMark == null)
@@ -168,14 +223,16 @@ namespace MovieNet.ViewModel
         }
 
         private MovieDto updateSelectedMovie(MovieDto toUpdate)
-        {
+          {
+
             MovieDto temp = new MovieDto();
             temp = toUpdate;
-            if (toUpdate?.newMark == null)
+            if (temp?.newMark == null)
                 temp.newMark = new MarkDto();
+            if (temp.commentaire == null)
+                temp.commentaire = new CommentDto();
             return temp;
         }
-
         public bool UpdateNewMarkCanExecute(string operation) {return true;}
 
 
@@ -197,13 +254,17 @@ namespace MovieNet.ViewModel
                 return;
             }
             addOrUpdateNewMarkDto(SelectedMovie);
+            endUpdate();
+        }
+
+        private void endUpdate()
+        {
             ViewModelLocator.Facade.filmService.Upsert(SelectedMovie);
-            SelectedMovie = new MovieDto();
-            SelectedMovie = updateSelectedMovie(SelectedMovie);
             Films = new List<MovieDto>();
             Films = ViewModelLocator.Facade.filmService.GetAll();
             initMovies();
             ErrorMessage = "";
+            SelectedMovie = updateSelectedMovie(new MovieDto());
         }
 
         private void addOrUpdateNewMarkDto(MovieDto movie)

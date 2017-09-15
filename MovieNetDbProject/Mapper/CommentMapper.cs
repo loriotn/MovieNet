@@ -12,10 +12,9 @@ namespace MovieNetDbProject.Mapper
         public CommentMapper(ModelMovieNet context): base(context) { }
         public override CommentDto ToDto(Commentaire model)
         {
-            CommentDto dto = null;
+            CommentDto dto = new CommentDto();
             if (model != null)
             {
-                dto = new CommentDto();
                 dto.commentaire = model.commentaire;
                 dto.id_film = model.id_film;
                 dto.id_utilisateur = model.id_utilisateur;

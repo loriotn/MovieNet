@@ -35,10 +35,9 @@ namespace MovieNetDbProject
         #endregion
 
         #region Foreign key
-        [Column("id_genre")]
-        public int id_genre { get; set; }
+        [Column("genre_id")]
+        public int genre_id { get; set; }
         public virtual ICollection<Commentaire> commentaire { get; set; }
-        public virtual Genre genre { get; set; }
         public virtual ICollection<Note> note { get; set; }
         #endregion
     }

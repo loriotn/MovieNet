@@ -68,9 +68,21 @@
     <Compile Include="Mapper\MovieMapper.cs" />
     <Compile Include="Mapper\StyleMapper.cs" />
     <Compile Include="Mapper\UserMapper.cs" />
-    <Compile Include="Migrations\201709101347467_initailcreate.cs" />
-    <Compile Include="Migrations\201709101347467_initailcreate.Designer.cs">
-      <DependentUpon>201709101347467_initailcreate.cs</DependentUpon>
+    <Compile Include="Migrations\201709151002360_deleteGenreListMovieFromStyleModel.cs" />
+    <Compile Include="Migrations\201709151002360_deleteGenreListMovieFromStyleModel.Designer.cs">
+      <DependentUpon>201709151002360_deleteGenreListMovieFromStyleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709151006223_deleteGenreObjectFromMovie.cs" />
+    <Compile Include="Migrations\201709151006223_deleteGenreObjectFromMovie.Designer.cs">
+      <DependentUpon>201709151006223_deleteGenreObjectFromMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709151012184_renameId_genre.cs" />
+    <Compile Include="Migrations\201709151012184_renameId_genre.Designer.cs">
+      <DependentUpon>201709151012184_renameId_genre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709151016195_renameId_genrebis.cs" />
+    <Compile Include="Migrations\201709151016195_renameId_genrebis.Designer.cs">
+      <DependentUpon>201709151016195_renameId_genrebis.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelMovieNet.cs" />
@@ -84,8 +96,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709101347467_initailcreate.resx">
-      <DependentUpon>201709101347467_initailcreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709151002360_deleteGenreListMovieFromStyleModel.resx">
+      <DependentUpon>201709151002360_deleteGenreListMovieFromStyleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709151006223_deleteGenreObjectFromMovie.resx">
+      <DependentUpon>201709151006223_deleteGenreObjectFromMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709151012184_renameId_genre.resx">
+      <DependentUpon>201709151012184_renameId_genre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709151016195_renameId_genrebis.resx">
+      <DependentUpon>201709151016195_renameId_genrebis.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

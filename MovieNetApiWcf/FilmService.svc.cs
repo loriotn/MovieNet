@@ -16,25 +16,34 @@ namespace MovieNetApiWcf
     public class FilmService :AService<MovieDto, Film>, IFilmService
     {
         protected readonly MarkMapper markMapper;
+        protected readonly CommentMapper commentMapper;
         public FilmService() { }
         public FilmService(ModelMovieNet context) : base(context, new MovieMapper(context))
         {
             markMapper = new MarkMapper(context);
+            commentMapper = new CommentMapper(context);
         }
 
         public override MovieDto Upsert(MovieDto dto)
         {
+            List<CommentDto> comments = dto.commentaires.ToList();
             dto = base.Upsert(dto);
             if (dto != null)
             {
                 Context.note.Where(n => n.id_film == dto.id).ToList().Clear();
+                Context.commentaire.Where(c => c.id_film == dto.id).ToList().Clear();
                 Context.SaveChanges();
                 foreach (MarkDto m in dto.marks)
                 {
                     Context.note.AddOrUpdate(markMapper.ToModel(m));
                 }
+                foreach (CommentDto c in comments)
+                {
+                    Context.commentaire.AddOrUpdate(commentMapper.ToModel(c));
+                }
                 Context.SaveChanges();
             }
+            
             return Mapper.ToDto(Context.film.FirstOrDefault(f => f.id == dto.id));
         }
     }
