@@ -247,20 +247,8 @@ namespace MovieNet.ViewModel
         #region canMethods
         public void FilterMoviesCan()
         {
-            try
-            {
-                Convert.ToInt32(ToFilter.NumberOfComments);
-                this.Films = ViewModelLocator.Facade.filmService.MovieFilter(ToFilter).ToList();
-                ToFilter = new FilterCriteriaMovies();
-            }
-            catch (FormatException)
-            {
-                throw new FormatException("Nombre attendu");
-            }
-            catch (OverflowException)
-            {
-                throw new OverflowException("Nombre trop grand");
-            }
+            this.Films = ViewModelLocator.Facade.filmService.MovieFilter(ToFilter).ToList();
+            ToFilter = new FilterCriteriaMovies();
         }
         public void UpdateCommentCan()
         {
