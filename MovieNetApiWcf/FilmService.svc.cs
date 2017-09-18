@@ -28,7 +28,8 @@ namespace MovieNetApiWcf
             ICollection<Film> models = new List<Film>();
             models = Context.film
                 .Where(m => (filterObject.Title == "" || filterObject.Title == null) ? m.id > 0 : m.titre_film.ToLower().Contains(filterObject.Title.ToLower()))
-                .Where(m => filterObject.IdType == 0 ? m.id > 0 : m.genre_id == filterObject.IdType).ToList();
+                .Where(m => filterObject.IdType == 0 ? m.id > 0 : m.genre_id == filterObject.IdType)
+                .Where(m => filterObject.NumberOfComments == -1 ? m.id > 0 : filterObject.OverOrBelowNumberOfComments ? m.commentaire.Count() > filterObject.NumberOfComments : m.commentaire.Count() <= filterObject.NumberOfComments).ToList();
             return Mapper.ToDto(models);
         }
         public override MovieDto Upsert(MovieDto dto)

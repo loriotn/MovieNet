@@ -81,9 +81,16 @@ namespace MovieNet.ViewModel
             get { return toFilter; }
             set { toFilter = value; RaisePropertyChanged(); }
         }
+        public bool CanFilter
+        {
+            get { return canFilter; }
+            set { canFilter = value; RaisePropertyChanged(); }
+        }
+
         #endregion
 
         #region privateVar
+        private bool canFilter;
         private FilterCriteriaMovies toFilter;
         private string errorMessage;
         private StyleDto selectedStyle;
@@ -235,12 +242,25 @@ namespace MovieNet.ViewModel
             }
             return toShow;
         }
-        
+
         #endregion
         #region canMethods
         public void FilterMoviesCan()
         {
-            this.Films = ViewModelLocator.Facade.filmService.MovieFilter(ToFilter).ToList();
+            try
+            {
+                Convert.ToInt32(ToFilter.NumberOfComments);
+                this.Films = ViewModelLocator.Facade.filmService.MovieFilter(ToFilter).ToList();
+                ToFilter = new FilterCriteriaMovies();
+            }
+            catch (FormatException)
+            {
+                throw new FormatException("Nombre attendu");
+            }
+            catch (OverflowException)
+            {
+                throw new OverflowException("Nombre trop grand");
+            }
         }
         public void UpdateCommentCan()
         {
