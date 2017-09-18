@@ -20,6 +20,7 @@ namespace MovieNet.ViewModel
             initRelayCommands();
         }
         #region publicVar
+        public RelayCommand FilterMovies { get; private set; }
         public RelayCommand<int> ViewComment { get; private set; }
         public RelayCommand UpdateMovie { get; private set; }
         public RelayCommand NewMovie { get; private set; }
@@ -75,9 +76,15 @@ namespace MovieNet.ViewModel
             get { return films; }
             set { films = value; RaisePropertyChanged(); }
         }
+        public FilterCriteriaMovies ToFilter
+        {
+            get { return toFilter; }
+            set { toFilter = value; RaisePropertyChanged(); }
+        }
         #endregion
 
         #region privateVar
+        private FilterCriteriaMovies toFilter;
         private string errorMessage;
         private StyleDto selectedStyle;
         private static List<StyleDto> styles;
@@ -90,6 +97,7 @@ namespace MovieNet.ViewModel
         #region privateMethods
         private void initVar()
         {
+            ToFilter = new FilterCriteriaMovies();
             SelectedMovie = updateSelectedMovie(new MovieDto());
             Styles = ViewModelLocator.Facade.styleService.GetAll();
             initMovies();
@@ -101,6 +109,7 @@ namespace MovieNet.ViewModel
             UpdateNewMark = new RelayCommand<string>(operation => UpdateNewMarkCan(operation), UpdateNewMarkCanExecute);
             NewMovie = new RelayCommand(NewMovieCan, NewMovieCanExecute);
             UpdateComment = new RelayCommand(UpdateCommentCan, UpdateCommentCanExecute);
+            FilterMovies = new RelayCommand(FilterMoviesCan, FilterMoviesCanExecute);
         }
         private void initGrids()
         {
@@ -229,6 +238,10 @@ namespace MovieNet.ViewModel
         
         #endregion
         #region canMethods
+        public void FilterMoviesCan()
+        {
+            this.Films = ViewModelLocator.Facade.filmService.MovieFilter(ToFilter).ToList();
+        }
         public void UpdateCommentCan()
         {
             if (SelectedMovie == null)
@@ -278,6 +291,7 @@ namespace MovieNet.ViewModel
         }
         #endregion
         #region canExecuteMethods
+        public bool FilterMoviesCanExecute() { return true; }
         public bool UpdateCommentCanExecute() { return SelectedMovie != null && SelectedMovie.id != 0; }
         public bool NewMovieCanExecute() { return true; }
         public bool UpdateNewMarkCanExecute(string operation) { return true; }

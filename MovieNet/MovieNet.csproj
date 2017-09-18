@@ -133,7 +133,6 @@
     <Compile Include="Tools\DialogService.cs" />
     <Compile Include="Tools\MainWindowProperties.cs" />
     <Compile Include="Tools\ServiceFacade.cs" />
-    <Compile Include="Tools\UserControlProperties.cs" />
     <Compile Include="Users.xaml.cs">
       <DependentUpon>Users.xaml</DependentUpon>
     </Compile>

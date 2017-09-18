@@ -23,7 +23,14 @@ namespace MovieNetApiWcf
             markMapper = new MarkMapper(context);
             commentMapper = new CommentMapper(context);
         }
-
+        public ICollection<MovieDto> MovieFilter(FilterCriteriaMovies filterObject)
+        {
+            ICollection<Film> models = new List<Film>();
+            models = Context.film
+                .Where(m => (filterObject.Title == "" || filterObject.Title == null) ? m.id > 0 : m.titre_film.ToLower().Contains(filterObject.Title.ToLower()))
+                .Where(m => filterObject.IdType == 0 ? m.id > 0 : m.genre_id == filterObject.IdType).ToList();
+            return Mapper.ToDto(models);
+        }
         public override MovieDto Upsert(MovieDto dto)
         {
             List<CommentDto> comments = dto.commentaires.ToList();

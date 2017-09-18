@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Commentaire.cs" />
     <Compile Include="Dto\CommentDto.cs" />
+    <Compile Include="Dto\FilterCriteriaMovies.cs" />
     <Compile Include="Dto\MarkDto.cs" />
     <Compile Include="Dto\MovieDto.cs" />
     <Compile Include="Dto\StyleDto.cs" />

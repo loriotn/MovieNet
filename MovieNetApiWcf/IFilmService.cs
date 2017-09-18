@@ -13,5 +13,9 @@ namespace MovieNetApiWcf
     [ServiceContract]
     public interface IFilmService: IAService<MovieDto, Film>
     {
+        [OperationContract]
+        ICollection<MovieDto> MovieFilter(FilterCriteriaMovies filterObject);
     }
+    
+    
 }

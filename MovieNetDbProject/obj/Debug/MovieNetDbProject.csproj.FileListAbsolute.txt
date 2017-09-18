@@ -72,3 +72,4 @@ D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.deleteGenre
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.deleteGenreObjectFromMovie.resources
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.renameId_genre.resources
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.renameId_genrebis.resources
+D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
