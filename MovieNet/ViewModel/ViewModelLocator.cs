@@ -3,7 +3,7 @@ using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using MovieNetApiWcf;
 using MovieNetDbProject;
-
+using MovieNet.Tools;
 namespace MovieNet.ViewModel
 {
     public class ViewModelLocator
@@ -15,5 +15,6 @@ namespace MovieNet.ViewModel
         public static WelcomeViewModel WelcomeVm { get; } = new WelcomeViewModel();
         public static ConnectWindowViewModel TestVm { get; } = new ConnectWindowViewModel();
         public static SaveMovieWindowViewModel SaveMovieVm { get; } = new SaveMovieWindowViewModel();
+        public static StyleViewModel StyleVm { get; } = new StyleViewModel();
     }
 }

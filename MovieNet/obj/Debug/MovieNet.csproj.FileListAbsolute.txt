@@ -249,3 +249,5 @@ C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNet\obj\Debug\MovieNet.exe.manif
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNet\obj\Debug\MovieNet.application
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNet\obj\Debug\MovieNet.exe
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNet\obj\Debug\MovieNet.pdb
+D:\MovieNet\MovieNet\obj\Debug\StylesList.g.cs
+D:\MovieNet\MovieNet\obj\Debug\StylesList.baml
