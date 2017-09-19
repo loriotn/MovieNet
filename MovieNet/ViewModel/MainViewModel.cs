@@ -9,6 +9,8 @@ using System.Windows.Controls;
 using System.Windows;
 using MovieNet.Tools;
 using MovieNetDbProject.Dto;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace MovieNet.ViewModel
 {
@@ -31,6 +33,8 @@ namespace MovieNet.ViewModel
         public static Window fen;
         public static int id { get; set; }
         private string welcomeMessage;
+        public Uri iconUri { get; set; }
+        public object icon { get; set; }
 
         public string WelcomeMessage
         {
@@ -41,11 +45,26 @@ namespace MovieNet.ViewModel
         public MainViewModel()
         {
             setBindingWindowSettings();
+            initIcon();
             NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);
             openWindow = new RelayCommand(open, openCan);
             Disconnect = new RelayCommand(disconnect, disconnectCan);
             Utilisateur = new UserDto();
             WelcomeMessage = Utilisateur?.nom_utilisateur;
+        }
+
+        private void initIcon()
+        {
+            try
+            {
+                iconUri = new Uri("pack://application:,,,/IconMainWindow.ico", UriKind.RelativeOrAbsolute);
+                icon = BitmapFrame.Create(iconUri);
+            }
+            catch (IOException e)
+            {
+                throw new IOException(e.StackTrace);
+            }
+            
         }
 
         public void disconnect()

@@ -20,6 +20,7 @@ namespace MovieNet.ViewModel
             initRelayCommands();
         }
         #region publicVar
+        public RelayCommand DeleteMovie { get; private set; }
         public RelayCommand FilterMovies { get; private set; }
         public RelayCommand<int> ViewComment { get; private set; }
         public RelayCommand UpdateMovie { get; private set; }
@@ -66,6 +67,7 @@ namespace MovieNet.ViewModel
                 selectedMovie = value;
                 RaisePropertyChanged();
                 UpdateComment?.RaiseCanExecuteChanged();
+                DeleteMovie?.RaiseCanExecuteChanged();
             }
         }
         public List<CommentDto> CommentsToShow
@@ -119,6 +121,7 @@ namespace MovieNet.ViewModel
             NewMovie = new RelayCommand(NewMovieCan, NewMovieCanExecute);
             UpdateComment = new RelayCommand(UpdateCommentCan, UpdateCommentCanExecute);
             FilterMovies = new RelayCommand(FilterMoviesCan, FilterMoviesCanExecute);
+            DeleteMovie = new RelayCommand(DeleteMovieCan, DeleteMovieCanExecute);
         }
         private void initGrids()
         {
@@ -249,6 +252,11 @@ namespace MovieNet.ViewModel
 
         #endregion
         #region canMethods
+        public void DeleteMovieCan()
+        {
+            ViewModelLocator.Facade.filmService.Delete(SelectedMovie.id);
+            Films = ViewModelLocator.Facade.filmService.GetAll();
+        }
         public void FilterMoviesCan()
         {
             this.Films = ViewModelLocator.Facade.filmService.MovieFilter(ToFilter).ToList();
@@ -303,6 +311,7 @@ namespace MovieNet.ViewModel
         }
         #endregion
         #region canExecuteMethods
+        public bool DeleteMovieCanExecute() { return SelectedMovie?.id != 0; }
         public bool FilterMoviesCanExecute() { return true; }
         public bool UpdateCommentCanExecute() { return SelectedMovie != null && SelectedMovie.id != 0; }
         public bool NewMovieCanExecute() { return true; }

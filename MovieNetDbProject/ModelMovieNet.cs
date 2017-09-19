@@ -52,12 +52,12 @@ namespace MovieNetDbProject
             modelBuilder.Entity<Film>()
                 .HasMany(e => e.commentaire)
                 .WithRequired(e => e.film)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Film>()
                 .HasMany(e => e.note)
                 .WithRequired(e => e.film)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Genre>()
                 .Property(e => e.label_genre)
@@ -83,7 +83,7 @@ namespace MovieNetDbProject
             modelBuilder.Entity<Utilisateur>()
                 .HasMany(e => e.note)
                 .WithRequired(e => e.utilisateur)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
     }
 }

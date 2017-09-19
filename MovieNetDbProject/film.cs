@@ -31,7 +31,10 @@ namespace MovieNetDbProject
 
         [Column("resume_film", TypeName = "text")]
         public string resume_film { get; set; }
-
+        
+        public DateTime register_date { get; set; }
+        public DateTime release_date { get; set; }
+        
         #endregion
 
         #region Foreign key

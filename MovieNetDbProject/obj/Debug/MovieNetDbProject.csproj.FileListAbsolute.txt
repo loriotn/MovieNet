@@ -38,18 +38,6 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\Mo
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
-D:\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe.config
-D:\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe
-D:\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.pdb
-D:\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.dll
-D:\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.dll
-D:\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.xml
-D:\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.xml
-D:\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.resources.dll
-D:\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
-D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
-D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
-D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe.config
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.pdb
@@ -68,8 +56,17 @@ C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetD
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.renameId_genre.resources
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.renameId_genrebis.resources
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
-D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.deleteGenreListMovieFromStyleModel.resources
-D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.deleteGenreObjectFromMovie.resources
-D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.renameId_genre.resources
-D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.renameId_genrebis.resources
+D:\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe.config
+D:\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.exe
+D:\MovieNet\MovieNetDbProject\bin\Debug\MovieNetDbProject.pdb
+D:\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.dll
+D:\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.dll
+D:\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.xml
+D:\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.xml
+D:\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.resources.dll
+D:\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
+D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.addDatesToMovies.resources
+D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
+D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
+D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb

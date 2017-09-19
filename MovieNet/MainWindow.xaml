@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}"
-        Title="{Binding WelcomeMessage}" Height="{Binding Height}" Width="{Binding Width}" Top="{Binding Top}" Left="{Binding Left}" ResizeMode="{Binding ResizeMode}">
+        Title="{Binding WelcomeMessage}" Height="{Binding Height}" Width="{Binding Width}" Top="{Binding Top}" Left="{Binding Left}" ResizeMode="{Binding ResizeMode}"
+        Icon="{Binding icon}">
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>

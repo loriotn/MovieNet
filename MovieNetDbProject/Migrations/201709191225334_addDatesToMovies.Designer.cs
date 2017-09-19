@@ -7,13 +7,13 @@ namespace MovieNetDbProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class renameId_genre : IMigrationMetadata
+    public sealed partial class addDatesToMovies : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(renameId_genre));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addDatesToMovies));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709151012184_renameId_genre"; }
+            get { return "201709191225334_addDatesToMovies"; }
         }
         
         string IMigrationMetadata.Source

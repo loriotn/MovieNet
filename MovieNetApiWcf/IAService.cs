@@ -20,5 +20,8 @@ namespace MovieNetApiWcf
         [OperationContract]
         TDto GetById(int id);
 
+        [OperationContract]
+        void Delete(int id);
+
     }
 }

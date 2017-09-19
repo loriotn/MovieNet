@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\obj\Release\
+D:\MovieNet\MovieNet\obj\Release\
 MovieNet
 none
 false
 TRACE
-C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNet\App.xaml
-21499721217
+D:\MovieNet\MovieNet\App.xaml
+10111972162
 
-10-2098297163
-76-1558154668
-MainWindow.xaml;Users.xaml;
+21973052466
+81-270074121
+Connexion.xaml;Films.xaml;MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;ConnectWindow.xaml;SaveMovieWindow.xaml;StylesList.xaml;Users.xaml;Welcome.xaml;
 
 False
 

@@ -44,7 +44,18 @@ namespace MovieNetApiWcf
                 model = DbSet.FirstOrDefault(e => e.id == dto.id);
                 model = Mapper.ToModel(dto);
                 DbSet.AddOrUpdate(model);
-                Context.SaveChanges();
+                try
+                {
+                    Context.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.StackTrace);
+                }
+                finally
+                {
+                    
+                }
             }
             return Mapper.ToDto(model);
         }
@@ -56,6 +67,16 @@ namespace MovieNetApiWcf
             if (model != null)
                 dto = Mapper.ToDto(model);
             return dto;
+        }
+
+        public virtual void Delete(int id)
+        {
+            TEntity model = DbSet.FirstOrDefault(c => c.id == id);
+            if (model != null)
+            {
+                DbSet.Remove(model);
+                Context.SaveChanges();
+            }
         }
     }
 }
