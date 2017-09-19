@@ -31,6 +31,7 @@ namespace MovieNet.ViewModel
         public double HeightTitle { get; set; }
         public double HeightComment { get; set; }
         public double HeightNewComment { get; set; }
+        public double HeightLittleButtons { get; set; }
         public double WidthNewComment { get; set; }
         public double WidthGridMovie { get; set; }
         public double WidthGridMovieComment { get; set; }
@@ -126,6 +127,7 @@ namespace MovieNet.ViewModel
             HeightTitle = HeightMovie * 0.05;
             HeightNewComment = HeightGridMovie * 1 / 3;
             HeightComment = HeightGridMovie * 2 / 3;
+            HeightLittleButtons = HeightTitle / 2;
             FontSize = (m.Height * m.Width) / 103680;
             WidthGridMovie = WidthMovie * 3 / 9;
             WidthGridMovieComment = WidthMovie * 4 / 9;

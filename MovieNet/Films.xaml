@@ -73,13 +73,10 @@
                     <Label FontSize="{Binding FontSize}" Width="120" Content="Résumé" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
                     <TextBox FontSize="{Binding FontSize}" Text="{Binding SelectedMovie.resume}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau résumé" DockPanel.Dock="Left" Height="{Binding HeightTitle}" Margin="2"></TextBox>
                 </DockPanel>
-                <DockPanel x:Name="PasswordNameDock" DockPanel.Dock="Top" LastChildFill="True">
+                <DockPanel x:Name="PasswordNameDock" DockPanel.Dock="Top" LastChildFill="True" >
                     <Label Width="120" FontSize="{Binding FontSize}" Content="Ma note" Height="{Binding HeightTitle}" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="2" Background="#FFF7F1F1"></Label>
-
-                    <StackPanel DockPanel.Dock="Right" Height="{Binding HeightTitle}" Width="{Binding HeightTitle}" Margin="2">
-                        <Button Padding="2" Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}" Height="20" CommandParameter="up" Command="{Binding UpdateNewMark}" Content="+"  Background="#CC48DA11"></Button>
-                        <Button Padding="2" Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}" Height="20" CommandParameter="down" Command="{Binding UpdateNewMark}" Content="-" Background="#CCF3400C"></Button>
-                    </StackPanel>
+                    <Button DockPanel.Dock="Right" Margin="2,0,2,0" Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}" Height="{Binding HeightTitle}" CommandParameter="up" Command="{Binding UpdateNewMark}" Content="+"  Background="#CC48DA11"></Button>
+                    <Button DockPanel.Dock="Right" Margin="2,0,2,0" Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}" Height="{Binding HeightTitle}" CommandParameter="down" Command="{Binding UpdateNewMark}" Content="-" Background="#CCF3400C"></Button>
                     <TextBox FontSize="{Binding FontSize}" IsReadOnly="True" Text="{Binding SelectedMovie.newMark.mark}" VerticalContentAlignment="Center" Height="{Binding HeightTitle}" Margin="2"></TextBox>
                 </DockPanel>
                 <DockPanel DockPanel.Dock="Top" LastChildFill="True" Height="{Binding HeightTitle}" Margin="2,0,0,0">
