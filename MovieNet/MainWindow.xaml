@@ -30,7 +30,7 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid Background="#BFF3FF00">
-        <StackPanel Height="{Binding HeightStackPanel}" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
+        <StackPanel Height="{Binding HeightStackPanel}" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
             <controls:Tile 
                     TiltFactor="2"
                     Width="{Binding HeightStackPanel}" Height="{Binding HeightStackPanel}" 
@@ -49,6 +49,6 @@
                        CommandParameter="user" Foreground="{x:Null}" Background="#FF00FF2E"/>
         </StackPanel>
 
-        <ContentPresenter Margin="0,0,0,5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="{Binding HeightContentPresenter}"  Width="{Binding Width}" x:Name="Utilisateurs" Content="{Binding CurrentView}"/>
+        <ContentPresenter Margin="0,5,0,5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="{Binding HeightContentPresenter}"  Width="{Binding Width}" x:Name="Utilisateurs" Content="{Binding CurrentView}"/>
     </Grid>
 </Controls:MetroWindow>
