@@ -29,7 +29,7 @@
             </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-    <Grid>
+    <Grid Background="#BFF3FF00">
         <StackPanel Height="{Binding HeightStackPanel}" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" >
             <controls:Tile 
                     TiltFactor="2"
@@ -38,14 +38,7 @@
                     VerticalAlignment="Top"
                     Content="{StaticResource appbar_movie_clapper}"
                        Command="{Binding NavigateTo}"
-                       CommandParameter="film" Foreground="{x:Null}">
-                <controls:Tile.Background>
-                    <LinearGradientBrush EndPoint="1,0" StartPoint="1,1">
-                        <GradientStop Color="#FF77F111" Offset="0"/>
-                        <GradientStop Color="#FFDCCA14" Offset="1"/>
-                    </LinearGradientBrush>
-                </controls:Tile.Background>
-            </controls:Tile>
+                       CommandParameter="film" Foreground="{x:Null}" Background="Red"/>
             <controls:Tile 
                     TiltFactor="2"
                     Width="{Binding HeightStackPanel}" Height="{Binding HeightStackPanel}" 
@@ -53,16 +46,9 @@
                     VerticalAlignment="Top"
                     Content="{StaticResource appbar_people}"
                        Command="{Binding NavigateTo}"
-                       CommandParameter="user" Foreground="{x:Null}">
-                <controls:Tile.Background>
-                    <LinearGradientBrush EndPoint="1,0" StartPoint="1,1">
-                        <GradientStop Color="#FF77F111" Offset="0"/>
-                        <GradientStop Color="#FF1493DC" Offset="1"/>
-                    </LinearGradientBrush>
-                </controls:Tile.Background>
-            </controls:Tile>
+                       CommandParameter="user" Foreground="{x:Null}" Background="#FF00FF2E"/>
         </StackPanel>
-       
-        <ContentPresenter Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="{Binding HeightContentPresenter}"  Width="{Binding Width}" x:Name="Utilisateurs" Content="{Binding CurrentView}"/>
+
+        <ContentPresenter Margin="0,0,0,5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="{Binding HeightContentPresenter}"  Width="{Binding Width}" x:Name="Utilisateurs" Content="{Binding CurrentView}"/>
     </Grid>
 </Controls:MetroWindow>

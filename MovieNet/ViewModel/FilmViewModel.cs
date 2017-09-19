@@ -41,6 +41,7 @@ namespace MovieNet.ViewModel
         public double PosLineY{ get; set; }
         public double HeightMovie { get; set; }
         public double WidthMovie { get; set; }
+        public double HeightValidationButtons { get; set; }
         public MainWindowProperties m = MainWindowProperties.mainWindowProperties;
         public string ErrorMessage
         {
@@ -122,12 +123,13 @@ namespace MovieNet.ViewModel
         private void initGrids()
         {
             HeightMovie = m.Height * 0.85;
-            WidthMovie = m.Width - 20;
+            WidthMovie = m.Width;
             HeightGridMovie = HeightMovie - HeightMovie * 0.05;
             HeightTitle = HeightMovie * 0.05;
             HeightNewComment = HeightGridMovie * 1 / 3;
             HeightComment = HeightGridMovie * 2 / 3;
             HeightLittleButtons = HeightTitle / 2;
+            HeightValidationButtons = HeightNewComment - (4 * HeightTitle) - 18;
             FontSize = (m.Height * m.Width) / 103680;
             WidthGridMovie = WidthMovie * 3 / 9;
             WidthGridMovieComment = WidthMovie * 4 / 9;

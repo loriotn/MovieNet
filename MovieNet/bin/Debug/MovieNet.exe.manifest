@@ -14,15 +14,15 @@
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
-          Options du manifeste de contrôle de compte d'utilisateur
-          Si vous souhaitez modifier le niveau du contrôle de compte d'utilisateur Windows, remplacez le 
-          nœud requestedExecutionLevel par l'une des propositions suivantes :
+          Options du manifeste de contrôle de compte d’utilisateur (UAC)
+          Si vous voulez changer le niveau de contrôle de compte d’utilisateur Windows, remplacez le 
+          nœud requestedExecutionLevel par l’un des nœuds suivants.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         Si vous souhaitez utiliser la virtualisation de fichiers et du Registre pour la 
+         Si vous voulez utiliser la virtualisation de fichiers système et du Registre pour la 
          compatibilité descendante, supprimez le nœud requestedExecutionLevel.
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
@@ -169,7 +169,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LczEy2zCuw9E61sNm+7aOwkgKM73e9GQ5TVucbFVfwg=</dsig:DigestValue>
+        <dsig:DigestValue>Tof2G5WAZ5EP03Dm0dUIoRzbCq3xt6QN1qFPanmn57Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -236,13 +236,13 @@
       <dsig:DigestValue>4nsUTeKA9W8BeKEwUqaiNYOjGI636bHShklEeSVTKBY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="MovieNet.pdb" size="122368">
+  <file name="MovieNet.pdb" size="120320">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>SdPPvUNTpZDZtoxSfrYXSRW/wkNPtVisrB20lR7rMAs=</dsig:DigestValue>
+      <dsig:DigestValue>gXmZ2V8aqgDG5isUmwrs9TtcoVcc2chR5j+XGhqn1jk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="MovieNetApiWcf.pdb" size="26112">
