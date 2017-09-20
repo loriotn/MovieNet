@@ -115,17 +115,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Connexion.xaml.cs">
-      <DependentUpon>Connexion.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Films.xaml.cs">
       <DependentUpon>Films.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConnectWindow.xaml.cs">
       <DependentUpon>ConnectWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SaveMovieWindow.xaml.cs">
-      <DependentUpon>SaveMovieWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="StylesList.xaml.cs">
       <DependentUpon>StylesList.xaml</DependentUpon>
@@ -139,18 +133,8 @@
     <Compile Include="ViewModel\FilmViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ConnectWindowViewModel.cs" />
-    <Compile Include="ViewModel\SaveMovieWindowViewModel.cs" />
     <Compile Include="ViewModel\StyleViewModel.cs" />
-    <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="ViewModel\WelcomeViewModel.cs" />
-    <Compile Include="Welcome.xaml.cs">
-      <DependentUpon>Welcome.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Connexion.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Films.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,19 +163,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SaveMovieWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="StylesList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Users.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

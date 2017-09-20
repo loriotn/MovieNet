@@ -33,7 +33,7 @@
     </Controls:MetroWindow.RightWindowCommands>
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout Position="top" Width="{Binding Width}" Height="100" Theme="Light" IsOpen="{Binding IsOpen}" CloseButtonVisibility="Collapsed">
+            <Controls:Flyout Position="top" Width="{Binding Width}" Height="125" Theme="Light" IsOpen="{Binding IsOpen}" CloseButtonVisibility="Visible">
                 <MovieNet:Users />
             </Controls:Flyout>
         </Controls:FlyoutsControl>
@@ -54,8 +54,8 @@
                     Count=""
                     VerticalAlignment="Top"
                     Content="{StaticResource appbar_people}"
-                       Command="{Binding NavigateTo}"
-                       CommandParameter="user" Foreground="{x:Null}" Background="#FF7FFB95"/>
+                       Command="{Binding OpenUserFlyout}"
+                       Foreground="{x:Null}" Background="#FF7FFB95"/>
         </StackPanel>
 
         <ContentPresenter Margin="0,5,0,5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="{Binding HeightContentPresenter}"  Width="{Binding Width}" x:Name="Utilisateurs" Content="{Binding CurrentView}"/>

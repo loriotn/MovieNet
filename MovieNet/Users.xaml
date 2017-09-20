@@ -6,30 +6,31 @@
              xmlns:local="clr-namespace:MovieNet.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="239.2" d:DesignWidth="300"
-             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserVm}"
+             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}"
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
     <Grid  Width="{Binding WidthUser}" Height="100">
-        <DockPanel Width="{Binding WidthUser}" LastChildFill="False" Height="90">
+        <DockPanel Width="{Binding WidthUser}" LastChildFill="False" Height="115">
 
             <StackPanel x:Name="FirstNameDock" DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
                 <Label FontSize="{Binding FontSize}" VerticalContentAlignment="Center" Content="NOM" FontFamily="Segoe UI Semibold" ></Label>
-                <TextBox FontSize="{Binding FontSize}" Text="{Binding SelectedMovie.titre}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
+                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.nom_utilisateur}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
             </StackPanel>
             <StackPanel x:Name="LastNameDock" DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
                 <Label FontSize="{Binding FontSize}" Content="PRENOM"  VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold"></Label>
-                <TextBox FontSize="{Binding FontSize}" Text="{Binding SelectedMovie.titre}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
+                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.prenom_utilisateur}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
             </StackPanel>
             <StackPanel DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
                 <Label FontSize="{Binding FontSize}" Content="EMAIL"  VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold"></Label>
-                <TextBox FontSize="{Binding FontSize}" Text="{Binding SelectedMovie.titre}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
+                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.email}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
             </StackPanel>
             <StackPanel DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
                 <Label FontSize="{Binding FontSize}" Content="MOT DE PASSE"  VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold"></Label>
-                <TextBox FontSize="{Binding FontSize}" Text="{Binding SelectedMovie.titre}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
+                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.mdp_utilisateur}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
             </StackPanel>
             <StackPanel DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
-                <Label Content=""></Label>
-                <Button Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding UpdateMovie}" Content="Valider"></Button>
+                <Label Content="{Binding UserExist}" Width="150" Height="30"></Label>
+                <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="150" Command="{Binding UpdateUser}" Content="VALIDER"></Button>
+                <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="150" Command="{Binding DeleteUser}" Content="DESINSCRIPTION"></Button>
             </StackPanel>
         </DockPanel>
     </Grid>

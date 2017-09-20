@@ -27,9 +27,7 @@ namespace MovieNet.ViewModel
         public RelayCommand NewMovie { get; private set; }
         public RelayCommand<string> UpdateNewMark { get; private set; }
         public RelayCommand UpdateComment { get; private set; }
-        public double FontSize { get; set; }
         public double HeightGridMovie { get; set; }
-        public double HeightTitle { get; set; }
         public double HeightComment { get; set; }
         public double HeightNewComment { get; set; }
         public double HeightLittleButtons { get; set; }
@@ -37,14 +35,11 @@ namespace MovieNet.ViewModel
         public double WidthNewComment { get; set; }
         public double WidthGridMovie { get; set; }
         public double WidthGridMovieComment { get; set; }
-        public double WidthButtons { get; set; }
         public double WidthLittleButtons { get; set; }
         public double WidthAreaComment { get; set; }
-        public double PosLineY{ get; set; }
         public double HeightMovie { get; set; }
         public double WidthMovie { get; set; }
         public double HeightValidationButtons { get; set; }
-        public MainWindowProperties m = MainWindowProperties.mainWindowProperties;
         public string ErrorMessage
         {
             get { return errorMessage; }

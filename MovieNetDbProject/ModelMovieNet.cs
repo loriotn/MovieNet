@@ -78,10 +78,10 @@ namespace MovieNetDbProject
             modelBuilder.Entity<Utilisateur>()
                 .HasMany(e => e.commentaire)
                 .WithRequired(e => e.utilisateur)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Utilisateur>()
-                .HasMany(e => e.note)
+                .HasMany(e => e.notes)
                 .WithRequired(e => e.utilisateur)
                 .WillCascadeOnDelete(true);
         }

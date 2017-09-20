@@ -15,7 +15,7 @@ namespace MovieNetDbProject
         public Utilisateur()
         {
             commentaire = new List<Commentaire>();
-            note = new List<Note>();
+            notes = new List<Note>();
         }
 
         #region properties
@@ -52,7 +52,7 @@ namespace MovieNetDbProject
 
         public virtual ICollection<Commentaire> commentaire { get; set; }
 
-        public virtual ICollection<Note> note { get; set; }
+        public virtual ICollection<Note> notes { get; set; }
         #endregion
     }
 }

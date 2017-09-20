@@ -23,7 +23,7 @@ namespace MovieNetDbProject.Mapper
                 u.inscrit = model.inscrit;
                 u.mdp_utilisateur = model.mdp_utilisateur;
                 u.nom_utilisateur = model.nom_utilisateur;
-                u.note = model.note;
+                u.note = model.notes;
                 u.prenom_utilisateur = model.prenom_utilisateur;
                 u.commentaire = model.commentaire;
                 u.connecte = model.connecte;
@@ -40,7 +40,7 @@ namespace MovieNetDbProject.Mapper
                 u.inscrit = dto.inscrit;
                 u.mdp_utilisateur = dto.mdp_utilisateur;
                 u.nom_utilisateur = dto.nom_utilisateur;
-                u.note = dto.note;
+                u.notes = dto.note;
                 u.prenom_utilisateur = dto.prenom_utilisateur;
                 u.commentaire = dto.commentaire;
                 u.connecte = dto.connecte;
