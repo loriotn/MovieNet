@@ -61,6 +61,8 @@ namespace MovieNetDbProject.Mapper
                 model.genre_id = dto.genre.id;
                 model.resume_film = dto.resume;
                 model.titre_film = dto.titre;
+                model.release_date = dto.releaseDate;
+                model.register_date = DateTime.Now;
                 model.note = markMapper.ToModel(dto.marks.ToList()).ToList();
                 model.commentaire = commentMapper.ToModel(dto.commentaires.ToList()).ToList();
             }
@@ -74,6 +76,9 @@ namespace MovieNetDbProject.Mapper
             {
                 Movie = new MovieDto();
                 Movie.id = model.id;
+                Movie.releaseDate = model.release_date;
+                Movie.releaseDateStringFormat = model.release_date.ToShortDateString();
+                Movie.registerDateStringFormat = model.register_date.ToShortDateString();
                 Movie.averageMark = getAverageMark(Context.note.Where(n => n.id_film == model.id).ToList());
                 Movie.genre = styleMapper.ToDto(Context.genre.FirstOrDefault(g => g.id == model.genre_id));
                 Movie.marks = markMapper.ToDto(model.note);

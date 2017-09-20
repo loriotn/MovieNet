@@ -35,6 +35,13 @@ namespace MovieNet.ViewModel
         private string welcomeMessage;
         public Uri iconUri { get; set; }
         public object icon { get; set; }
+        private bool isOpen;
+
+        public bool IsOpen
+        {
+            get { return isOpen; }
+            set { isOpen = value; RaisePropertyChanged(); }
+        }
 
         public string WelcomeMessage
         {
@@ -44,6 +51,7 @@ namespace MovieNet.ViewModel
 
         public MainViewModel()
         {
+            isOpen = true;
             setBindingWindowSettings();
             initIcon();
             NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);

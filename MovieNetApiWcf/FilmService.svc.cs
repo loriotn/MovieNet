@@ -38,9 +38,6 @@ namespace MovieNetApiWcf
             dto = base.Upsert(dto);
             if (dto != null)
             {
-                DateTime d = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-                
-                Context.film.FirstOrDefault(m => m.id == dto.id).register_date = d;
                 Context.note.Where(n => n.id_film == dto.id).ToList().Clear();
                 Context.commentaire.Where(c => c.id_film == dto.id).ToList().Clear();
                 Context.SaveChanges();

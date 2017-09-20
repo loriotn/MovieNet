@@ -33,6 +33,7 @@ namespace MovieNet.ViewModel
         public double HeightComment { get; set; }
         public double HeightNewComment { get; set; }
         public double HeightLittleButtons { get; set; }
+        public double HeightCalendar { get; set; }
         public double WidthNewComment { get; set; }
         public double WidthGridMovie { get; set; }
         public double WidthGridMovieComment { get; set; }
@@ -133,6 +134,7 @@ namespace MovieNet.ViewModel
             HeightComment = HeightGridMovie * 2 / 3;
             HeightLittleButtons = HeightTitle / 2;
             HeightValidationButtons = HeightNewComment - (4 * HeightTitle) - 18;
+            HeightCalendar = HeightNewComment - HeightTitle - 2;
             FontSize = (m.Height * m.Width) / 103680;
             WidthGridMovie = WidthMovie * 3 / 9;
             WidthGridMovieComment = WidthMovie * 4 / 9;
@@ -259,8 +261,11 @@ namespace MovieNet.ViewModel
         }
         public void FilterMoviesCan()
         {
+            ViewModelLocator.MainVm.IsOpen = !ViewModelLocator.MainVm.IsOpen;
+            /*
             this.Films = ViewModelLocator.Facade.filmService.MovieFilter(ToFilter).ToList();
             ToFilter = new FilterCriteriaMovies();
+            */
         }
         public void UpdateCommentCan()
         {
