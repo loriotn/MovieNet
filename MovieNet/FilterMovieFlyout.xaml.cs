@@ -12,23 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MovieNetApiWcf;
-using MovieNetDbProject;
-using GalaSoft.MvvmLight.Messaging;
-using GalaSoft.MvvmLight.Views;
-using MahApps.Metro.Controls;
 
 namespace MovieNet
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour FilterMovieFlyout.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class FilterMovieFlyout : UserControl
     {
-        public MainWindow()
+        public FilterMovieFlyout()
         {
             InitializeComponent();
         }
-
     }
 }

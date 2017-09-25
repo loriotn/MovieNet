@@ -55,12 +55,19 @@ namespace MovieNet.ViewModel
         private string welcomeMessage;
         public Uri iconUri { get; set; }
         public object icon { get; set; }
-        private bool isOpen;
+        private bool isOpenFlyoutFilter;
 
+        public bool IsOpenFlyoutFilter
+        {
+            get { return isOpenFlyoutFilter; }
+            set { isOpenFlyoutFilter = value; RaisePropertyChanged(); }
+        }
+
+        private bool isOpen;
         public bool IsOpen
         {
             get { return isOpen; }
-            set { isOpen = value; RaisePropertyChanged(); }
+            set { isOpen = value; RaisePropertyChanged("IsOpen"); }
         }
 
         public string WelcomeMessage
@@ -71,7 +78,7 @@ namespace MovieNet.ViewModel
 
         public MainViewModel()
         {
-            isOpen = false;
+            IsOpen = false;
             setBindingWindowSettings();
             initIcon();
             initGrids();
@@ -89,6 +96,7 @@ namespace MovieNet.ViewModel
             ViewModelLocator.Facade.userService.Delete(Utilisateur.id);
             disconnect();
         }
+
         public bool DeleteUserCanExecute() { return Utilisateur?.id > 0 ? true : false; }
         public void UpdateUserCan()
         {

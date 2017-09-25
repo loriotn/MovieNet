@@ -247,3 +247,5 @@ D:\MovieNet\MovieNet\obj\Debug\MovieNet.exe.manifest
 D:\MovieNet\MovieNet\obj\Debug\MovieNet.application
 D:\MovieNet\MovieNet\obj\Debug\MovieNet.exe
 D:\MovieNet\MovieNet\obj\Debug\MovieNet.pdb
+D:\MovieNet\MovieNet\obj\Debug\FilterMovieFlyout.g.cs
+D:\MovieNet\MovieNet\obj\Debug\FilterMovieFlyout.baml

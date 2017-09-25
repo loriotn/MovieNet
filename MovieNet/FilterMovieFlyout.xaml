@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="MovieNet.FilterMovieFlyout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieNet"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding Source={StaticResource ViewModelLocator}}"
+             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             Height="{Binding FilmVm.HeightMovie}" Width="180">
+    <Grid >
+        <DockPanel >
+        <StackPanel DockPanel.Dock="Top">
+            <StackPanel Margin="0,0,0,30">
+                <Label  Height="{Binding FilmVm.HeightTitle}" VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold">TITRE</Label>
+                <TextBox Text="{Binding FilmVm.ToFilter.Title}"></TextBox>
+            </StackPanel>
+            <StackPanel Margin="0,0,0,30">
+                <Label  Height="{Binding FilmVm.HeightTitle}" VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold" >GENRE</Label>
+                <ComboBox ItemsSource="{Binding FilmVm.Styles}" DisplayMemberPath="label" SelectedValuePath="id" SelectedValue="{Binding FilmVm.FilterMovies.IdType}"></ComboBox>
+            </StackPanel>
+            <StackPanel Margin="0,0,0,30">
+                    <DockPanel  Height="{Binding FilmVm.HeightTitle}" LastChildFill="True">
+                        <Label DockPanel.Dock="Left" Width="120" VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold">DATE DE SORTIE</Label>
+                        <ToggleButton  BorderBrush="White" Content="APRES" DockPanel.Dock="Right">
+                        </ToggleButton>
+                    </DockPanel>
+                    <Calendar Width="240" SelectionMode="SingleDate" IsTodayHighlighted="False" SelectedDate="{Binding SelectedMovie.releaseDate}"/>
+                </StackPanel>
+            <Label Height="{Binding FilmVm.HeightTitle}" VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold">NOMBRE DE COMMENTAIRES</Label>
+                <DockPanel Margin="0,0,0,30">
+                    <StackPanel Margin="0,0,20,0" DockPanel.Dock="Left" Width="80">
+                        <Label VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold" Height="{Binding FilmVm.HeightTitle}">de</Label>
+                        <TextBox></TextBox>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" Width="80">
+                        <Label VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold" Height="{Binding FilmVm.HeightTitle}">à</Label>
+                        <TextBox></TextBox>
+                    </StackPanel>
+                </DockPanel>
+            </StackPanel>
+            <Button Height="{Binding FilmVm.HeightTitle}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.FilterMovies}" DockPanel.Dock="Bottom">RECHERCHER</Button>
+        </DockPanel>
+    </Grid>
+</UserControl>

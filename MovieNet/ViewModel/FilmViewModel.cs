@@ -8,6 +8,7 @@ using MovieNetDbProject;
 using MovieNet.Tools;
 using MovieNetDbProject.Dto;
 using GalaSoft.MvvmLight.Command;
+using System.Windows;
 
 namespace MovieNet.ViewModel
 {
@@ -21,6 +22,7 @@ namespace MovieNet.ViewModel
         }
         #region publicVar
         public RelayCommand DeleteMovie { get; private set; }
+        public RelayCommand ShowFilterMovie { get; private set; }
         public RelayCommand FilterMovies { get; private set; }
         public RelayCommand<int> ViewComment { get; private set; }
         public RelayCommand UpdateMovie { get; private set; }
@@ -86,7 +88,6 @@ namespace MovieNet.ViewModel
             get { return canFilter; }
             set { canFilter = value; RaisePropertyChanged(); }
         }
-
         #endregion
 
         #region privateVar
@@ -118,6 +119,7 @@ namespace MovieNet.ViewModel
             UpdateComment = new RelayCommand(UpdateCommentCan, UpdateCommentCanExecute);
             FilterMovies = new RelayCommand(FilterMoviesCan, FilterMoviesCanExecute);
             DeleteMovie = new RelayCommand(DeleteMovieCan, DeleteMovieCanExecute);
+            ShowFilterMovie = new RelayCommand(ShowFilterMovieCan, ShowFilterMovieCanExecute);
         }
         private void initGrids()
         {
@@ -249,6 +251,10 @@ namespace MovieNet.ViewModel
 
         #endregion
         #region canMethods
+        public void ShowFilterMovieCan()
+        {
+            ViewModelLocator.MainVm.IsOpenFlyoutFilter = !ViewModelLocator.MainVm.IsOpenFlyoutFilter;
+        }
         public void DeleteMovieCan()
         {
             ViewModelLocator.Facade.filmService.Delete(SelectedMovie.id);
@@ -256,11 +262,9 @@ namespace MovieNet.ViewModel
         }
         public void FilterMoviesCan()
         {
-            ViewModelLocator.MainVm.IsOpen = !ViewModelLocator.MainVm.IsOpen;
-            /*
             this.Films = ViewModelLocator.Facade.filmService.MovieFilter(ToFilter).ToList();
+            ViewModelLocator.MainVm.IsOpenFlyoutFilter = !ViewModelLocator.MainVm.IsOpenFlyoutFilter;
             ToFilter = new FilterCriteriaMovies();
-            */
         }
         public void UpdateCommentCan()
         {
@@ -311,6 +315,7 @@ namespace MovieNet.ViewModel
         }
         #endregion
         #region canExecuteMethods
+        public bool ShowFilterMovieCanExecute() { return true; }
         public bool DeleteMovieCanExecute() { return SelectedMovie?.id != 0; }
         public bool FilterMoviesCanExecute() { return true; }
         public bool UpdateCommentCanExecute() { return SelectedMovie != null && SelectedMovie.id != 0; }

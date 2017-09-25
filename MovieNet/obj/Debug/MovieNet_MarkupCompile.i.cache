@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\MovieNet\MovieNet\App.xaml
-71480276469
+8-183468854
 
-19978702863
+20-1597550361
 81-368425625
-Films.xaml;MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;ConnectWindow.xaml;StylesList.xaml;Users.xaml;
+Films.xaml;FilterMovieFlyout.xaml;MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;ConnectWindow.xaml;StylesList.xaml;Users.xaml;
 
-True
+False
 
