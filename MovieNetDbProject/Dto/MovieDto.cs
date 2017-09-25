@@ -21,7 +21,7 @@ namespace MovieNetDbProject.Dto
         public string resume { get; set; }
         public decimal averageMark { get; set; }
         public int countComment { get; set; }
-        public DateTime releaseDate { get; set; }
+        public DateTime? releaseDate { get; set; }
         public string releaseDateStringFormat { get; set; }
         public string registerDateStringFormat { get; set; }
         public MarkDto newMark { get; set; }
