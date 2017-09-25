@@ -36,6 +36,9 @@
             <Controls:Flyout Position="top" Width="{Binding Width}" Height="125" Theme="Light" IsOpen="{Binding IsOpen}" CloseButtonVisibility="Visible">
                 <MovieNet:Users />
             </Controls:Flyout>
+            <Controls:Flyout Position="Left" Width="200" Height="{Binding Height}" Theme="Light" IsOpen="{Binding IsOpenFlyoutFilter}" CloseButtonVisibility="Visible" >
+                <MovieNet:FilterMovieFlyout />
+            </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
     <Grid Background="#BF171715">
@@ -47,7 +50,7 @@
                     VerticalAlignment="Top"
                     Content="{StaticResource appbar_movie_clapper}"
                        Command="{Binding NavigateTo}"
-                       CommandParameter="film" Foreground="{x:Null}" Background="#FFF37F7F"/>
+                       CommandParameter="film" Foreground="{x:Null}" Background="#FFF37F7F" />
             <controls:Tile 
                     TiltFactor="2"
                     Width="{Binding HeightStackPanel}" Height="{Binding HeightStackPanel}" 
