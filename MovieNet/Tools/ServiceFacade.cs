@@ -24,7 +24,7 @@ namespace MovieNet
         }
         private ServiceFacade()
         {
-            this.Context = ModelMovieNet.GetContext("name=MovieNetLocal");
+            this.Context = ModelMovieNet.GetContext("name=MovieNetAzure");
             userService = new UserService(Context);
             filmService = new FilmService(Context);
             styleService = new StyleService(Context);

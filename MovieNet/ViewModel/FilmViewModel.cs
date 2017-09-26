@@ -9,6 +9,7 @@ using MovieNet.Tools;
 using MovieNetDbProject.Dto;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace MovieNet.ViewModel
 {
@@ -22,13 +23,16 @@ namespace MovieNet.ViewModel
         }
         #region publicVar
         public RelayCommand DeleteMovie { get; private set; }
+        public RelayCommand<Calendar> ChangeBeforeReleaseDate { get; private set; }
         public RelayCommand ShowFilterMovie { get; private set; }
+        public RelayCommand ShowUpdateComment { get; private set; }
         public RelayCommand FilterMovies { get; private set; }
         public RelayCommand<int> ViewComment { get; private set; }
         public RelayCommand UpdateMovie { get; private set; }
         public RelayCommand NewMovie { get; private set; }
         public RelayCommand<string> UpdateNewMark { get; private set; }
         public RelayCommand UpdateComment { get; private set; }
+        public RelayCommand UpdateRelDate { get; private set; }
         public double HeightGridMovie { get; set; }
         public double HeightComment { get; set; }
         public double HeightNewComment { get; set; }
@@ -65,6 +69,7 @@ namespace MovieNet.ViewModel
                 selectedMovie = value;
                 RaisePropertyChanged();
                 UpdateComment?.RaiseCanExecuteChanged();
+                ShowUpdateComment?.RaiseCanExecuteChanged();
                 DeleteMovie?.RaiseCanExecuteChanged();
             }
         }
@@ -81,13 +86,31 @@ namespace MovieNet.ViewModel
         public FilterCriteriaMovies ToFilter
         {
             get { return toFilter; }
-            set { toFilter = value; RaisePropertyChanged(); }
+            set
+            {
+                toFilter = value;
+                RaisePropertyChanged();
+            }
         }
+        private DateTime? relDate;
+
+        public DateTime? RelDate
+        {
+            get { return relDate; }
+            set { relDate = value; RaisePropertyChanged(); ToFilter.ReleaseDate = RelDate; initReleaseMessage(RelDate); }
+        }
+
         public bool CanFilter
         {
             get { return canFilter; }
             set { canFilter = value; RaisePropertyChanged(); }
         }
+        public string ReleaseMessage
+        {
+            get { return releaseMessage; }
+            set { releaseMessage = value; RaisePropertyChanged(); }
+        }
+
         #endregion
 
         #region privateVar
@@ -99,6 +122,7 @@ namespace MovieNet.ViewModel
         private MovieDto selectedMovie;
         private List<CommentDto> commentsToShow;
         private List<MovieDto> films;
+        private string releaseMessage;
         #endregion
 
         #region methods
@@ -109,6 +133,15 @@ namespace MovieNet.ViewModel
             SelectedMovie = updateSelectedMovie(new MovieDto());
             Styles = ViewModelLocator.Facade.styleService.GetAll();
             initMovies();
+            initReleaseMessage(null);
+        }
+        private void initReleaseMessage(DateTime? d)
+        {
+            string temp = "";
+            if (ToFilter != null && ToFilter.BeforeReleaseDate)
+                temp = "avant le :";
+            else temp = "après le :";
+            ReleaseMessage = "Films sortis " + temp + RelDate;
         }
         private void initRelayCommands()
         {
@@ -120,6 +153,9 @@ namespace MovieNet.ViewModel
             FilterMovies = new RelayCommand(FilterMoviesCan, FilterMoviesCanExecute);
             DeleteMovie = new RelayCommand(DeleteMovieCan, DeleteMovieCanExecute);
             ShowFilterMovie = new RelayCommand(ShowFilterMovieCan, ShowFilterMovieCanExecute);
+            ChangeBeforeReleaseDate = new RelayCommand<Calendar>(cal => { ChangeBeforeReleaseDateCan(cal); ChangeBeforeReleaseDateCanExecute(cal); });
+            UpdateRelDate = new RelayCommand(UpdateRelDateCan, UpdateRelDateCanExecute);
+            ShowUpdateComment = new RelayCommand(ShowUpdateCommentCan, UpdateCommentCanExecute);
         }
         private void initGrids()
         {
@@ -251,6 +287,21 @@ namespace MovieNet.ViewModel
 
         #endregion
         #region canMethods
+        public void ShowUpdateCommentCan()
+        {
+            ViewModelLocator.MainVm.IsOpenFlyoutComment = !ViewModelLocator.MainVm.IsOpenFlyoutComment;
+        }
+        public void UpdateRelDateCan()
+        {
+            initReleaseMessage(RelDate);
+        }
+        public void ChangeBeforeReleaseDateCan(Calendar cal)
+        {
+            if (ToFilter != null)
+                ToFilter.BeforeReleaseDate = !ToFilter.BeforeReleaseDate;
+            
+            initReleaseMessage(cal.SelectedDate);
+        }
         public void ShowFilterMovieCan()
         {
             ViewModelLocator.MainVm.IsOpenFlyoutFilter = !ViewModelLocator.MainVm.IsOpenFlyoutFilter;
@@ -265,6 +316,7 @@ namespace MovieNet.ViewModel
             this.Films = ViewModelLocator.Facade.filmService.MovieFilter(ToFilter).ToList();
             ViewModelLocator.MainVm.IsOpenFlyoutFilter = !ViewModelLocator.MainVm.IsOpenFlyoutFilter;
             ToFilter = new FilterCriteriaMovies();
+            RelDate = null;
         }
         public void UpdateCommentCan()
         {
@@ -272,6 +324,7 @@ namespace MovieNet.ViewModel
                 return;
             addOrUpdateComment(SelectedMovie);
             endUpdate();
+            ViewModelLocator.MainVm.IsOpenFlyoutComment = false;
         }
         public void NewMovieCan()
         {
@@ -315,6 +368,9 @@ namespace MovieNet.ViewModel
         }
         #endregion
         #region canExecuteMethods
+        //public bool ShowUpdateCommentCanExecute() { return SelectedMovie != null && SelectedMovie.id != 0; }
+        public bool UpdateRelDateCanExecute() { return true; }
+        public bool ChangeBeforeReleaseDateCanExecute (Calendar d) { return true; }
         public bool ShowFilterMovieCanExecute() { return true; }
         public bool DeleteMovieCanExecute() { return SelectedMovie?.id != 0; }
         public bool FilterMoviesCanExecute() { return true; }

@@ -39,6 +39,12 @@
             <Controls:Flyout Position="Left" Width="200" Height="{Binding Height}" Theme="Light" IsOpen="{Binding IsOpenFlyoutFilter}" CloseButtonVisibility="Visible" >
                 <MovieNet:FilterMovieFlyout />
             </Controls:Flyout>
+            <Controls:Flyout Position="Bottom" Width="{Binding Width}" Height="200" Theme="Light" IsOpen="{Binding IsOpenFlyoutComment}" CloseButtonVisibility="Visible" >
+                <MovieNet:NewCommentFlyout />
+            </Controls:Flyout>
+            <Controls:Flyout Position="Right" Width="300" Height="{Binding Height}" Theme="Light" IsOpen="True" CloseButtonVisibility="Visible" >
+                <MovieNet:NewMovieFlyout />
+            </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
     <Grid Background="#BF171715">

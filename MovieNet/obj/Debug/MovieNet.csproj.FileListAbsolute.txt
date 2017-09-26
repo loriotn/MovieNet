@@ -99,24 +99,18 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MainWindow.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Resources\Icons.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Resources\IconsNonShared.baml
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Connexion.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Films.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MainWindow.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\ConnectWindow.g.cs
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\SaveMovieWindow.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Users.g.cs
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Welcome.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\App.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet_MarkupCompile.cache
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet_MarkupCompile.lref
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\App.baml
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Connexion.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Films.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\ConnectWindow.baml
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\SaveMovieWindow.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Users.baml
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\Welcome.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.g.resources
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.exe.manifest
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\MovieNet.application
@@ -249,3 +243,9 @@ D:\MovieNet\MovieNet\obj\Debug\MovieNet.exe
 D:\MovieNet\MovieNet\obj\Debug\MovieNet.pdb
 D:\MovieNet\MovieNet\obj\Debug\FilterMovieFlyout.g.cs
 D:\MovieNet\MovieNet\obj\Debug\FilterMovieFlyout.baml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\FilterMovieFlyout.g.cs
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\FilterMovieFlyout.baml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\NewCommentFlyout.g.cs
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\NewCommentFlyout.baml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\NewMovieFlyout.g.cs
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\NewMovieFlyout.baml

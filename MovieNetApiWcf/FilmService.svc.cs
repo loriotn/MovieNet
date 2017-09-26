@@ -29,6 +29,7 @@ namespace MovieNetApiWcf
             models = Context.film
                 .Where(m => (filterObject.Title == "" || filterObject.Title == null) ? m.id > 0 : m.titre_film.ToLower().Contains(filterObject.Title.ToLower()))
                 .Where(m => filterObject.IdType == 0 ? m.id > 0 : m.genre_id == filterObject.IdType)
+                .Where(m => filterObject.ReleaseDate == null ? m.id > 0 : filterObject.BeforeReleaseDate ? m.release_date <= filterObject.ReleaseDate : m.release_date > filterObject.ReleaseDate)
                 .Where(m => filterObject.NumberOfComments == -1 ? m.id > 0 : filterObject.OverOrBelowNumberOfComments ? m.commentaire.Count() > filterObject.NumberOfComments : m.commentaire.Count() <= filterObject.NumberOfComments).ToList();
             return Mapper.ToDto(models);
         }

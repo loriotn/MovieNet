@@ -124,6 +124,12 @@
     <Compile Include="FilterMovieFlyout.xaml.cs">
       <DependentUpon>FilterMovieFlyout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewCommentFlyout.xaml.cs">
+      <DependentUpon>NewCommentFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewMovieFlyout.xaml.cs">
+      <DependentUpon>NewMovieFlyout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StylesList.xaml.cs">
       <DependentUpon>StylesList.xaml</DependentUpon>
     </Compile>
@@ -158,6 +164,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewCommentFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewMovieFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

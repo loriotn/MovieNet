@@ -55,6 +55,13 @@ namespace MovieNet.ViewModel
         private string welcomeMessage;
         public Uri iconUri { get; set; }
         public object icon { get; set; }
+        private bool isOpenFlyoutComment;
+
+        public bool IsOpenFlyoutComment
+        {
+            get { return isOpenFlyoutComment; }
+            set { isOpenFlyoutComment = value; RaisePropertyChanged(); }
+        }
         private bool isOpenFlyoutFilter;
 
         public bool IsOpenFlyoutFilter

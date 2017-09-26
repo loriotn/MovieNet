@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="MovieNet.exe.manifest" size="14593">
+    <dependentAssembly dependencyType="install" codebase="MovieNet.exe.manifest" size="14589">
       <assemblyIdentity name="MovieNet.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DYwW73HiX8Z4wh/kIic7ll9AvDT4b0417lgatmu+Tgg=</dsig:DigestValue>
+        <dsig:DigestValue>LIDO8PsJ30VZmmZ+cIrB5cGq6wgBGow0kqnMFqna1AQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

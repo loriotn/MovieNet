@@ -11,7 +11,7 @@
              xmlns:vm="clr-namespace:MovieNet.ViewModel"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=FilmVm}"
              Height="{Binding HeightMovie}" Width="{Binding WidthMovie}" VerticalAlignment="Bottom" MaxHeight="{Binding HeightMovie}" MinWidth="{Binding WidthMovie}">
-    <Grid Background="#FFC6C7C9" HorizontalAlignment="Center" Width="{Binding WidthMovie}">
+    <Grid HorizontalAlignment="Center" Width="{Binding WidthMovie}">
         
         <Grid >
             <Grid.RowDefinitions>
@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="{Binding WidthButtons}"/>
                 <ColumnDefinition Width="{Binding WidthButtons}"/>
             </Grid.ColumnDefinitions>
-            <DataGrid Opacity="0.8" Background="#FFC6C7C9" Padding="0,10,0,0" ItemsSource="{Binding SelectedMovie.commentaires}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="{Binding WidthAreaComment}" Height="{Binding HeightComment}"
+            <DataGrid Padding="0,10,0,0" ItemsSource="{Binding SelectedMovie.commentaires}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="{Binding WidthAreaComment}" Height="{Binding HeightComment}"
                   Grid.Row="1"
                   AutoGenerateColumns="False" Grid.ColumnSpan="3" Grid.Column="1"  GridLinesVisibility="Horizontal">
                 <DataGrid.Columns >
@@ -40,7 +40,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <DataGrid Opacity="0.8" Background="#FFC6C7C9" Margin="0,0,0,0" SelectedItem="{Binding SelectedMovie}" CanUserAddRows="False" SelectionUnit="FullRow" ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
+            <DataGrid Margin="0,0,0,0" SelectedItem="{Binding SelectedMovie}" CanUserAddRows="False" SelectionUnit="FullRow" ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
                   Height="{Binding HeightComment}"
                       RowHeaderWidth="{Binding WidthButtons}"
                   VerticalAlignment="Top" Padding="0,10,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40" SelectionMode="Single" AutoGenerateColumns="False" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF0EBAE0" VerticalGridLinesBrush="#FF050508">
@@ -49,7 +49,7 @@
                     <DataGridTextColumn Width="60" Binding="{Binding averageMark}" IsReadOnly="True" Header="Note"/>
                     <DataGridTextColumn Width="110" Binding="{Binding genre.label}" IsReadOnly="True" Header="Genre" />
                     <DataGridTextColumn Width="110" Binding="{Binding releaseDateStringFormat}" IsReadOnly="True" Header="sortie" />
-                    <DataGridTextColumn Width="110" Binding="{Binding releaseDateStringFormat}" IsReadOnly="True" Header="Modification" />
+                    <DataGridTextColumn Width="110" Binding="{Binding registerDateStringFormat}" IsReadOnly="True" Header="Modification" />
                     <!--
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
@@ -90,13 +90,24 @@
                 </DockPanel>
                 
             </StackPanel>
-            <DockPanel Grid.ColumnSpan="4"  Margin="0,0,0,0"  LastChildFill="True" >
-                <Button Command="{Binding ShowFilterMovie}" DockPanel.Dock="Right" Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button" Content="Rechercher" Width="{Binding WidthButtons}" Height="{Binding HeightTitle}" HorizontalAlignment="Right"/>
-                <ComboBox FontSize="{Binding FontSize}" DockPanel.Dock="Right" Width="{Binding WidthButtons}" ItemsSource="{Binding Styles}" DisplayMemberPath="label" SelectedValuePath="id" SelectedValue="{Binding ToFilter.IdType}" Margin="2,0,2,0"/>
-                <TextBox DockPanel.Dock="Right" FontSize="{Binding FontSize}" VerticalContentAlignment="Center" Text="{Binding ToFilter.Title}" Background="White" BorderThickness="1" controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Titre" Margin="2,0,2,0" Height="{Binding HeightTitle}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.011,1.348" HorizontalAlignment="Right" Width="{Binding WidthButtons}"/>
-                <TextBox DockPanel.Dock="Right" FontSize="{Binding FontSize}" VerticalContentAlignment="Center" Text="{Binding ToFilter.NumberOfComments}"  Background="White" BorderThickness="1" controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nombre de commentaires" Margin="2,0,2,0" Height="{Binding HeightTitle}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.011,1.348" HorizontalAlignment="Right" Width="{Binding WidthButtons}"/>
-                <controls:ToggleSwitch DockPanel.Dock="Right" HorizontalAlignment="Left" Width="{Binding WidthGridMovie}" HorizontalContentAlignment="Right" Height="{Binding HeightTitle}" Margin="2,0,2,0" OnLabel="Note supérieure a" OffLabel="Note inférieure ou égale a" IsChecked="{Binding ToFilter.OverOrBelowNumberOfComments}"/>
-                <Label></Label>
+            <DockPanel Grid.ColumnSpan="4"  Margin="0,0,0,0" LastChildFill="True">
+                <Button Background="White" Command="{Binding ShowFilterMovie}" DockPanel.Dock="Right" Width="{Binding HeightTitle}" Height="{Binding HeightTitle}" Margin="0, 0, 0, 0" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                         Visual="{DynamicResource appbar_magnify}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Button Background="White" Command="{Binding ShowUpdateComment}" DockPanel.Dock="Right" Width="{Binding HeightTitle}" Height="{Binding HeightTitle}" Margin="0, 0, 0, 0" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                         Visual="{DynamicResource appbar_message_send}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Label DockPanel.Dock="Left" Content=""></Label>
             </DockPanel>
             <DockPanel Margin="4,2,0,0" Grid.Column="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Grid.Row="2" Height="{Binding HeightNewComment}">
                 <StackPanel>
@@ -104,13 +115,9 @@
                     <Calendar Height="{Binding HeightCalendar}" SelectionMode="SingleDate" IsTodayHighlighted="False" SelectedDate="{Binding SelectedMovie.releaseDate}"/>
                 </StackPanel>
             </DockPanel>
-
-            <TextBox Background="#FFC6C7C9" Text="{Binding SelectedMovie.commentaire.commentaire}" controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nouveau commentaire" x:Name="textBox1" HorizontalAlignment="Right" Height="{Binding HeightNewComment}" Width="{Binding WidthGridMovie}" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="1"  Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.Row="2" />
-            <Button Command="{Binding UpdateComment}" Style="{StaticResource AccentedSquareButtonStyle}" x:Name="button1" Content="Publier" HorizontalAlignment="Left" VerticalAlignment="Top" Width="{Binding WidthButtons}" Height="{Binding HeightNewComment}" Grid.Column="3" Grid.Row="2"/>
         </Grid>
         <Canvas>
             <Line X1="5" Y1="{Binding PosLineY}" X2="{Binding WidthMovie}" Y2="{Binding PosLineY}" Stroke="Black" StrokeThickness="2">
-                
             </Line>
         </Canvas>
     </Grid>

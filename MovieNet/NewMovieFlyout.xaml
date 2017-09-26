@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="MovieNet.NewMovieFlyout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieNet"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding Source={StaticResource ViewModelLocator}}"
+             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             Width="300" Height="{Binding FilmVm.Height}">
+    <Grid>
+        <StackPanel Width="290" Margin="0,0,0,0">
+            <StackPanel x:Name="FirstNameDock" DockPanel.Dock="Top" >
+                <Label FontSize="{Binding FilmVm.FontSize}" VerticalContentAlignment="Center" Content="Titre" ></Label>
+                <TextBox FontSize="{Binding FilmVm.FontSize}" Text="{Binding FilmVm.SelectedMovie.titre}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre" DockPanel.Dock="Left" ></TextBox>
+            </StackPanel>
+            <StackPanel x:Name="LastNameDock" DockPanel.Dock="Top" >
+                <Label FontSize="{Binding FilmVm.FontSize}"  Content="Genre" VerticalContentAlignment="Center" ></Label>
+                <ComboBox FontSize="{Binding FilmVm.FontSize}" ItemsSource="{Binding FilmVm.Styles}" DisplayMemberPath="label" SelectedValuePath="id" SelectedValue="{Binding FilmVm.SelectedMovie.genre.id}" SelectedItem="{Binding FilmVm.SelectedMovie.genre}" Margin="2,0,0,0"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <Label  FontSize="{Binding FilmVm.FontSize}" Content="Résumé" VerticalContentAlignment="Center" ></Label>
+                <TextBox FontSize="{Binding FilmVm.FontSize}" Text="{Binding FilmVm.SelectedMovie.resume}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau résumé" DockPanel.Dock="Left" ></TextBox>
+            </StackPanel>
+            <StackPanel x:Name="PasswordNameDock" DockPanel.Dock="Top" >
+                <Label FontSize="{Binding FilmVm.FontSize}" Content="Ma note" VerticalContentAlignment="Center" ></Label>
+                <DockPanel LastChildFill="True">
+                    <Button DockPanel.Dock="Right" Margin="2,0,0,0" Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding FilmVm.FilmVm.HeightTitle}"  CommandParameter="up" Command="{Binding FilmVm.UpdateNewMark}" Content="+"  Background="#CC48DA11"></Button>
+                    <Button DockPanel.Dock="Right" Margin="2,0,2,0" Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding FilmVm.HeightTitle}" Height="{Binding FilmVm.HeightTitle}" CommandParameter="down" Command="{Binding FilmVm.UpdateNewMark}" Content="-" Background="#CCF3400C"></Button>
+                    <TextBox FontSize="{Binding FilmVm.FontSize}" Margin="0,0,2,0" IsReadOnly="True" Text="{Binding FilmVm.SelectedMovie.newMark.mark}" VerticalContentAlignment="Center" ></TextBox>
+                </DockPanel>
+            </StackPanel>
+            <DockPanel DockPanel.Dock="Top" LastChildFill="True"  >
+                <Button Width="{Binding FilmVm.WidthLittleButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.UpdateMovie}" Content="Valider" Background="#CC48DA11" Margin="2,0,0,0" DockPanel.Dock="Right"></Button>
+                <Button Width="{Binding FilmVm.WidthLittleButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.NewMovie}" Content="nouveau" Margin="2,0,2,0" DockPanel.Dock="Right"></Button>
+                <Button Width="{Binding FilmVm.WidthLittleButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.DeleteMovie}" Content="supprimer" Margin="2,0,2,0" DockPanel.Dock="Right" Background="#CCF3400C"></Button>
+                <Label Foreground="#FFF30A0A" FontSize="{Binding FilmVm.FontSize}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,2,0" Content="{Binding FilmVm.ErrorMessage}"></Label>
+            </DockPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

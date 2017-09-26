@@ -9,7 +9,7 @@
              DataContext="{Binding Source={StaticResource ViewModelLocator}}"
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              Height="{Binding FilmVm.HeightMovie}" Width="180">
-    <Grid >
+    <Grid Background="White" >
         <DockPanel >
         <StackPanel DockPanel.Dock="Top">
             <StackPanel Margin="0,0,0,30">
@@ -18,15 +18,28 @@
             </StackPanel>
             <StackPanel Margin="0,0,0,30">
                 <Label  Height="{Binding FilmVm.HeightTitle}" VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold" >GENRE</Label>
-                <ComboBox ItemsSource="{Binding FilmVm.Styles}" DisplayMemberPath="label" SelectedValuePath="id" SelectedValue="{Binding FilmVm.FilterMovies.IdType}"></ComboBox>
+                <ComboBox ItemsSource="{Binding FilmVm.Styles}" DisplayMemberPath="label" SelectedValuePath="id" SelectedValue="{Binding FilmVm.ToFilter.IdType}"></ComboBox>
             </StackPanel>
             <StackPanel Margin="0,0,0,30">
                     <DockPanel  Height="{Binding FilmVm.HeightTitle}" LastChildFill="True">
                         <Label DockPanel.Dock="Left" Width="120" VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold">DATE DE SORTIE</Label>
-                        <ToggleButton  BorderBrush="White" Content="APRES" DockPanel.Dock="Right">
+                        <ToggleButton CommandParameter="{Binding ElementName=cal}" 
+                                      IsChecked="{Binding FilmVm.ToFilter.BeforeReleaseDate}" 
+                                      Command="{Binding FilmVm.ChangeBeforeReleaseDate}" 
+                                      Style="{DynamicResource MetroCircleToggleButtonStyle}"
+                                      DockPanel.Dock="Right"
+                                      Width="{Binding FilmVm.HeightTitle}"
+                                      Height="{Binding FilmVm.HeightTitle}">
+                            <Rectangle Width="20" Height="20"
+                                       Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}}">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_arrow_left_right}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>            
                         </ToggleButton>
                     </DockPanel>
-                    <Calendar Width="240" SelectionMode="SingleDate" IsTodayHighlighted="False" SelectedDate="{Binding SelectedMovie.releaseDate}"/>
+                    <Label Content="{Binding FilmVm.ReleaseMessage}"></Label>
+                    <Calendar Name="cal" Width="240" SelectionMode="SingleDate" IsTodayHighlighted="False" SelectedDate="{Binding FilmVm.RelDate}"/>
                 </StackPanel>
             <Label Height="{Binding FilmVm.HeightTitle}" VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold">NOMBRE DE COMMENTAIRES</Label>
                 <DockPanel Margin="0,0,0,30">

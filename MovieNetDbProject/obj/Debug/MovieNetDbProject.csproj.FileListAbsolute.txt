@@ -34,7 +34,6 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\En
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.resources.dll
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.initailcreate.resources
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
@@ -70,3 +69,5 @@ D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.addDatesToM
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csproj.GenerateResource.Cache
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.exe
 D:\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.pdb
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.csprojResolveAssemblyReference.cache
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Debug\MovieNetDbProject.Migrations.addDatesToMovies.resources
