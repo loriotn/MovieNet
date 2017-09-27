@@ -63,33 +63,6 @@
                 -->
                 </DataGrid.Columns>
             </DataGrid>
-            <StackPanel Background="#FFC6C7C9" x:Name="dockNewMovie" HorizontalAlignment="Left" Height="{Binding HeightNewComment}" VerticalAlignment="Top" Width="{Binding WidthGridMovie}"  Grid.ColumnSpan="1" Grid.Column="0" Margin="0,0,0,0" Grid.Row="2">
-                <DockPanel x:Name="FirstNameDock" DockPanel.Dock="Top" Height="{Binding HeightTitle}" Margin="0,2,0,2">
-                    <Label FontSize="{Binding FontSize}" Width="120" VerticalContentAlignment="Center" Content="Titre" Margin="0,0,2,0" DockPanel.Dock="Left" Background="#FFF7F1F1"></Label>
-                    <TextBox FontSize="{Binding FontSize}" Text="{Binding SelectedMovie.titre}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre" DockPanel.Dock="Left" Margin="2,0,0,0"></TextBox>
-                </DockPanel>
-                <DockPanel x:Name="LastNameDock" DockPanel.Dock="Top" Height="{Binding HeightTitle}" Margin="0,2,0,2">
-                    <Label FontSize="{Binding FontSize}" Width="120" Content="Genre" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="0,0,2,0" Background="#FFF7F1F1"></Label>
-                    <ComboBox FontSize="{Binding FontSize}" ItemsSource="{Binding Styles}" DisplayMemberPath="label" SelectedValuePath="id" SelectedValue="{Binding SelectedMovie.genre.id}" SelectedItem="{Binding SelectedMovie.genre}" Margin="2,0,0,0"/>
-                </DockPanel>
-                <DockPanel DockPanel.Dock="Top" Margin="0,2,0,2" Height="{Binding HeightTitle}">
-                    <Label Margin="0,0,2,0" FontSize="{Binding FontSize}" Width="120" Content="Résumé" VerticalContentAlignment="Center" DockPanel.Dock="Left" Background="#FFF7F1F1"></Label>
-                    <TextBox Margin="2,0,0,0" FontSize="{Binding FontSize}" Text="{Binding SelectedMovie.resume}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau résumé" DockPanel.Dock="Left" ></TextBox>
-                </DockPanel>
-                <DockPanel x:Name="PasswordNameDock" DockPanel.Dock="Top" LastChildFill="True" Height="{Binding HeightTitle}" Margin="0,2,0,2">
-                    <Label Width="120" FontSize="{Binding FontSize}" Content="Ma note" VerticalContentAlignment="Center" DockPanel.Dock="Left" Margin="0,0,2,0" Background="#FFF7F1F1"></Label>
-                    <Button DockPanel.Dock="Right" Margin="2,0,0,0" Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}"  CommandParameter="up" Command="{Binding UpdateNewMark}" Content="+"  Background="#CC48DA11"></Button>
-                    <Button DockPanel.Dock="Right" Margin="2,0,2,0" Style="{StaticResource AccentedSquareButtonStyle}" Width="{Binding HeightTitle}" Height="{Binding HeightTitle}" CommandParameter="down" Command="{Binding UpdateNewMark}" Content="-" Background="#CCF3400C"></Button>
-                    <TextBox FontSize="{Binding FontSize}" Margin="2,0,2,0" IsReadOnly="True" Text="{Binding SelectedMovie.newMark.mark}" VerticalContentAlignment="Center" ></TextBox>
-                </DockPanel>
-                <DockPanel DockPanel.Dock="Top" LastChildFill="True" Height="{Binding HeightValidationButtons}" Margin="0,2,0,2">
-                    <Button Width="{Binding WidthLittleButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding UpdateMovie}" Content="Valider" Background="#CC48DA11" Margin="2,0,0,0" DockPanel.Dock="Right"></Button>
-                    <Button Width="{Binding WidthLittleButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding NewMovie}" Content="nouveau" Margin="2,0,2,0" DockPanel.Dock="Right"></Button>
-                    <Button Width="{Binding WidthLittleButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding DeleteMovie}" Content="supprimer" Margin="2,0,2,0" DockPanel.Dock="Right" Background="#CCF3400C"></Button>
-                    <Label Foreground="#FFF30A0A" FontSize="{Binding FontSize}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,2,0" Content="{Binding ErrorMessage}"></Label>
-                </DockPanel>
-                
-            </StackPanel>
             <DockPanel Grid.ColumnSpan="4"  Margin="0,0,0,0" LastChildFill="True">
                 <Button Background="White" Command="{Binding ShowFilterMovie}" DockPanel.Dock="Right" Width="{Binding HeightTitle}" Height="{Binding HeightTitle}" Margin="0, 0, 0, 0" Style="{DynamicResource MetroCircleButtonStyle}">
                     <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">

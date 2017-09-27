@@ -21,7 +21,9 @@ namespace MovieNet.ViewModel
             initGrids();
             initRelayCommands();
         }
+
         #region publicVar
+        public RelayCommand<ComboBox> AddNewStyle { get; private set; }
         public RelayCommand DeleteMovie { get; private set; }
         public RelayCommand<Calendar> ChangeBeforeReleaseDate { get; private set; }
         public RelayCommand ShowFilterMovie { get; private set; }
@@ -56,10 +58,10 @@ namespace MovieNet.ViewModel
             get { return selectedStyle; }
             set { selectedStyle = value; RaisePropertyChanged(); SelectedMovie.genre = SelectedStyle; }
         }
-        public static List<StyleDto> Styles
+        public List<StyleDto> Styles
         {
             get { return styles; }
-            set { styles = value; }
+            set { styles = value; RaisePropertyChanged(); }
         }
         public MovieDto SelectedMovie
         {
@@ -93,13 +95,11 @@ namespace MovieNet.ViewModel
             }
         }
         private DateTime? relDate;
-
         public DateTime? RelDate
         {
             get { return relDate; }
             set { relDate = value; RaisePropertyChanged(); ToFilter.ReleaseDate = RelDate; initReleaseMessage(RelDate); }
         }
-
         public bool CanFilter
         {
             get { return canFilter; }
@@ -110,6 +110,11 @@ namespace MovieNet.ViewModel
             get { return releaseMessage; }
             set { releaseMessage = value; RaisePropertyChanged(); }
         }
+        public string NewStyle
+        {
+            get { return newStyle; }
+            set { newStyle = value; RaisePropertyChanged(); }
+        }
 
         #endregion
 
@@ -118,15 +123,26 @@ namespace MovieNet.ViewModel
         private FilterCriteriaMovies toFilter;
         private string errorMessage;
         private StyleDto selectedStyle;
-        private static List<StyleDto> styles;
+        private List<StyleDto> styles;
         private MovieDto selectedMovie;
         private List<CommentDto> commentsToShow;
         private List<MovieDto> films;
         private string releaseMessage;
+        private string newStyle;
         #endregion
 
         #region methods
         #region privateMethods
+        private bool canAddStyle()
+        {
+            bool temp = true;
+            foreach (StyleDto dto in Styles)
+            {
+                if (dto.label.ToUpper().Equals(NewStyle.ToUpper()))
+                    temp = false;
+            }
+            return temp;
+        }
         private void initVar()
         {
             ToFilter = new FilterCriteriaMovies();
@@ -134,6 +150,7 @@ namespace MovieNet.ViewModel
             Styles = ViewModelLocator.Facade.styleService.GetAll();
             initMovies();
             initReleaseMessage(null);
+            NewStyle = "";
         }
         private void initReleaseMessage(DateTime? d)
         {
@@ -156,6 +173,7 @@ namespace MovieNet.ViewModel
             ChangeBeforeReleaseDate = new RelayCommand<Calendar>(cal => { ChangeBeforeReleaseDateCan(cal); ChangeBeforeReleaseDateCanExecute(cal); });
             UpdateRelDate = new RelayCommand(UpdateRelDateCan, UpdateRelDateCanExecute);
             ShowUpdateComment = new RelayCommand(ShowUpdateCommentCan, UpdateCommentCanExecute);
+            AddNewStyle = new RelayCommand<ComboBox>(box => { AddNewStyleCan(box); AddNewStyleCanExecute(box); });
         }
         private void initGrids()
         {
@@ -287,6 +305,25 @@ namespace MovieNet.ViewModel
 
         #endregion
         #region canMethods
+        public void AddNewStyleCan(ComboBox box)
+        {
+            if (!string.IsNullOrEmpty(NewStyle) && canAddStyle())
+            {
+                StyleDto dto = new StyleDto();
+                dto.label = NewStyle;
+                Styles.Add(ViewModelLocator.Facade.styleService.Upsert(dto));
+                box.Items.Refresh();
+                NewStyle = "";
+                ErrorMessage = "";
+            }
+            else
+            {
+                ErrorMessage = "Ce genre existe déjà";
+                return;
+            }
+
+            
+        }
         public void ShowUpdateCommentCan()
         {
             ViewModelLocator.MainVm.IsOpenFlyoutComment = !ViewModelLocator.MainVm.IsOpenFlyoutComment;
@@ -368,7 +405,7 @@ namespace MovieNet.ViewModel
         }
         #endregion
         #region canExecuteMethods
-        //public bool ShowUpdateCommentCanExecute() { return SelectedMovie != null && SelectedMovie.id != 0; }
+        public bool AddNewStyleCanExecute(ComboBox b) { return true; }
         public bool UpdateRelDateCanExecute() { return true; }
         public bool ChangeBeforeReleaseDateCanExecute (Calendar d) { return true; }
         public bool ShowFilterMovieCanExecute() { return true; }

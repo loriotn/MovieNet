@@ -249,3 +249,7 @@ C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\NewCommentF
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\NewCommentFlyout.baml
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\NewMovieFlyout.g.cs
 C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNet\obj\Debug\NewMovieFlyout.baml
+D:\MovieNet\MovieNet\obj\Debug\NewCommentFlyout.g.cs
+D:\MovieNet\MovieNet\obj\Debug\NewMovieFlyout.g.cs
+D:\MovieNet\MovieNet\obj\Debug\NewCommentFlyout.baml
+D:\MovieNet\MovieNet\obj\Debug\NewMovieFlyout.baml
