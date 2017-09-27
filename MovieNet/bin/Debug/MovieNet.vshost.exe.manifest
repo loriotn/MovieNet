@@ -139,13 +139,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MahApps.Metro.IconPacks.FontAwesome.dll" size="856064">
-      <assemblyIdentity name="MahApps.Metro.IconPacks.FontAwesome" version="1.9.0.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="MahApps.Metro.IconPacks.FontAwesome" version="1.9.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EpbnGFiKkK0/MpDbmBDCZVU7BDYqPgwHtE3P976tURQ=</dsig:DigestValue>
+        <dsig:DigestValue>H298PC2vXEyMWhbQ/hRqHaVFJjJgZ2PNlkf213hPxwE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -162,14 +162,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MovieNet.exe" size="2348544">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MovieNet.exe" size="2348032">
       <assemblyIdentity name="MovieNet" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>chIyv+6ModPU9Y7IKE4s6Wm2nKso+ta/7cSHRvDqVCY=</dsig:DigestValue>
+        <dsig:DigestValue>d+4rKjUTlEz5p+6u79soLusIUzCfpi9T9P2gbdxRCxQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -181,7 +181,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1MuNUgAlc9DdL4zogFWGIwL87DIAN1dVYtKUZSbrMcY=</dsig:DigestValue>
+        <dsig:DigestValue>hLvFeMELvYIaiZQUWB05DK6sESTeO9UrxhzVZKRZjpU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -193,7 +193,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GBlI26Aav9ljqsXc0wNHKGjqOLwpR3frl5wbzHjhjqw=</dsig:DigestValue>
+        <dsig:DigestValue>a0T8NDewHwkEOnRvr9RYmgeF/Y4/Q/CaKR9xJVG4yFA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -242,7 +242,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+Kh3q2zafN9QKuubXZV/U6kTpJu+X2ya2Ky8oDporuc=</dsig:DigestValue>
+      <dsig:DigestValue>tvNKctf49M8BK3wBGLBvTNVLgO21vK+nNE2hDAEbr/E=</dsig:DigestValue>
     </hash>
   </file>
   <file name="MovieNetApiWcf.pdb" size="30208">
@@ -251,7 +251,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FuZS6PvtzSkj5cacUmlrZHjAzE2z5Rnaa7KSE1+1BkA=</dsig:DigestValue>
+      <dsig:DigestValue>wF4rn7a08FaefEmGxO/tMcoLWu8PvJaG/2/CJGPmCWI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="MovieNetDbProject.pdb" size="95744">
@@ -260,7 +260,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>VvxhkLwIU3r/cXdxYXdVypC01bhteqtJ+2Vqu5ZuY3k=</dsig:DigestValue>
+      <dsig:DigestValue>pOAr9dDVFouvldcdfDtIcDSlPl4ItnbNkEC0w0l1VCU=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

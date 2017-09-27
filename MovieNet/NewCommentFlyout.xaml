@@ -11,13 +11,13 @@
              Height="200" Width="800">
     <Grid>
         <DockPanel LastChildFill="True">
-            <Button Command="{Binding FilmVm.UpdateComment}" Background="White" DockPanel.Dock="Right" Width="{Binding FilmVm.HeightTitle}" Height="{Binding FilmVm.HeightTitle}" Margin="0, 0, 0, 0" Style="{DynamicResource MetroCircleButtonStyle}">
-                <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
-                    <Rectangle.OpacityMask>
-                        <VisualBrush Stretch="Fill"
-                         Visual="{DynamicResource appbar_message_send}"/>
-                    </Rectangle.OpacityMask>
-                </Rectangle>
+            <Button Command="{Binding FilmVm.UpdateComment}" FontWeight="Bold" DockPanel.Dock="Right" Width="40"  Margin="0, 0, 0, 0" Height="190" Content="+" FontSize="20" Style="{StaticResource AccentedSquareButtonStyle}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FF0D5883" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
             <TextBox Height="190" Text="{Binding FilmVm.SelectedMovie.commentaire.commentaire}" controls:TextBoxHelper.ClearTextButton="True" controls:TextBoxHelper.Watermark="Nouveau commentaire" />
         </DockPanel>

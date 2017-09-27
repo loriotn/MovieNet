@@ -25,7 +25,14 @@
             </StackPanel>
             <StackPanel Margin="0,0,0,20">
                 <Label FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" FontSize="{Binding FilmVm.FontSize}" Height="{Binding HeightTitle}" Margin="0,0,0,2" Content="DATE DE SORTIE"></Label>
-                <Calendar SelectionMode="SingleDate" IsTodayHighlighted="False" SelectedDate="{Binding FilmVm.SelectedMovie.releaseDate}"/>
+                <Calendar Foreground="White" SelectionMode="SingleDate" IsTodayHighlighted="False" SelectedDate="{Binding FilmVm.SelectedMovie.releaseDate}">
+                    <Calendar.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FF0D5883" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Calendar.Background>
+                </Calendar>
             </StackPanel>
 
             <StackPanel Margin="0,0,0,5"  >
@@ -39,21 +46,44 @@
             <Label Height="{Binding FilmVm.HeightTitle}" Foreground="#FFF30A0A" FontSize="{Binding FilmVm.FontSize}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,2,0" Content="{Binding FilmVm.ErrorMessage}"></Label>
 
             <DockPanel Margin="0,0,0,20" LastChildFill="True" Height="{Binding FilmVm.HeightTitle}" >
-                <Button Width="{Binding FilmVm.WidthLittleButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.UpdateMovie}" Content="Valider" DockPanel.Dock="Right" Background="#CC48DA11" ></Button>
-                <Button Width="{Binding FilmVm.WidthLittleButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.NewMovie}" Content="nouveau"  ></Button>
-                <Button Width="{Binding FilmVm.WidthLittleButtons}" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.DeleteMovie}" Content="supprimer" DockPanel.Dock="Right" Background="#CCF3400C"></Button>
+                <Button Width="80" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.UpdateMovie}" Content="Valider" DockPanel.Dock="Right" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FF0D5883" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Width="80" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.NewMovie}" Content="nouveau"  >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FF0D5883" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Width="80" Style="{StaticResource AccentedSquareButtonStyle}" Command="{Binding FilmVm.DeleteMovie}" Content="supprimer" DockPanel.Dock="Right">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FF0D5883" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </DockPanel>
             <StackPanel>
                 <Label>NOUVEAU GENRE</Label>
                 <DockPanel Height="{Binding FilmVm.HeightTitle}" LastChildFill="True">
-                    <Button CommandParameter="{Binding ElementName=listStyles}" Background="White" Command="{Binding FilmVm.AddNewStyle}" DockPanel.Dock="Right" Width="{Binding FilmVm.HeightTitle}" Height="{Binding FilmVm.HeightTitle}" Margin="0, 0, 0, 0" Style="{DynamicResource MetroCircleButtonStyle}">
-                        <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
-                            <Rectangle.OpacityMask>
-                                <VisualBrush Stretch="Fill" Visual="{DynamicResource appbar_add}"/>
-                            </Rectangle.OpacityMask>
-                        </Rectangle>
+
+                    <Button DockPanel.Dock="Right" Style="{StaticResource AccentedSquareButtonStyle}" CommandParameter="{Binding ElementName=listStyles}" Width="50" Command="{Binding FilmVm.AddNewStyle}" Content="ajouter">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FF0D5883" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
                     </Button>
-                    <TextBox Text="{Binding FilmVm.NewStyle}"></TextBox>
+                    <TextBox FontSize="{Binding FilmVm.FontSize}" VerticalContentAlignment="Center" Text="{Binding FilmVm.NewStyle}"></TextBox>
                 </DockPanel>
             </StackPanel>
         </StackPanel>

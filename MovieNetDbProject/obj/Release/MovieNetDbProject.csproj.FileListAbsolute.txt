@@ -24,3 +24,17 @@ D:\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.Migrations.addDatesT
 D:\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.csproj.GenerateResource.Cache
 D:\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.exe
 D:\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.pdb
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Release\MovieNetDbProject.exe.config
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Release\MovieNetDbProject.exe
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Release\MovieNetDbProject.pdb
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Release\EntityFramework.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Release\EntityFramework.xml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Release\fr\EntityFramework.resources.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\bin\Release\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.csprojResolveAssemblyReference.cache
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.Migrations.addDatesToMovies.resources
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.csproj.GenerateResource.Cache
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.exe
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetDbProject\obj\Release\MovieNetDbProject.pdb

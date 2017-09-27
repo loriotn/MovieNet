@@ -12,6 +12,5 @@ namespace MovieNet.ViewModel
         public static MainViewModel MainVm { get; } = new MainViewModel();
         public static FilmViewModel FilmVm { get; } = new FilmViewModel();
         public static ConnectWindowViewModel TestVm { get; } = new ConnectWindowViewModel();
-        public static StyleViewModel StyleVm { get; } = new StyleViewModel();
     }
 }

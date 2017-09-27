@@ -24,6 +24,7 @@ namespace MovieNet.ViewModel
 
         #region publicVar
         public RelayCommand<ComboBox> AddNewStyle { get; private set; }
+        public RelayCommand ShowNewMovie { get; private set; }
         public RelayCommand DeleteMovie { get; private set; }
         public RelayCommand<Calendar> ChangeBeforeReleaseDate { get; private set; }
         public RelayCommand ShowFilterMovie { get; private set; }
@@ -148,9 +149,15 @@ namespace MovieNet.ViewModel
             ToFilter = new FilterCriteriaMovies();
             SelectedMovie = updateSelectedMovie(new MovieDto());
             Styles = ViewModelLocator.Facade.styleService.GetAll();
+            toUpperStyles();
             initMovies();
             initReleaseMessage(null);
             NewStyle = "";
+        }
+        private void toUpperStyles()
+        {
+            foreach (StyleDto dto in Styles)
+                dto.label = dto.label.ToUpper();
         }
         private void initReleaseMessage(DateTime? d)
         {
@@ -174,6 +181,7 @@ namespace MovieNet.ViewModel
             UpdateRelDate = new RelayCommand(UpdateRelDateCan, UpdateRelDateCanExecute);
             ShowUpdateComment = new RelayCommand(ShowUpdateCommentCan, UpdateCommentCanExecute);
             AddNewStyle = new RelayCommand<ComboBox>(box => { AddNewStyleCan(box); AddNewStyleCanExecute(box); });
+            ShowNewMovie = new RelayCommand(ShowNewMovieCan, ShowNewMovieCanExecute);
         }
         private void initGrids()
         {
@@ -181,14 +189,14 @@ namespace MovieNet.ViewModel
             WidthMovie = m.Width;
             HeightGridMovie = HeightMovie - HeightMovie * 0.05;
             HeightTitle = HeightMovie * 0.05;
-            HeightNewComment = HeightGridMovie * 1 / 3;
+            HeightNewComment = (HeightGridMovie * 1 / 3) - 20;
             HeightComment = HeightGridMovie * 2 / 3;
             HeightLittleButtons = HeightTitle / 2;
             HeightValidationButtons = HeightNewComment - (4 * HeightTitle) - 18;
             HeightCalendar = HeightNewComment - HeightTitle - 2;
             FontSize = (m.Height * m.Width) / 103680;
-            WidthGridMovie = WidthMovie * 3 / 9;
-            WidthGridMovieComment = WidthMovie * 4 / 9;
+            WidthGridMovie = (WidthMovie * 3 / 9) - 20;
+            WidthGridMovieComment = (WidthMovie * 4 / 9) - 70;
             WidthButtons = WidthMovie * 1 / 9;
             WidthLittleButtons = WidthButtons / 2;
             WidthAreaComment = WidthMovie - WidthGridMovie;
@@ -305,13 +313,19 @@ namespace MovieNet.ViewModel
 
         #endregion
         #region canMethods
+        public void ShowNewMovieCan()
+        {
+            ViewModelLocator.MainVm.IsOpenNewMovieFlyout = !ViewModelLocator.MainVm.IsOpenNewMovieFlyout;
+        }
         public void AddNewStyleCan(ComboBox box)
         {
             if (!string.IsNullOrEmpty(NewStyle) && canAddStyle())
             {
                 StyleDto dto = new StyleDto();
                 dto.label = NewStyle;
-                Styles.Add(ViewModelLocator.Facade.styleService.Upsert(dto));
+                ViewModelLocator.Facade.styleService.Upsert(dto);
+                Styles = ViewModelLocator.Facade.styleService.GetAll();
+                toUpperStyles();
                 box.Items.Refresh();
                 NewStyle = "";
                 ErrorMessage = "";
@@ -390,6 +404,7 @@ namespace MovieNet.ViewModel
             }
             addOrUpdateNewMarkDto(SelectedMovie);
             endUpdate();
+            ViewModelLocator.MainVm.IsOpenNewMovieFlyout = false;
         }
         public void ViewCommentCan(int movie)
         {
@@ -405,6 +420,7 @@ namespace MovieNet.ViewModel
         }
         #endregion
         #region canExecuteMethods
+        public bool ShowNewMovieCanExecute() { return true; }
         public bool AddNewStyleCanExecute(ComboBox b) { return true; }
         public bool UpdateRelDateCanExecute() { return true; }
         public bool ChangeBeforeReleaseDateCanExecute (Calendar d) { return true; }

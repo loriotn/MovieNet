@@ -30,7 +30,7 @@ namespace MovieNetApiWcf
                 .Where(m => (filterObject.Title == "" || filterObject.Title == null) ? m.id > 0 : m.titre_film.ToLower().Contains(filterObject.Title.ToLower()))
                 .Where(m => filterObject.IdType == 0 ? m.id > 0 : m.genre_id == filterObject.IdType)
                 .Where(m => filterObject.ReleaseDate == null ? m.id > 0 : filterObject.BeforeReleaseDate ? m.release_date <= filterObject.ReleaseDate : m.release_date > filterObject.ReleaseDate)
-                .Where(m => filterObject.NumberOfComments == -1 ? m.id > 0 : filterObject.OverOrBelowNumberOfComments ? m.commentaire.Count() > filterObject.NumberOfComments : m.commentaire.Count() <= filterObject.NumberOfComments).ToList();
+                .Where(m => filterObject.MinComments == 0 && filterObject.MaxComments == 0 ? m.id > 0 : m.commentaire.Count() >= filterObject.MinComments && m.commentaire.Count() < filterObject.MaxComments).ToList();
             return Mapper.ToDto(models);
         }
         public override MovieDto Upsert(MovieDto dto)

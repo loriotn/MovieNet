@@ -5,65 +5,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieNet"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="1000" d:DesignWidth="1000"
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:vm="clr-namespace:MovieNet.ViewModel"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=FilmVm}"
              Height="{Binding HeightMovie}" Width="{Binding WidthMovie}" VerticalAlignment="Bottom" MaxHeight="{Binding HeightMovie}" MinWidth="{Binding WidthMovie}">
     <Grid HorizontalAlignment="Center" Width="{Binding WidthMovie}">
-        
+
         <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="{Binding HeightTitle}" />
                 <RowDefinition Height="{Binding HeightComment}" />
                 <RowDefinition Height="{Binding HeightNewComment}" />
-
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="{Binding WidthGridMovie}" />
+                <ColumnDefinition Width="20" />
                 <ColumnDefinition Width="{Binding WidthGridMovieComment}"/>
                 <ColumnDefinition Width="{Binding WidthButtons}"/>
                 <ColumnDefinition Width="{Binding WidthButtons}"/>
             </Grid.ColumnDefinitions>
-            <DataGrid Padding="0,10,0,0" ItemsSource="{Binding SelectedMovie.commentaires}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="{Binding WidthAreaComment}" Height="{Binding HeightComment}"
-                  Grid.Row="1"
-                  AutoGenerateColumns="False" Grid.ColumnSpan="3" Grid.Column="1"  GridLinesVisibility="Horizontal">
-                <DataGrid.Columns >
-                    <DataGridTextColumn Width="*" FontSize="{Binding FontSize}" Header="Les commentaires" Binding="{Binding commentaire}" SortDirection="Ascending" IsReadOnly="True">
-                        <DataGridTextColumn.ElementStyle>
-                            <Style>
-                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-
-            <DataGrid Margin="0,0,0,0" SelectedItem="{Binding SelectedMovie}" CanUserAddRows="False" SelectionUnit="FullRow" ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
-                  Height="{Binding HeightComment}"
-                      RowHeaderWidth="{Binding WidthButtons}"
-                  VerticalAlignment="Top" Padding="0,10,0,0" Grid.RowSpan="2" Grid.Row="1" RowHeight="40" SelectionMode="Single" AutoGenerateColumns="False" GridLinesVisibility="All" HorizontalGridLinesBrush="#FF0EBAE0" VerticalGridLinesBrush="#FF050508">
-                <DataGrid.Columns >
-                    <DataGridTextColumn Width="*" Header="Titre"  Binding="{Binding titre}" FontStyle="Oblique" IsReadOnly="True"/>
-                    <DataGridTextColumn Width="60" Binding="{Binding averageMark}" IsReadOnly="True" Header="Note"/>
-                    <DataGridTextColumn Width="110" Binding="{Binding genre.label}" IsReadOnly="True" Header="Genre" />
-                    <DataGridTextColumn Width="110" Binding="{Binding releaseDateStringFormat}" IsReadOnly="True" Header="sortie" />
-                    <DataGridTextColumn Width="110" Binding="{Binding registerDateStringFormat}" IsReadOnly="True" Header="Modification" />
-                    <!--
-                    <DataGridTemplateColumn Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                                    <Button Margin="5" DockPanel.Dock="Right" CommandParameter="{Binding id}"  Command="{Binding Path=DataContext.DeleteMovie, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" Style="{DynamicResource SquareButtonStyle}" Content="Supprimer" Background="#FFF35050" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                -->
-                </DataGrid.Columns>
-            </DataGrid>
-            <DockPanel Grid.ColumnSpan="4"  Margin="0,0,0,0" LastChildFill="True">
+            
+            <!-- region circle buttons to show flyouts -->
+            
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="3">
                 <Button Background="White" Command="{Binding ShowFilterMovie}" DockPanel.Dock="Right" Width="{Binding HeightTitle}" Height="{Binding HeightTitle}" Margin="0, 0, 0, 0" Style="{DynamicResource MetroCircleButtonStyle}">
                     <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
                         <Rectangle.OpacityMask>
@@ -80,18 +47,67 @@
                         </Rectangle.OpacityMask>
                     </Rectangle>
                 </Button>
-                <Label DockPanel.Dock="Left" Content=""></Label>
-            </DockPanel>
-            <DockPanel Margin="4,2,0,0" Grid.Column="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Grid.Row="2" Height="{Binding HeightNewComment}">
-                <StackPanel>
-                    <Label Background="#FFF7F1F1" VerticalContentAlignment="Center" FontSize="{Binding FontSize}" Height="{Binding HeightTitle}" Margin="0,0,0,2" Content="Date de sortie"></Label>
-                    <Calendar Height="{Binding HeightCalendar}" SelectionMode="SingleDate" IsTodayHighlighted="False" SelectedDate="{Binding SelectedMovie.releaseDate}"/>
-                </StackPanel>
-            </DockPanel>
+                <Button Background="White" Command="{Binding ShowNewMovie}" DockPanel.Dock="Right" Width="{Binding HeightTitle}" Height="{Binding HeightTitle}" Margin="0, 0, 0, 0" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Rectangle Width="20" Height="20" Fill="{DynamicResource BlackBrush}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                         Visual="{DynamicResource appbar_movie_clapper}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+            </StackPanel>
+            
+            <!-- end region -->
+            
+            <!-- comments datagrid region -->
+            
+            <DataGrid Opacity="0.9" Padding="0,0,0,0" ItemsSource="{Binding SelectedMovie.commentaires}" HorizontalAlignment="Left" VerticalAlignment="Top"   Height="{Binding HeightMovie}"
+                  Grid.Row="1"
+                      Background="#FF02070D"
+                  AutoGenerateColumns="False" Grid.ColumnSpan="4" Grid.Column="3" Grid.RowSpan="3" GridLinesVisibility="Horizontal">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Width="*" FontSize="{Binding FontSize}" Header="Les commentaires" Binding="{Binding commentaire}" SortDirection="Ascending" IsReadOnly="True">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="#FF02070D"></Setter>
+                        <Setter Property="Foreground" Value="White"></Setter>
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+
+            <!-- end region -->
+            
+            <!-- region movie datagrid -->
+            
+            <DataGrid Opacity="0.9"  Margin="0" SelectedItem="{Binding SelectedMovie}" CanUserAddRows="False" SelectionUnit="FullRow" ItemsSource="{Binding Films}" HorizontalAlignment="Right"  Width="{Binding WidthGridMovie}"
+                      RowHeaderWidth="{Binding WidthButtons}"
+                      Height="{Binding HeightMovie}"
+                      Grid.Column="1"
+                      Background="#FF02070D"
+                  VerticalAlignment="Top" Padding="0,0,0,0" Grid.RowSpan="3" Grid.Row="1" RowHeight="40" SelectionMode="Single" AutoGenerateColumns="False" GridLinesVisibility="None" >
+                <DataGrid.Columns >
+                    <DataGridTextColumn Width="*" Header="Titre"  Binding="{Binding titre}" FontStyle="Oblique" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="60" Binding="{Binding averageMark}" IsReadOnly="True" Header="Note"/>
+                    <DataGridTextColumn Width="110" Binding="{Binding genre.label}" IsReadOnly="True" Header="Genre" />
+                    <DataGridTextColumn Width="110" Binding="{Binding releaseDateStringFormat}" IsReadOnly="True" Header="sortie" />
+                    <DataGridTextColumn Width="110" Binding="{Binding registerDateStringFormat}" IsReadOnly="True" Header="Modification" />
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="#FF02070D"></Setter>
+                        <Setter Property="FontSize" Value="15"></Setter>
+                        <Setter Property="Foreground" Value="White"></Setter>
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+            <!-- end region -->
         </Grid>
-        <Canvas>
-            <Line X1="5" Y1="{Binding PosLineY}" X2="{Binding WidthMovie}" Y2="{Binding PosLineY}" Stroke="Black" StrokeThickness="2">
-            </Line>
-        </Canvas>
     </Grid>
 </UserControl>

@@ -13,20 +13,6 @@ C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetApiWcf\bin\fr\EntityFramework.S
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.csprojResolveAssemblyReference.cache
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.dll
 C:\Users\Nicolas LORIOT\Desktop\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.pdb
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetApiWcf.dll.config
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetApiWcf.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetApiWcf.pdb
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\EntityFramework.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\EntityFramework.SqlServer.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetDbProject.exe
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetDbProject.pdb
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\EntityFramework.xml
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\EntityFramework.SqlServer.xml
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\fr\EntityFramework.resources.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\fr\EntityFramework.SqlServer.resources.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.csprojResolveAssemblyReference.cache
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.dll
-C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.pdb
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetApiWcf\bin\MovieNetApiWcf.dll.config
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetApiWcf\bin\MovieNetApiWcf.dll
 C:\Users\nicolas\Desktop\MovieNet\MovieNet\MovieNetApiWcf\bin\MovieNetApiWcf.pdb
@@ -58,3 +44,17 @@ D:\MovieNet\MovieNetApiWcf\bin\fr\EntityFramework.SqlServer.resources.dll
 D:\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.csprojResolveAssemblyReference.cache
 D:\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.dll
 D:\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.pdb
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetApiWcf.dll.config
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetApiWcf.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetApiWcf.pdb
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\EntityFramework.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\EntityFramework.SqlServer.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetDbProject.exe
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\MovieNetDbProject.pdb
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\EntityFramework.xml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\EntityFramework.SqlServer.xml
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\fr\EntityFramework.resources.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\bin\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.csprojResolveAssemblyReference.cache
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.dll
+C:\Users\nicolas\Desktop\Nouveau dossier\MovieNet\MovieNetApiWcf\obj\Debug\MovieNetApiWcf.pdb

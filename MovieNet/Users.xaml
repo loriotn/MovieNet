@@ -7,30 +7,44 @@
              mc:Ignorable="d" 
              d:DesignHeight="239.2" d:DesignWidth="300"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainVm}"
-             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
-    <Grid  Width="{Binding WidthUser}" Height="100">
-        <DockPanel Width="{Binding WidthUser}" LastChildFill="False" Height="115">
+             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             Width="950" HorizontalContentAlignment="Center">
+    <Grid  Width="950" Height="100" HorizontalAlignment="Center">
+        <DockPanel Width="950" LastChildFill="False" Height="115">
 
-            <StackPanel x:Name="FirstNameDock" DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
+            <StackPanel Width="150" x:Name="FirstNameDock" DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
                 <Label FontSize="{Binding FontSize}" VerticalContentAlignment="Center" Content="NOM" FontFamily="Segoe UI Semibold" ></Label>
-                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.nom_utilisateur}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
+                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.nom_utilisateur}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau nom"></TextBox>
             </StackPanel>
-            <StackPanel x:Name="LastNameDock" DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
+            <StackPanel Width="150" x:Name="LastNameDock" DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
                 <Label FontSize="{Binding FontSize}" Content="PRENOM"  VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold"></Label>
-                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.prenom_utilisateur}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
+                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.prenom_utilisateur}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau prénom"></TextBox>
             </StackPanel>
-            <StackPanel DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
-                <Label FontSize="{Binding FontSize}" Content="EMAIL"  VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold"></Label>
-                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.email}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
-            </StackPanel>
-            <StackPanel DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
+            <StackPanel Width="150" DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
                 <Label FontSize="{Binding FontSize}" Content="MOT DE PASSE"  VerticalContentAlignment="Center" FontFamily="Segoe UI Semibold"></Label>
-                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.mdp_utilisateur}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau titre"></TextBox>
+                <TextBox BorderThickness="0" FontSize="{Binding FontSize}" Text="{Binding Utilisateur.mdp_utilisateur}" VerticalContentAlignment="Center" controls:TextBoxHelper.Watermark="Nouveau mot de passe"></TextBox>
             </StackPanel>
-            <StackPanel DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
-                <Label Content="{Binding UserExist}" Width="150" Height="30"></Label>
-                <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="150" Command="{Binding UpdateUser}" Content="VALIDER"></Button>
-                <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="150" Command="{Binding DeleteUser}" Content="DESINSCRIPTION"></Button>
+            <StackPanel Width="50"></StackPanel>
+            <StackPanel Width="300" DockPanel.Dock="left" Margin="5" VerticalAlignment="Center">
+                <Label Content="{Binding UserExist}" Foreground="Red" FontFamily="Segoe UI Semibold" FontSize="{Binding FontSize}" Width="300" Height="40" HorizontalContentAlignment="Center"></Label>
+                <DockPanel>
+                    <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="150" Command="{Binding UpdateUser}" Content="VALIDER">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FF0D5883" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Style="{StaticResource AccentedSquareButtonStyle}" Width="150" Command="{Binding DeleteUser}" Content="DESINSCRIPTION">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FF0D5883" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </DockPanel>
             </StackPanel>
         </DockPanel>
     </Grid>

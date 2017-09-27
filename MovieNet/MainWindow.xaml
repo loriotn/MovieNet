@@ -33,21 +33,27 @@
     </Controls:MetroWindow.RightWindowCommands>
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout Position="top" Width="{Binding Width}" Height="125" Theme="Light" IsOpen="{Binding IsOpen}" CloseButtonVisibility="Visible">
+            <Controls:Flyout Position="top" Width="{Binding Width}" Height="125" Theme="Dark" IsOpen="{Binding IsOpen}" CloseButtonVisibility="Visible">
                 <MovieNet:Users />
             </Controls:Flyout>
-            <Controls:Flyout Position="Left" Width="200" Height="{Binding Height}" Theme="Light" IsOpen="{Binding IsOpenFlyoutFilter}" CloseButtonVisibility="Visible" >
+            <Controls:Flyout Position="Left" Width="200" Height="{Binding Height}" Theme="Dark" IsOpen="{Binding IsOpenFlyoutFilter}" CloseButtonVisibility="Visible" >
                 <MovieNet:FilterMovieFlyout />
             </Controls:Flyout>
-            <Controls:Flyout Position="Bottom" Width="{Binding Width}" Height="200" Theme="Light" IsOpen="{Binding IsOpenFlyoutComment}" CloseButtonVisibility="Visible" >
+            <Controls:Flyout Position="Bottom" Width="{Binding Width}" Height="200" Theme="Dark" IsOpen="{Binding IsOpenFlyoutComment}" CloseButtonVisibility="Visible" >
                 <MovieNet:NewCommentFlyout />
             </Controls:Flyout>
-            <Controls:Flyout Position="Right" Width="300" Height="{Binding Height}" Theme="Light" IsOpen="True" CloseButtonVisibility="Visible" >
+            <Controls:Flyout Position="Right" Width="300" Height="{Binding Height}" Theme="Dark" IsOpen="{Binding IsOpenNewMovieFlyout}" CloseButtonVisibility="Visible" >
                 <MovieNet:NewMovieFlyout />
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
-    <Grid Background="#BF171715">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF1861AA" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <StackPanel Height="{Binding HeightStackPanel}" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
             <controls:Tile 
                     TiltFactor="2"
@@ -56,7 +62,14 @@
                     VerticalAlignment="Top"
                     Content="{StaticResource appbar_movie_clapper}"
                        Command="{Binding NavigateTo}"
-                       CommandParameter="film" Foreground="{x:Null}" Background="#FFF37F7F" />
+                       CommandParameter="film" Foreground="{x:Null}" >
+                <controls:Tile.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="#FF0E58A2" Offset="1"/>
+                    </LinearGradientBrush>
+                </controls:Tile.Background>
+            </controls:Tile>
             <controls:Tile 
                     TiltFactor="2"
                     Width="{Binding HeightStackPanel}" Height="{Binding HeightStackPanel}" 
@@ -64,7 +77,14 @@
                     VerticalAlignment="Top"
                     Content="{StaticResource appbar_people}"
                        Command="{Binding OpenUserFlyout}"
-                       Foreground="{x:Null}" Background="#FF7FFB95"/>
+                       Foreground="{x:Null}">
+                <controls:Tile.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="#FF0E58A2" Offset="1"/>
+                    </LinearGradientBrush>
+                </controls:Tile.Background>
+            </controls:Tile>
         </StackPanel>
 
         <ContentPresenter Margin="0,5,0,5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="{Binding HeightContentPresenter}"  Width="{Binding Width}" x:Name="Utilisateurs" Content="{Binding CurrentView}"/>

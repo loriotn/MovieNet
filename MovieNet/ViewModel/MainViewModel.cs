@@ -16,15 +16,25 @@ namespace MovieNet.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        public MainWindowProperties m = MainWindowProperties.mainWindowProperties;
-        private string userExist;
-
-        public string UserExist
+        public MainViewModel()
         {
-            get { return userExist; }
-            set { userExist = value; RaisePropertyChanged(); }
+            IsOpen = false;
+            setBindingWindowSettings();
+            initIcon();
+            initGrids();
+            NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);
+            openWindow = new RelayCommand(open, openCan);
+            Disconnect = new RelayCommand(disconnect, disconnectCan);
+            OpenUserFlyout = new RelayCommand(OpenUserFlyoutCan, OpenUserFlyoutCanExecute);
+            UpdateUser = new RelayCommand(UpdateUserCan, UpdateUserCanExecute);
+            DeleteUser = new RelayCommand(DeleteUserCan, DeleteUserCanExecute);
+            Utilisateur = new UserDto();
+            WelcomeMessage = Utilisateur?.nom_utilisateur;
         }
-
+        #region publicvar
+        public MainWindowProperties m = MainWindowProperties.mainWindowProperties;
+        public static Window fen;
+        public static int id { get; set; }
         public double FontSize { get; set; }
         public double HeightFormUser { get; set; }
         public double HeightTitle { get; set; }
@@ -48,134 +58,38 @@ namespace MovieNet.ViewModel
         public RelayCommand DeleteUser { get; private set; }
         public RelayCommand Disconnect { get; private set; }
         public string welcomMessage;
-        private UserDto _utilisateur;
-        private UserControl selectedView;
-        public static Window fen;
-        public static int id { get; set; }
-        private string welcomeMessage;
         public Uri iconUri { get; set; }
         public object icon { get; set; }
-        private bool isOpenFlyoutComment;
-
+        public string UserExist
+        {
+            get { return userExist; }
+            set { userExist = value; RaisePropertyChanged(); }
+        }
+        public bool IsOpenNewMovieFlyout
+        {
+            get { return isOpenNewMovieFlyout; }
+            set { isOpenNewMovieFlyout = value; RaisePropertyChanged(); }
+        }
         public bool IsOpenFlyoutComment
         {
             get { return isOpenFlyoutComment; }
             set { isOpenFlyoutComment = value; RaisePropertyChanged(); }
         }
-        private bool isOpenFlyoutFilter;
-
         public bool IsOpenFlyoutFilter
         {
             get { return isOpenFlyoutFilter; }
             set { isOpenFlyoutFilter = value; RaisePropertyChanged(); }
         }
-
-        private bool isOpen;
         public bool IsOpen
         {
             get { return isOpen; }
             set { isOpen = value; RaisePropertyChanged("IsOpen"); }
         }
-
         public string WelcomeMessage
         {
             get { return welcomeMessage; }
             set { welcomeMessage = "Bonjour " + value; RaisePropertyChanged(); }
         }
-
-        public MainViewModel()
-        {
-            IsOpen = false;
-            setBindingWindowSettings();
-            initIcon();
-            initGrids();
-            NavigateTo = new RelayCommand<string>((param) => NavigateExecute(param), NavigateCanExecute);
-            openWindow = new RelayCommand(open, openCan);
-            Disconnect = new RelayCommand(disconnect, disconnectCan);
-            OpenUserFlyout = new RelayCommand(OpenUserFlyoutCan, OpenUserFlyoutCanExecute);
-            UpdateUser = new RelayCommand(UpdateUserCan, UpdateUserCanExecute);
-            DeleteUser = new RelayCommand(DeleteUserCan, DeleteUserCanExecute);
-            Utilisateur = new UserDto();
-            WelcomeMessage = Utilisateur?.nom_utilisateur;
-        }
-        public void DeleteUserCan()
-        {
-            ViewModelLocator.Facade.userService.Delete(Utilisateur.id);
-            disconnect();
-        }
-
-        public bool DeleteUserCanExecute() { return Utilisateur?.id > 0 ? true : false; }
-        public void UpdateUserCan()
-        {
-            if (ViewModelLocator.Facade.userService.GetByLogin(Utilisateur?.nom_utilisateur, Utilisateur.id) != null)
-            {
-                UserExist = "Ce login existe déjà";
-                return;
-            }
-            else
-                ViewModelLocator.Facade.userService.Upsert(Utilisateur);
-        }
-        public bool UpdateUserCanExecute() { return Utilisateur?.id > 0 ? true : false; }
-        public void OpenUserFlyoutCan()
-        {
-            IsOpen = !IsOpen;
-        }
-
-        public bool OpenUserFlyoutCanExecute() { return Utilisateur.connecte; }
-        private void initIcon()
-        {
-            try
-            {
-                iconUri = new Uri("pack://application:,,,/IconMainWindow.ico", UriKind.RelativeOrAbsolute);
-                icon = BitmapFrame.Create(iconUri);
-            }
-            catch (IOException e)
-            {
-                throw new IOException(e.StackTrace);
-            }
-            
-        }
-
-        public void disconnect()
-        {
-            Utilisateur = new UserDto();
-            ViewModelLocator.FilmVm.Films = null;
-            CurrentView = null;
-            WelcomeMessage = Utilisateur?.nom_utilisateur;
-        }
-
-        public bool disconnectCan()
-        {
-            if (Utilisateur != null)
-                return Utilisateur.connecte;
-            else return false;
-        }
-        private void setBindingWindowSettings()
-        {
-            Height = w.Height;
-            Width = w.Width;
-            Top = w.Top;
-            Left = w.Left;
-            HeightContentPresenter = Height * 0.85;
-            HeightStackPanel = Height * 0.1;
-            this.ResizeMode = w.ResizeMode;
-        }
-        public void open()
-        {
-            DialogService.Dialogs.OpenDialog(typeof(ConnectWindow));
-            Utilisateur = ViewModelLocator.Facade.userService.GetById(id) ?? new UserDto();
-            WelcomeMessage = Utilisateur?.nom_utilisateur;
-        }
-
-        public bool openCan()
-        {
-            if (Utilisateur != null)
-                return !Utilisateur.connecte;
-            else
-                return true;
-        }
-        private UserControl _currentView;
-
         public UserControl CurrentView
         {
             get { return _currentView; }
@@ -186,12 +100,9 @@ namespace MovieNet.ViewModel
                     _currentView = value;
                     RaisePropertyChanged("CurrentView");
                 }
-                
+
             }
         }
-
-        #region beforetest
-
         public UserDto Utilisateur
         {
             get { return _utilisateur; }
@@ -201,7 +112,48 @@ namespace MovieNet.ViewModel
                 RaisePropertyChanged();
             }
         }
-        
+        #endregion
+        #region privatevar
+        private UserDto _utilisateur;
+        private UserControl selectedView;
+        private string userExist;
+        private string welcomeMessage;
+        private bool isOpenNewMovieFlyout;
+        private bool isOpenFlyoutComment;
+        private bool isOpenFlyoutFilter;
+        private bool isOpen;
+        private UserControl _currentView;
+        #endregion
+        #region canmethods
+        public void DeleteUserCan()
+        {
+            ViewModelLocator.Facade.userService.Delete(Utilisateur.id);
+            IsOpen = false;
+            disconnect();
+        }
+        public void UpdateUserCan()
+        {
+            if (string.IsNullOrEmpty(Utilisateur?.nom_utilisateur) || string.IsNullOrEmpty(Utilisateur.prenom_utilisateur) || string.IsNullOrEmpty(Utilisateur?.mdp_utilisateur))
+            {
+                UserExist = "Veuillez remplir tous les champs";
+                return;
+            }
+            else if (ViewModelLocator.Facade.userService.GetByLogin(Utilisateur?.nom_utilisateur, Utilisateur.id) != null)
+            {
+                UserExist = "Ce login existe déjà";
+                return;
+            }
+            else
+            {
+                ViewModelLocator.Facade.userService.Upsert(Utilisateur);
+                IsOpen = false;
+            }
+
+        }
+        public void OpenUserFlyoutCan()
+        {
+            IsOpen = !IsOpen;
+        }
         public void NavigateExecute(string parameter)
         {
             if (parameter.Equals("user"))
@@ -219,6 +171,44 @@ namespace MovieNet.ViewModel
             }
             CurrentView = selectedView;
         }
+        #endregion
+        #region canexecutemethods
+        public bool DeleteUserCanExecute() { return Utilisateur?.id > 0 ? true : false; }
+        public bool UpdateUserCanExecute() { return Utilisateur?.id > 0 ? true : false; }
+        public bool OpenUserFlyoutCanExecute() { return Utilisateur.connecte; }
+        public bool openCan()
+        {
+            if (Utilisateur != null)
+                return !Utilisateur.connecte;
+            else
+                return true;
+        }
+        public bool NavigateCanExecute(string p) { return Utilisateur.connecte; }
+        #endregion
+        #region privatemethods
+        private void initIcon()
+        {
+            try
+            {
+                iconUri = new Uri("pack://application:,,,/IconMainWindow.ico", UriKind.RelativeOrAbsolute);
+                icon = BitmapFrame.Create(iconUri);
+            }
+            catch (IOException e)
+            {
+                throw new IOException(e.StackTrace);
+            }
+
+        }
+        private void setBindingWindowSettings()
+        {
+            Height = w.Height;
+            Width = w.Width;
+            Top = w.Top;
+            Left = w.Left;
+            HeightContentPresenter = Height * 0.85;
+            HeightStackPanel = Height * 0.1;
+            this.ResizeMode = w.ResizeMode;
+        }
         private void initGrids()
         {
             HeightUser = m.Height * 0.85;
@@ -229,8 +219,27 @@ namespace MovieNet.ViewModel
             WidthFormUser = WidthUser * 3 / 9;
             PosLineY = HeightTitle + 3;
         }
-        public bool NavigateCanExecute(string p) { return Utilisateur.connecte; }
-        
-#endregion
+        #endregion
+        #region othermethods
+        public void disconnect()
+        {
+            Utilisateur = new UserDto();
+            ViewModelLocator.FilmVm.Films = null;
+            CurrentView = null;
+            WelcomeMessage = Utilisateur?.nom_utilisateur;
+        }
+        public bool disconnectCan()
+        {
+            if (Utilisateur != null)
+                return Utilisateur.connecte;
+            else return false;
+        }
+        public void open()
+        {
+            DialogService.Dialogs.OpenDialog(typeof(ConnectWindow));
+            Utilisateur = ViewModelLocator.Facade.userService.GetById(id) ?? new UserDto();
+            WelcomeMessage = Utilisateur?.nom_utilisateur;
+        }
+        #endregion
     }
 }
